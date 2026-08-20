@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Baatas - Resume / CV</title>
+    <style>
+        :root {
+            --primary: #2563EB; /* Cobalt Blue */
+            --dark: #0f172a;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --bg-alt: #f8fafc;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-main);
+            background-color: #52525B; /* dark backdrop outside paper */
+            padding: 2rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .paper {
+            max-width: 21cm; /* A4 width */
+            min-height: 29.7cm; /* A4 height */
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            padding: 2.5cm;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .contact-info div { display: flex; align-items: center; gap: 0.4rem; }
+        .contact-info a { color: var(--text-muted); text-decoration: none; }
+
+        /* Sections */
+        .section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* Items (Experience/Projects) */
+        .item {
+            margin-bottom: 1.2rem;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.25rem;
+        }
+        
+        .item-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+        
+        .item-subtitle {
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .item-desc {
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        
+        .item-bullets {
+            margin-top: 0.4rem;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+        
+        .item-bullets li {
+            margin-bottom: 0.2rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .skill-category {
+            background: var(--bg-alt);
+            padding: 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+        
+        .skill-category h4 {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .skill-list {
+            font-size: 0.85rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .skill-detail {
+            color: var(--text-muted);
+            font-weight: 400;
+            display: block;
+            margin-top: 0.1rem;
+            font-size: 0.8rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: none; padding: 0; }
+            .paper { box-shadow: none; padding: 0; max-width: 100%; margin: 0; }
+            @page { margin: 1.5cm; }
+            .no-print { display: none !important; }
+        }
+
+        /* Top Bar */
+        .print-bar {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .print-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .print-btn:hover { background: #1d4ed8; }
+    </style>
+</head>
+<body>
+    <div class="print-bar no-print">
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+        <p style="margin-top: 0.5rem; color: #fff; font-size: 0.85rem;">For best results, save as PDF with "Background graphics" enabled and margins set to Default.</p>
+    </div>
+
+    <div class="paper">
+        <header class="header">
+            <h1 class="name">Mohamed Baatas</h1>
+            <div class="title">Hydroinformatics Engineer (Hydraulics & IoT)</div>
+            <div class="contact-info">
+                <div>📧 mohamed.baatas.dev@gmail.com</div>
+                <div>📍 Algiers, Algeria</div>
+                <div>🔗 <a href="https://github.com/mohamedbaatas-hash">github.com/mohamedbaatas-hash</a></div>
+                <div>🔗 <a href="https://linkedin.com/in/mohamedbaatas">linkedin.com/in/mohamedbaatas</a></div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">
+                Bridging the gap between municipal water infrastructure and modern cloud architecture. 
+                Specialized in EPANET hydraulic modeling, SCADA telemetry systems, IoT hardware integration, 
+                and full-stack software development for industrial and commercial applications.
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Master of Science (M.S.) – Water & Sanitation Services Management</div>
+                    <div class="item-date">2024 - Present</div>
+                </div>
+                <div class="item-subtitle">National Higher Education Institution</div>
+                <p class="item-desc">Focus: Urban Water Cycle, WWTP Optimization, Non-Revenue Water, Sludge Treatment, Hydroinformatics.</p>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Bachelor of Science (B.S.) – Hydraulics Engineering</div>
+                    <div class="item-date">Graduated with Distinction</div>
+                </div>
+                <div class="item-subtitle">Faculty of Civil & Hydraulic Engineering</div>
+                <p class="item-desc">Focus: Fluid Mechanics, Pressurized Pipe Hydraulics, Open Channel Flow, Dam Engineering.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Flagship Engineering Projects</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">SCADA Smart Natural Lagoon WWTP Simulator</div>
+                    <div class="item-date">Cyber-Physical Systems</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Developed a continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant.</li>
+                    <li>Engineered real-time diurnal flow modeling, anaerobic digestion algorithms, and methane tracking.</li>
+                    <li>Designed an interactive SCADA control desk with automated screen cleaning, telemetry matrices, and emergency fault injection capabilities.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">WaterFit Mobile – Telemetric Water Consumption Tracker</div>
+                    <div class="item-date">IoT & Mobile</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Architected an IoT-integrated mobile application connecting directly to domestic smart water meters.</li>
+                    <li>Implemented asynchronous Python pipelines and Firebase Cloud Firestore for real-time telemetry syncing.</li>
+                    <li>Engineered automated leak detection algorithms capable of identifying micro-leaks via abnormal prolonged flow signatures.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">EPANET 2.2 Looped Hydraulic Network Solver</div>
+                    <div class="item-date">Hydraulic Modeling</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Built an interactive municipal water distribution solver executing real-time Hazen-Williams head loss and nodal mass balance.</li>
+                    <li>Implemented Newton-Raphson gradient iterations to compute pressures, velocities, and operational scenarios.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Freelance Software & Commercial Solutions</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Maktabi POS – Retail & Stationery Management System</div>
+                    <div class="item-date">Python / SQLite / PyQt</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Built an offline-first Point of Sale and inventory ledger for commercial bookstores with sub-second barcode scanning.</li>
+                    <li>Integrated ESC/POS thermal receipt printers and hardware cash drawers. Reduced annual inventory audit time by 65%.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Al-Quds Gym Manager – Membership ERP</div>
+                    <div class="item-date">Python / Biometrics / Telegram API</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Developed an enterprise facility management tool with real-time biometric/RFID access control and automated subscription tracking.</li>
+                    <li>Automated Telegram API notifications for membership expiration alerts, boosting renewal rates by 28%.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="page-break-inside: avoid;">
+            <h2 class="section-title">Leadership & Experience</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">President</div>
+                    <div class="item-date">2023 - 2025</div>
+                </div>
+                <div class="item-subtitle">Bernoulli Hydraulics Scientific Club</div>
+                <ul class="item-bullets">
+                    <li>Led a committee of 15+ student engineers. Organized technical masterclasses in EPANET 2.2 and ArcGIS Pro.</li>
+                    <li>Conducted hands-on IoT engineering workshops interfacing Arduino with flow, pressure, and turbidity sensors.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Enterprise Telecommunications Intern</div>
+                    <div class="item-date">2024</div>
+                </div>
+                <div class="item-subtitle">Huawei ICT Academy, Algiers</div>
+                <ul class="item-bullets">
+                    <li>Mastered enterprise IP routing, switching protocols, and data center network redundancy topologies.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="page-break-inside: avoid;">
+            <h2 class="section-title">Technical Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Hydraulics & Process Engineering</h4>
+                    <div class="skill-list">EPANET 2.2, HEC-RAS, ArcGIS Pro</div>
+                    <span class="skill-detail">Pressurized Network Modeling, Spatial Analysis, District Metered Areas (DMA), Water Treatment Kinetics</span>
+                </div>
+                <div class="skill-category">
+                    <h4>Software Architecture & Web</h4>
+                    <div class="skill-list">Python, React.js, Tailwind, SQLite, REST</div>
+                    <span class="skill-detail">FastAPI, Asynchronous Microservices, Relational Schemas, Component-based UI, Git Version Control</span>
+                </div>
+                <div class="skill-category">
+                    <h4>Embedded Systems & IoT</h4>
+                    <div class="skill-list">C++ (Arduino/ESP32), Blynk Cloud, MQTT</div>
+                    <span class="skill-detail">Sensor Interfacing (Flow, Turbidity, pH), Closed-Loop PID Control, Firmware Architecture</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -46,7 +46,7 @@ export function Header() {
           <div className="w-px h-6 bg-border-slate/60"></div>
           
           <a
-            href="/Mohamed_Baatas_CV.pdf"
+            href="/Mohamed_Baatas_CV.html"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-cobalt-600 hover:bg-cobalt-500 text-sm font-semibold text-white transition-colors"
@@ -83,7 +83,7 @@ export function Header() {
           ))}
           <div className="pt-2 mt-2 border-t border-border-slate">
             <a
-              href="/Mohamed_Baatas_CV.pdf"
+              href="/Mohamed_Baatas_CV.html"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded bg-cobalt-600 hover:bg-cobalt-500 text-sm font-semibold text-white transition-colors"

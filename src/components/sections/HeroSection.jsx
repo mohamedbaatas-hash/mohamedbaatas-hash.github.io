@@ -35,10 +35,10 @@ export function HeroSection() {
 
         {/* Action Triggers */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="/Mohamed_Baatas_CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a 
+            href="/Mohamed_Baatas_CV.html" 
+            target="_blank" 
+            rel="noopener noreferrer" 
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-cobalt-600 hover:bg-cobalt-500 text-white font-medium text-sm transition-colors shadow-sm"
           >
             <Download className="w-4 h-4" />
