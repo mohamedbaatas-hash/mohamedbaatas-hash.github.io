@@ -7,18 +7,16 @@ import { ScadaTelemetryPanel } from './ScadaTelemetryPanel';
 import { ScadaAlarmBanner } from './ScadaAlarmBanner';
 
 export function ScadaPlantSimulator() {
-  const [isExpanded, setIsExpanded] = useState(false);
   const {
     state,
     toggleSimulation,
     setControlMode,
-    togglePump,
-    setInletValve,
-    setCoagulantDose,
-    setChlorineDose,
-    setDistributionDemand,
-    triggerTurbidityShock,
-    triggerFilterBackwash,
+    togglePumpIn,
+    togglePumpOut,
+    setScreenAuto,
+    triggerStormSurge,
+    triggerPollutionSpike,
+    simulatePumpFailure,
     emergencyStop,
     resetSimulation
   } = useScadaEngine();
@@ -30,39 +28,33 @@ export function ScadaPlantSimulator() {
           tag="INTERACTIVE_SIMULATOR_01"
           title="SCADA Smart Natural Lagoon WWTP Simulator"
           description="Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant. Features real-time diurnal flow modeling, anaerobic digestion, and facultative algal photosynthesis."
-          isCollapsible={true}
-          isExpanded={isExpanded}
-          onClick={() => setIsExpanded(!isExpanded)}
         />
 
-        {isExpanded && (
-          <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
-            {/* SVG Process Train */}
-            <ScadaFlowDiagram state={state} />
+        <div className="space-y-6">
+          {/* SVG Process Train */}
+          <ScadaFlowDiagram state={state} />
 
-            {/* Control Desk */}
-            <ScadaControlDesk
-              state={state}
-              toggleSimulation={toggleSimulation}
-              setControlMode={setControlMode}
-              togglePump={togglePump}
-              setInletValve={setInletValve}
-              setCoagulantDose={setCoagulantDose}
-              setChlorineDose={setChlorineDose}
-              setDistributionDemand={setDistributionDemand}
-              triggerTurbidityShock={triggerTurbidityShock}
-              triggerFilterBackwash={triggerFilterBackwash}
-              emergencyStop={emergencyStop}
-              resetSimulation={resetSimulation}
-            />
+          {/* Control Desk */}
+          <ScadaControlDesk
+            state={state}
+            toggleSimulation={toggleSimulation}
+            setControlMode={setControlMode}
+            togglePumpIn={togglePumpIn}
+            togglePumpOut={togglePumpOut}
+            setScreenAuto={setScreenAuto}
+            triggerStormSurge={triggerStormSurge}
+            triggerPollutionSpike={triggerPollutionSpike}
+            simulatePumpFailure={simulatePumpFailure}
+            emergencyStop={emergencyStop}
+            resetSimulation={resetSimulation}
+          />
 
-            {/* Bottom Grid: Telemetry & Alarms */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <ScadaTelemetryPanel state={state} />
-              <ScadaAlarmBanner activeAlarms={state.activeAlarms} eventLog={state.eventLog} />
-            </div>
+          {/* Bottom Grid: Telemetry & Alarms */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <ScadaTelemetryPanel state={state} />
+            <ScadaAlarmBanner activeAlarms={state.activeAlarms} eventLog={state.eventLog} />
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

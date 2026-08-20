@@ -36,8 +36,17 @@ export function HeroSection() {
         {/* Action Triggers */}
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="#case-studies"
+            href="/Mohamed_Baatas_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-cobalt-600 hover:bg-cobalt-500 text-white font-medium text-sm transition-colors shadow-sm"
+          >
+            <Download className="w-4 h-4" />
+            <span>Download Resume / CV</span>
+          </a>
+          <a
+            href="#case-studies"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-elevated-slate hover:bg-slate-700 text-slate-200 border border-border-slate font-medium text-sm transition-colors"
           >
             <span>Explore Engineering Case Studies</span>
             <ArrowRight className="w-4 h-4" />
@@ -47,14 +56,14 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-elevated-slate hover:bg-slate-700 text-slate-200 border border-border-slate font-mono text-sm transition-colors"
           >
             <Activity className="w-4 h-4 text-emerald-400" />
-            <span>Launch SCADA Simulator</span>
+            <span>SCADA Simulator</span>
           </a>
           <a
             href="#epanet-sim"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-elevated-slate hover:bg-slate-700 text-slate-200 border border-border-slate font-mono text-sm transition-colors"
           >
             <Cpu className="w-4 h-4 text-cyan-400" />
-            <span>EPANET 2.2 Solver</span>
+            <span>EPANET Solver</span>
           </a>
         </div>
 
