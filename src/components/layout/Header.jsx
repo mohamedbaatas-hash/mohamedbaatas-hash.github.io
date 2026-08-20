@@ -1,15 +1,36 @@
 import React, { useState } from 'react';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
 
   const navLinks = [
-    { label: 'Projects', href: '#case-studies' },
-    { label: 'Simulators', href: '#scada-plant' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' }
+    { label: t('NAV.projects', 'Projects'), href: '#case-studies' },
+    { label: t('NAV.simulators', 'Simulators'), href: '#scada-plant' },
+    { label: t('NAV.experience', 'Experience'), href: '#experience' },
+    { label: t('NAV.contact', 'Contact'), href: '#contact' }
   ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setMobileMenuOpen(false);
+  };
+
+  const LanguageDropdown = () => (
+    <div className="relative group/lang flex items-center">
+      <button className="flex items-center gap-1.5 text-sm font-medium text-slate-300 hover:text-white transition-colors">
+        <Globe className="w-4 h-4" />
+        <span className="uppercase">{i18n.language || 'en'}</span>
+      </button>
+      <div className="absolute right-0 top-full mt-2 w-32 bg-obsidian border border-border-slate/80 rounded-md shadow-xl opacity-0 invisible group-hover/lang:opacity-100 group-hover/lang:visible transition-all duration-200 py-1">
+        <button onClick={() => changeLanguage('en')} className={`w-full text-left px-4 py-2 text-sm hover:bg-slate-800 transition-colors ${i18n.language === 'en' ? 'text-cobalt-400 font-semibold' : 'text-slate-300'}`}>English</button>
+        <button onClick={() => changeLanguage('ar')} className={`w-full text-left px-4 py-2 text-sm hover:bg-slate-800 transition-colors ${i18n.language === 'ar' ? 'text-cobalt-400 font-semibold' : 'text-slate-300'}`}>العربية</button>
+        <button onClick={() => changeLanguage('fr')} className={`w-full text-left px-4 py-2 text-sm hover:bg-slate-800 transition-colors ${i18n.language === 'fr' ? 'text-cobalt-400 font-semibold' : 'text-slate-300'}`}>Français</button>
+      </div>
+    </div>
+  );
 
   return (
     <header className="sticky top-0 z-40 w-full bg-obsidian/90 backdrop-blur-md border-b border-border-slate/80">
@@ -21,10 +42,10 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span className="font-bold text-white tracking-tight text-sm sm:text-base leading-none">
-              Mohamed Baatas
+              {t('HEADER.name', 'Mohamed Baatas')}
             </span>
             <span className="font-mono text-[11px] text-slate-400 tracking-wider uppercase mt-1">
-              Hydroinformatics
+              {t('HEADER.role', 'Hydroinformatics')}
             </span>
           </div>
         </a>
@@ -45,6 +66,8 @@ export function Header() {
           
           <div className="w-px h-6 bg-border-slate/60"></div>
           
+          <LanguageDropdown />
+
           <a
             href="/Mohamed_Baatas_CV.html"
             target="_blank"
@@ -52,7 +75,7 @@ export function Header() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded bg-cobalt-600 hover:bg-cobalt-500 text-sm font-semibold text-white transition-colors"
           >
             <Download className="w-4 h-4" />
-            <span>Download CV</span>
+            <span>{t('HEADER.download_cv', 'Download CV')}</span>
           </a>
         </div>
 
@@ -81,6 +104,13 @@ export function Header() {
               {link.label}
             </a>
           ))}
+          
+          <div className="pt-2 mt-2 border-t border-border-slate flex justify-around">
+            <button onClick={() => changeLanguage('en')} className={`text-sm ${i18n.language === 'en' ? 'text-cobalt-400 font-bold' : 'text-slate-400'}`}>EN</button>
+            <button onClick={() => changeLanguage('ar')} className={`text-sm ${i18n.language === 'ar' ? 'text-cobalt-400 font-bold' : 'text-slate-400'}`}>AR</button>
+            <button onClick={() => changeLanguage('fr')} className={`text-sm ${i18n.language === 'fr' ? 'text-cobalt-400 font-bold' : 'text-slate-400'}`}>FR</button>
+          </div>
+
           <div className="pt-2 mt-2 border-t border-border-slate">
             <a
               href="/Mohamed_Baatas_CV.html"
@@ -89,7 +119,7 @@ export function Header() {
               className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded bg-cobalt-600 hover:bg-cobalt-500 text-sm font-semibold text-white transition-colors"
             >
               <Download className="w-4 h-4" />
-              <span>Download CV</span>
+              <span>{t('HEADER.download_cv', 'Download CV')}</span>
             </a>
           </div>
         </div>

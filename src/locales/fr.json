@@ -1,1 +1,444 @@
-{}
+{
+  "HERO_DATA": {
+    "fullName": "Mohamed Baatas",
+    "title": "Ingénieur en Hydroinformatique",
+    "subtitle": "Modélisation de Systèmes Hydrauliques • Télémétrie IoT Embarquée • Logiciels Techniques",
+    "badge": "ÉTAT DU SYSTÈME : OPÉRATIONNEL",
+    "bio": "Ingénieur en Hydroinformatique faisant le pont entre la mécanique des fluides classique, les réseaux de distribution d'eau sous pression, et la télémétrie IoT cyber-physique moderne. Expérimenté dans les systèmes SCADA de potabilisation d'eau municipale, la modélisation hydraulique EPANET, et l'architecture logicielle full-stack.",
+    "location": "Alger, Algérie / Disponible en Remote",
+    "availability": "Disponible pour des rôles en Modélisation Hydraulique, Conseil en Télémétrie IoT & Ingénierie à Temps Plein",
+    "kpis": [
+      {
+        "label": "Simulation de Réseau",
+        "value": "+45 km",
+        "detail": "Modèle EPANET 2.2 EPS"
+      },
+      {
+        "label": "Latence Télémétrie",
+        "value": "<120 ms",
+        "detail": "Edge Capteur-vers-Cloud"
+      },
+      {
+        "label": "Logiciels Commerciaux",
+        "value": "3 Déployés",
+        "detail": "POS & ERP en Production"
+      },
+      {
+        "label": "Fondation Académique",
+        "value": "Licence + Master",
+        "detail": "Hydraulique & Assainissement"
+      }
+    ]
+  },
+  "CASE_STUDIES": [
+    {
+      "id": "waterfit-telemetry",
+      "title": "WaterFit — Télémétrie d'Hydratation & Biométrique Connectée au Cloud",
+      "category": "Microservices Cloud // Architecture Asynchrone // Télémétrie",
+      "summary": "Plateforme asynchrone à faible friction pour le suivi de l'hydratation, intégrant l'API Telegram Bot, un backend Python FastAPI, et Firebase Realtime Database.",
+      "problem": "Les ingénieurs sur le terrain, les athlètes et les travailleurs industriels dans des environnements à forte chaleur ont besoin d'un suivi précis de l'hydratation, calibré selon la température ambiante et l'effort physiologique. Les applications mobiles traditionnelles à écrans multiples souffrent d'une forte friction et d'une faible observance.",
+      "methodology": [
+        "Construction d'une interface d'ingestion conversationnelle utilisant l'API Telegram Bot, permettant un enregistrement rapide en un clic et par la voix (interaction < 2 secondes).",
+        "Développement d'un backend Python asynchrone utilisant FastAPI et des écouteurs de webhook asyncio pour le traitement de la charge utile basé sur les événements.",
+        "Intégration de Firebase Realtime Database et Firestore pour une synchronisation instantanée inter-appareils.",
+        "Implémentation d'algorithmes dynamiques d'hydratation métabolique calculant les objectifs hydriques personnalisés en fonction de la température ambiante (API OpenWeather), du poids corporel et de la durée de l'exercice.",
+        "Programmation de workers cron proactifs déclenchés lorsque le déficit hydrique dépasse les marges de sécurité."
+      ],
+      "stack": [
+        "Python 3.11",
+        "API Telegram Bot",
+        "FastAPI",
+        "Firebase Realtime DB",
+        "Webhooks Asyncio",
+        "API OpenWeather",
+        "Cloud Functions"
+      ],
+      "metrics": [
+        {
+          "label": "Latence Webhook",
+          "value": "<180 ms"
+        },
+        {
+          "label": "Observance Utilisateur",
+          "value": "+340%"
+        },
+        {
+          "label": "Pic Concurrent",
+          "value": ">500 req/s"
+        },
+        {
+          "label": "Latence Synchro",
+          "value": "<50 ms"
+        }
+      ]
+    },
+    {
+      "id": "constracker-suite",
+      "title": "Constracker Suite — Application de Bureau pour la Gestion de Construction",
+      "category": "Génie Civil // Logiciel de Bureau // Gestion de Projet",
+      "summary": "Application de bureau complète construite pendant le M1 pour rationaliser la gestion de la construction. Fournit une plateforme unifiée pour suivre et gérer les projets, les travailleurs, les dépenses, les stocks, les tâches et les métrés.",
+      "problem": "La gestion de la construction implique le suivi de ressources dispersées—de la présence quotidienne des travailleurs à l'inventaire des matériaux et aux dépenses budgétaires. Le suivi manuel traditionnel entraîne une fragmentation des données et un contrôle inefficace des coûts.",
+      "methodology": [
+        "Développement d'une application de bureau offline-first utilisant Electron pour assurer un fonctionnement ininterrompu sur les chantiers de construction avec un accès Internet limité.",
+        "Conception d'un frontend React 18 avec Vite et TypeScript pour un rendu d'interface utilisateur performant et typé, stylisé avec Tailwind CSS et shadcn/ui.",
+        "Implémentation d'une base de données relationnelle locale SQLite3 accédée via des stratégies de récupération de données robustes avec TanStack Query.",
+        "Construction de 7 modules principaux : Tableau de bord (KPIs), Projets, Travailleurs (affectations), Dépenses (budgétisation), Inventaire, Tâches, et Métré (mesures de construction spécialisées).",
+        "Empaquetage et compilation de binaires de bureau exécutables à l'aide d'Electron Builder pour un déploiement multiplateforme transparent."
+      ],
+      "stack": [
+        "Electron",
+        "React 18",
+        "TypeScript",
+        "Tailwind CSS",
+        "SQLite3",
+        "TanStack Query",
+        "shadcn/ui",
+        "React Router"
+      ],
+      "metrics": [
+        {
+          "label": "Architecture",
+          "value": "Electron + React"
+        },
+        {
+          "label": "Base de Données",
+          "value": "SQLite3 Local"
+        },
+        {
+          "label": "Système UI",
+          "value": "shadcn/ui"
+        },
+        {
+          "label": "Portée",
+          "value": "7 Modules Principaux"
+        }
+      ]
+    },
+    {
+      "id": "scada-wwtp",
+      "title": "Simulateur SCADA Intelligent de STEP — Zeriba El Oued",
+      "category": "Automatisation Industrielle // Logiciel de Bureau // Intelligence Artificielle",
+      "summary": "Simulation continue de processus cyber-physique modélisée sur la station d'épuration municipale de Zeriba El Oued, construite comme une application de bureau PyQt6.",
+      "problem": "La formation des opérateurs sur les Stations d'Épuration des Eaux Usées (STEP) à lagunage naturel est difficile sans risquer des manquements à la conformité. L'installation nécessitait un jumeau numérique haute fidélité pour simuler les processus biologiques et prédire dynamiquement la qualité de l'effluent.",
+      "methodology": [
+        "Construction d'un simulateur de bureau utilisant Python 3 et PyQt6, offrant un environnement SCADA moderne à 12 interfaces, incluant des Cartes Synoptiques, un Tableau de bord et des Journaux d'Alarmes.",
+        "Modélisation de l'usine de Zeriba El Oued (24 000 m³/jour), englobant le prétraitement, la digestion anaérobie, les lagunes facultatives et les lits de séchage des boues.",
+        "Implémentation du multithreading à l'aide de QThread pour séparer la logique de simulation physique complexe de l'interface utilisateur, assurant une surveillance fluide et sans blocage.",
+        "Intégration de modèles de prédiction basés sur l'IA pour prévoir la qualité de l'eau effluente (DBO5, DCO, MES) et prédire les défaillances des pompes électromécaniques en fonction des heures de fonctionnement.",
+        "Conception d'une base de données d'historisation SQLite robuste pour archiver les lectures matricielles continues de la télémétrie, les déclenchements de verrouillage et les événements d'alarme critiques."
+      ],
+      "stack": [
+        "Python 3",
+        "PyQt6",
+        "SQLite",
+        "QThread (Multithreading)",
+        "Signaux/Slots Qt",
+        "Modèles de Prédiction IA"
+      ],
+      "metrics": [
+        {
+          "label": "Capacité de l'Usine",
+          "value": "24 000 m³/j"
+        },
+        {
+          "label": "Complexité UI",
+          "value": "12 Interfaces"
+        },
+        {
+          "label": "Simulation",
+          "value": "Multithreadée"
+        },
+        {
+          "label": "Intégration IA",
+          "value": "Modèles de Prédiction"
+        }
+      ]
+    }
+  ],
+  "SKILLS_CATEGORIES": [
+    {
+      "domain": "Ingénierie Hydraulique & Civile",
+      "description": "Mécanique des fluides, modélisation des conduites sous pression, assainissement municipal et optimisation des réseaux d'eau.",
+      "skills": [
+        {
+          "name": "Simulation EPANET 2.2",
+          "level": "Expert",
+          "detail": "Simulation en période prolongée, dégradation de la qualité de l'eau, analyse du débit d'incendie"
+        },
+        {
+          "name": "ArcGIS Pro / ArcMap",
+          "level": "Avancé",
+          "detail": "Analyse spatiale de terrain, extraction MNT, cartographie vectorielle de réseaux"
+        },
+        {
+          "name": "AutoCAD Civil 3D",
+          "level": "Avancé",
+          "detail": "Dessin d'infrastructures hydrauliques, alignement de profils, nivellement de conduites"
+        },
+        {
+          "name": "Hazen-Williams & Darcy-Weisbach",
+          "level": "Expert",
+          "detail": "Perte de charge par friction, nombre de Reynolds, pertes singulières"
+        },
+        {
+          "name": "Conception de Stations de Pompage",
+          "level": "Avancé",
+          "detail": "Courbes caractéristiques, calcul NPSH, séquençage de pompes en parallèle"
+        },
+        {
+          "name": "Traitement de l'Eau & des Eaux Usées",
+          "level": "Avancé",
+          "detail": "Cinétique de coagulation, décantation lamellaire, filtres à sable rapides, chloration CT"
+        },
+        {
+          "name": "Eau Non Facturée (NRW)",
+          "level": "Avancé",
+          "detail": "Secteurs de Comptage (DMA), détection acoustique de fuites, gestion de la pression"
+        }
+      ]
+    },
+    {
+      "domain": "Développement & Architecture Logicielle",
+      "description": "Applications web modernes basées sur les composants, microservices asynchrones, schémas relationnels et pipelines de données ETL.",
+      "skills": [
+        {
+          "name": "Python 3.x",
+          "level": "Expert",
+          "detail": "FastAPI, Asyncio, Pandas, NumPy, Calcul Scientifique"
+        },
+        {
+          "name": "React 18+ & Vite",
+          "level": "Avancé",
+          "detail": "Modularité des composants, hooks personnalisés, machines à états, visualisation SVG"
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": "Expert",
+          "detail": "Systèmes de conception de précision industrielle, ergonomie en mode sombre, grilles responsives"
+        },
+        {
+          "name": "SQLite & PostgreSQL",
+          "level": "Avancé",
+          "detail": "Modélisation de bases de données relationnelles, indexation, transactions ACID, mise en cache offline-first"
+        },
+        {
+          "name": "API REST & Webhooks",
+          "level": "Expert",
+          "detail": "Architecture événementielle, validation de payload, endpoints à faible latence"
+        },
+        {
+          "name": "Firebase & Services Cloud",
+          "level": "Avancé",
+          "detail": "Realtime Database, Firestore, Cloud Functions, Authentification"
+        },
+        {
+          "name": "Git & Outils CI/CD",
+          "level": "Avancé",
+          "detail": "Contrôle de version, tests automatisés avec Vitest/Jest, GitHub Actions"
+        }
+      ]
+    },
+    {
+      "domain": "Systèmes Embarqués, SCADA & IoT",
+      "description": "Firmware de microcontrôleurs, boucles de capteurs industriels, automatisation en périphérie (edge), et communications SCADA.",
+      "skills": [
+        {
+          "name": "ESP32 & Arduino C++",
+          "level": "Avancé",
+          "detail": "Architecture de firmware, tâches FreeRTOS, routines d'interruption, calibration ADC"
+        },
+        {
+          "name": "Blynk IoT Cloud & MQTT",
+          "level": "Avancé",
+          "detail": "Broker de télémétrie bidirectionnelle, publication/abonnement edge, widgets de tableau de bord"
+        },
+        {
+          "name": "Interfaçage de Capteurs Industriels",
+          "level": "Avancé",
+          "detail": "Niveau à ultrasons, turbidité optique, transmetteurs de pH, débitmètres à effet Hall"
+        },
+        {
+          "name": "Contrôle PID en Boucle Fermée",
+          "level": "Avancé",
+          "detail": "Contrôle proportionnel-intégral-dérivé de la vitesse des pompes et du dosage chimique"
+        },
+        {
+          "name": "Détection de Défaillances Edge",
+          "level": "Avancé",
+          "detail": "Verrouillages matériels à sécurité intégrée, protection contre la marche à sec, déclenchements en cas de surpression"
+        },
+        {
+          "name": "Actionneurs Matériels & Relais",
+          "level": "Avancé",
+          "detail": "Relais statiques, électrovannes 12V/24V, pompes de surpression DC"
+        }
+      ]
+    }
+  ],
+  "FREELANCE_SOLUTIONS": [
+    {
+      "id": "maktabi-pos",
+      "name": "Maktabi POS — Système de Gestion pour Vente au Détail & Papeterie",
+      "type": "Application de Bureau Commerciale // Offline-First",
+      "client": "Librairies de Détail & Boutiques de Papeterie",
+      "description": "Système de point de vente et registre d'inventaire haute performance, conçu pour fonctionner en continu dans les régions où la connectivité Internet est intermittente.",
+      "features": [
+        "Numérisation de codes-barres en moins d'une seconde et recherche instantanée dans un catalogue de plus de 10 000 SKU.",
+        "Mise en cache locale SQLite offline-first garantissant aucun temps d'arrêt pendant les coupures d'Internet.",
+        "Intégration matérielle avec les imprimantes thermiques de reçus protocole ESC/POS et les tiroirs-caisses automatisés.",
+        "Comptabilité complète : registres de crédit client, niveaux de gros/détail, factures fournisseurs, audits quotidiens P&L."
+      ],
+      "stack": [
+        "Python",
+        "PyQt / Interface Moderne",
+        "SQLite",
+        "Protocole ESC/POS",
+        "Moteur PDF ReportLab"
+      ],
+      "impact": "Déployé activement dans les magasins commerciaux ; a réduit le temps d'audit annuel des stocks de 65 % sans aucun incident d'arrêt."
+    },
+    {
+      "id": "alquds-gym",
+      "name": "Al-Quds Gym Manager — ERP de Gestion des Adhésions & Contrôle d'Accès",
+      "type": "Gestion d'Installations d'Entreprise // Accès Biométrique",
+      "client": "Centres de Remise en Forme & Complexes Sportifs",
+      "description": "Plateforme clé en main de gestion du cycle de vie des membres et de contrôle d'accès conçue pour éliminer les admissions non autorisées et automatiser les renouvellements d'abonnement.",
+      "features": [
+        "Contrôle d'accès à la réception en temps réel reliant les lecteurs de codes-barres et de cartes RFID pour signaler instantanément les adhésions expirées.",
+        "Suivi automatisé des abonnements des membres avec journal quotidien des flux de trésorerie et registre des commissions des entraîneurs.",
+        "Notifications SMS/Telegram automatisées alertant les membres avant l'expiration de leur adhésion.",
+        "Analyses complètes des présences et cartes thermiques d'utilisation des installations aux heures de pointe."
+      ],
+      "stack": [
+        "Python",
+        "SQLite / PostgreSQL",
+        "Tableau de bord React",
+        "Matériel Code-barres/RFID",
+        "API Telegram"
+      ],
+      "impact": "A éliminé les admissions non autorisées ; a augmenté le taux de renouvellement des membres de 28 % ; a numérisé plus de 1 000 profils de membres actifs."
+    },
+    {
+      "id": "custom-consulting",
+      "name": "Consulting Technique & Visualisation de Données",
+      "type": "Ingénierie de Données // Consulting Hydraulique",
+      "client": "Bureaux d'Études en Ingénierie & Entrepreneurs Municipaux",
+      "description": "Pipelines de données scientifiques personnalisés, tableaux de bord interactifs de télémétrie web, et analyse experte de réseaux hydrauliques pour des projets d'ingénierie municipale.",
+      "features": [
+        "Pipelines ETL Python automatisés convertissant les journaux SCADA disparates et les résultats de simulation EPANET en rapports opérationnels propres.",
+        "Visualiseurs interactifs de télémétrie sur le web pour surveiller le bilan hydrique et les lignes de charge hydraulique.",
+        "Conseil sur le choix des capteurs, l'architecture des passerelles IoT (MQTT/Modbus), et l'optimisation des zones de pression du réseau."
+      ],
+      "stack": [
+        "Python (Pandas, NumPy)",
+        "FastAPI",
+        "Tailwind CSS",
+        "Recharts / SVG",
+        "Scripting EPANET"
+      ],
+      "impact": "A rationalisé les cycles de reporting d'ingénierie de plusieurs jours à quelques secondes avec des résumés PDF/Excel automatisés."
+    }
+  ],
+  "EXPERIENCE_TIMELINE": [
+    {
+      "role": "Président",
+      "organization": "Club Scientifique d'Hydraulique Bernoulli",
+      "period": "2023 - 2025",
+      "location": "Campus Universitaire",
+      "type": "Leadership & Mentorat Technique",
+      "highlights": [
+        "Élu Président pour diriger un comité de +15 élèves-ingénieurs et une communauté de +100 membres.",
+        "Organisation et animation de masterclasses de formation technique en modélisation hydraulique EPANET 2.2 et en cartographie spatiale ArcGIS Pro.",
+        "Animation d'ateliers pratiques d'ingénierie IoT : interfaçage de microcontrôleurs Arduino avec des capteurs de débit, de pression et de turbidité.",
+        "Organisation de visites techniques sur le terrain de barrages régionaux de potabilisation de l'eau potable et de stations municipales d'épuration des eaux usées."
+      ]
+    },
+    {
+      "role": "Stagiaire en Télécommunications d'Entreprise",
+      "organization": "Huawei ICT Academy",
+      "period": "2024",
+      "location": "Alger",
+      "type": "Stage en Réseaux d'Entreprise",
+      "highlights": [
+        "Maîtrise des protocoles de routage et de commutation IP d'entreprise (OSPF, BGP, balisage VLAN, QoS) à travers les équipements de réseau d'entreprise.",
+        "Analyse des topologies de redondance de réseau de centre de données et des architectures de transmission de paquets à faible latence.",
+        "Application des principes de fiabilité et de basculement des réseaux d'entreprise directement aux réseaux industriels SCADA et de capteurs IoT."
+      ]
+    }
+  ],
+  "EDUCATION_DATA": [
+    {
+      "degree": "Master en Sciences (M.S.) — Gestion des Services d'Eau et d'Assainissement",
+      "institution": "École Nationale Supérieure d'Hydraulique",
+      "period": "En Cours (2024 - Présent)",
+      "focus": "Cycle Urbain de l'Eau, Optimisation des Stations d'Épuration des Eaux Usées, Réduction de l'Eau Non Facturée, Traitement des Boues, Optimisation Énergétique du Pompage, Hydroinformatique."
+    },
+    {
+      "degree": "Licence en Sciences (B.S.) — Ingénierie Hydraulique",
+      "institution": "Faculté de Génie Civil & d'Hydraulique",
+      "period": "Diplômé avec Distinction",
+      "focus": "Mécanique des Fluides, Hydraulique des Conduites sous Pression, Écoulement à Surface Libre, Hydrologie, Ingénierie des Barrages, Béton Armé pour Ouvrages Hydrauliques, Mécanique des Sols."
+    }
+  ],
+  "NAV": {
+    "projects": "Projets",
+    "simulators": "Simulateurs",
+    "experience": "Expérience",
+    "contact": "Contact"
+  },
+  "HEADER": {
+    "name": "Mohamed Baatas",
+    "role": "Hydroinformatique",
+    "download_cv": "Télécharger CV"
+  },
+  "HERO": {
+    "tag": "Hydraulique + Systèmes IoT",
+    "title1": "Ingénierie de Haute Précision",
+    "title2": "Hydroinformatique & SCADA",
+    "title3": "Télémétrie",
+    "download_cv": "Télécharger le CV",
+    "explore": "Explorer les Projets",
+    "scada": "Simulateur SCADA",
+    "epanet": "Solveur EPANET"
+  },
+  "CASE_STUDIES_SECTION": {
+    "tag": "PROJETS_INGÉNIERIE",
+    "title": "Études de Cas & Systèmes Appliqués",
+    "desc": "Analyse approfondie de la modélisation de distribution d'eau, des systèmes SCADA, et des pipelines de télémétrie cloud.",
+    "collapse": "Réduire l'Architecture",
+    "expand": "Développer la Méthodologie",
+    "problem": "Énoncé du Problème & Vulnérabilité",
+    "methodology": "Méthodologie d'Ingénierie & Implémentation",
+    "stack": "Technologies Matérielles & Logicielles"
+  },
+  "EXPERIENCE_SECTION": {
+    "tag": "PARCOURS_PRO_ACADÉMIQUE",
+    "title": "Expérience en Ingénierie & Base Académique",
+    "desc": "Leadership dans des associations scientifiques, formation en réseaux d'entreprise et qualifications académiques rigoureuses en hydraulique municipale et gestion de l'eau.",
+    "col1": "Leadership & Expérience Industrielle",
+    "col2": "Éducation Académique & Diplômes",
+    "accredited": "Diplôme Accrédité",
+    "focus": "Programme & Sujets Principaux"
+  },
+  "SCADA": {
+    "tag": "SIMULATEUR_INTERACTIF_01",
+    "title": "Simulateur SCADA de Station d'Épuration",
+    "desc": "Simulation cyber-physique continue en temps réel modélisée sur la station d'épuration de Zeriba El Oued. Comprend la modélisation du flux diurne, la digestion anaérobie et la photosynthèse algale facultative."
+  },
+  "EPANET": {
+    "tag": "SIMULATEUR_INTERACTIF_02",
+    "title": "Solveur de Réseau Hydraulique EPANET",
+    "desc": "Solveur en temps réel pour un réseau de distribution d'eau sous pression. Comprend les calculs de perte de charge Hazen-Williams, la résolution de la pression des nœuds et la gestion des conditions aux limites des réservoirs."
+  },
+  "FOOTER": {
+    "desc": "Portfolio d'ingénierie spécialisé reliant l'hydraulique municipale, la télémétrie SCADA cyber-physique, les simulations numériques EPANET et les logiciels web modernes.",
+    "specs": "Spécifications de Simulation",
+    "channels": "Canaux",
+    "rights": "Toutes les spécifications d'ingénierie et le code sont authentiques.",
+    "nominal": "TOUS LES SYSTÈMES NOMINAUX",
+    "github": "Profil GitHub",
+    "linkedin": "Réseau LinkedIn",
+    "telegram": "Chaîne Telegram",
+    "location": "Lat/Long: Alger (36.75°N, 3.05°E)"
+  }
+}

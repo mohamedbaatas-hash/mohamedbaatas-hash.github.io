@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScadaEngine } from '../../../hooks/useScadaEngine';
 import { SectionHeading } from '../../common/SectionHeading';
 import { ScadaFlowDiagram } from './ScadaFlowDiagram';
@@ -7,6 +8,7 @@ import { ScadaTelemetryPanel } from './ScadaTelemetryPanel';
 import { ScadaAlarmBanner } from './ScadaAlarmBanner';
 
 export function ScadaPlantSimulator() {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const {
     state,
@@ -26,9 +28,9 @@ export function ScadaPlantSimulator() {
     <section id="scada-plant" className={`transition-all duration-300 border-b border-border-slate/80 bg-gradient-to-b from-obsidian via-surface-sunken to-obsidian ${isExpanded ? 'py-20' : 'py-8'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          tag="INTERACTIVE_SIMULATOR_01"
-          title="SCADA Smart Natural Lagoon WWTP Simulator"
-          description="Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant. Features real-time diurnal flow modeling, anaerobic digestion, and facultative algal photosynthesis."
+          tag={t('SCADA.tag', 'INTERACTIVE_SIMULATOR_01')}
+          title={t('SCADA.title', 'SCADA Smart Natural Lagoon WWTP Simulator')}
+          description={t('SCADA.desc', 'Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant. Features real-time diurnal flow modeling, anaerobic digestion, and facultative algal photosynthesis.')}
           isCollapsible={true}
           isExpanded={isExpanded}
           onClick={() => setIsExpanded(!isExpanded)}

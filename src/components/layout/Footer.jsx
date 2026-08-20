@@ -1,9 +1,11 @@
 import React from 'react';
 import { Terminal, ShieldCheck, Activity, Github, Linkedin, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { CONTACT_INFO } from '../../data/portfolioData';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   return (
     <footer className="w-full bg-surface-sunken border-t border-border-slate/80 text-slate-400 font-sans text-xs sm:text-sm">
@@ -14,14 +16,14 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded bg-cobalt-500" />
               <span className="font-bold text-white tracking-tight text-base font-sans">
-                Mohamed Baatas
+                {t('HEADER.name', 'Mohamed Baatas')}
               </span>
               <span className="font-mono text-xs text-cobalt-400 bg-cobalt-950/60 px-2 py-0.5 rounded border border-cobalt-500/30">
-                Hydroinformatics
+                {t('HEADER.role', 'Hydroinformatics')}
               </span>
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
-              Specialized engineering portfolio bridging municipal water hydraulics, cyber-physical SCADA telemetry, EPANET numerical simulations, and modern web software.
+              {t('FOOTER.desc', 'Specialized engineering portfolio bridging municipal water hydraulics, cyber-physical SCADA telemetry, EPANET numerical simulations, and modern web software.')}
             </p>
             <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
@@ -32,7 +34,7 @@ export function Footer() {
           {/* Column 2: System Architecture */}
           <div className="space-y-2">
             <h4 className="font-mono text-xs font-bold text-slate-200 uppercase tracking-wider">
-              Simulation Specs
+              {t('FOOTER.specs', 'Simulation Specs')}
             </h4>
             <ul className="space-y-1.5 font-mono text-xs text-slate-400">
               <li>• SCADA: 6-Stage Process Train</li>
@@ -45,22 +47,22 @@ export function Footer() {
           {/* Column 3: Contact & Links */}
           <div className="space-y-2">
             <h4 className="font-mono text-xs font-bold text-slate-200 uppercase tracking-wider">
-              Channels
+              {t('FOOTER.channels', 'Channels')}
             </h4>
             <ul className="space-y-1.5 text-xs">
               <li>
                 <a href={CONTACT_INFO.socials.github} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1.5 transition-colors">
-                  <Github className="w-3.5 h-3.5 text-slate-400" /> GitHub Profile
+                  <Github className="w-3.5 h-3.5 text-slate-400" /> {t('FOOTER.github', 'GitHub Profile')}
                 </a>
               </li>
               <li>
                 <a href={CONTACT_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1.5 transition-colors">
-                  <Linkedin className="w-3.5 h-3.5 text-slate-400" /> LinkedIn Network
+                  <Linkedin className="w-3.5 h-3.5 text-slate-400" /> {t('FOOTER.linkedin', 'LinkedIn Network')}
                 </a>
               </li>
               <li>
                 <a href={CONTACT_INFO.socials.telegram} target="_blank" rel="noopener noreferrer" className="hover:text-white flex items-center gap-1.5 transition-colors">
-                  <Send className="w-3.5 h-3.5 text-slate-400" /> Telegram Channel
+                  <Send className="w-3.5 h-3.5 text-slate-400" /> {t('FOOTER.telegram', 'Telegram Channel')}
                 </a>
               </li>
               <li>
@@ -75,12 +77,12 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
           <div>
-            © {currentYear} Mohamed Baatas. All engineering specifications and code genuine.
+            © {currentYear} {t('HEADER.name', 'Mohamed Baatas')}. {t('FOOTER.rights', 'All engineering specifications and code genuine.')}
           </div>
           <div className="flex items-center gap-4">
-            <span>Lat/Long: Algiers (36.75°N, 3.05°E)</span>
+            <span>{t('FOOTER.location', 'Lat/Long: Algiers (36.75°N, 3.05°E)')}</span>
             <span>•</span>
-            <span className="text-emerald-400 font-semibold">ALL SYSTEMS NOMINAL</span>
+            <span className="text-emerald-400 font-semibold">{t('FOOTER.nominal', 'ALL SYSTEMS NOMINAL')}</span>
           </div>
         </div>
       </div>

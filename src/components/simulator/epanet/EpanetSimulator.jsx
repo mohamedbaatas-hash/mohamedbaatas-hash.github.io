@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useEpanetEngine } from '../../../hooks/useEpanetEngine';
 import { SectionHeading } from '../../common/SectionHeading';
 import { EpanetNetworkCanvas } from './EpanetNetworkCanvas';
@@ -6,6 +7,7 @@ import { EpanetNodeInspector } from './EpanetNodeInspector';
 import { EpanetControls } from './EpanetControls';
 
 export function EpanetSimulator() {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const {
     scenarios,
@@ -28,9 +30,9 @@ export function EpanetSimulator() {
     <section id="epanet-sim" className={`transition-all duration-300 border-b border-border-slate/80 bg-obsidian ${isExpanded ? 'py-20' : 'py-8'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          tag="INTERACTIVE_SIMULATOR_02"
-          title="EPANET 2.2 Looped Hydraulic Network Solver"
-          description="Interactive municipal water distribution network executing real-time Hazen-Williams head loss, nodal mass balance, and Newton-Raphson gradient iterations. Test operational scenarios, throttle valve positions, and inject pipe bursts."
+          tag={t('EPANET.tag', 'INTERACTIVE_SIMULATOR_02')}
+          title={t('EPANET.title', 'EPANET 2.2 Looped Hydraulic Network Solver')}
+          description={t('EPANET.desc', 'Interactive municipal water distribution network executing real-time Hazen-Williams head loss, nodal mass balance, and Newton-Raphson gradient iterations. Test operational scenarios, throttle valve positions, and inject pipe bursts.')}
           isCollapsible={true}
           isExpanded={isExpanded}
           onClick={() => setIsExpanded(!isExpanded)}
