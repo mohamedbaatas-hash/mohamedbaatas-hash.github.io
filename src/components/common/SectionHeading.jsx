@@ -4,10 +4,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 export function SectionHeading({ tag, title, description, align = "left", onClick, isCollapsible, isExpanded }) {
   const alignClass = align === "center" ? "text-center items-center" : "text-left items-start";
   const interactableClass = onClick ? "cursor-pointer group hover:bg-slate-800/30 p-4 -ml-4 rounded-lg transition-colors" : "";
+  const marginClass = (!isCollapsible || isExpanded) ? "mb-10" : "mb-0";
 
   return (
     <div 
-      className={`flex flex-col mb-10 ${alignClass} ${interactableClass}`}
+      className={`flex flex-col ${marginClass} ${alignClass} ${interactableClass}`}
       onClick={onClick}
     >
       <div className="flex w-full justify-between items-start gap-4">

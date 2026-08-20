@@ -6,6 +6,7 @@ import { Card } from '../common/Card';
 import { MetricBadge } from '../common/MetricBadge';
 
 export function CaseStudiesSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
 
   const toggleExpand = (id) => {
@@ -13,16 +14,20 @@ export function CaseStudiesSection() {
   };
 
   return (
-    <section id="case-studies" className="py-20 border-b border-border-slate/80 bg-obsidian">
+    <section id="case-studies" className={`transition-all duration-300 border-b border-border-slate/80 bg-obsidian ${isExpanded ? 'py-20' : 'py-8'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           tag="ENGINEERING_PROJECTS"
           title="Flagship Case Studies & Applied Systems"
           description="In-depth breakdown of municipal water distribution modeling, cyber-physical SCADA telemetry testbeds, and high-concurrency cloud telemetry pipelines."
+          isCollapsible={true}
+          isExpanded={isExpanded}
+          onClick={() => setIsExpanded(!isExpanded)}
         />
 
-        <div className="space-y-8">
-          {CASE_STUDIES.map((study) => {
+        {isExpanded && (
+          <div className="space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
+            {CASE_STUDIES.map((study) => {
               const isExpanded = expandedId === study.id;
 
               return (
@@ -118,6 +123,7 @@ export function CaseStudiesSection() {
               );
             })}
           </div>
+        )}
       </div>
     </section>
   );
