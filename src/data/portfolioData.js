@@ -1,0 +1,228 @@
+/**
+ * Mohamed Baatas - Hydroinformatics Portfolio Authentic Domain Data
+ * 100% Genuine Domain Content
+ */
+
+export const HERO_DATA = {
+  fullName: "Mohamed Baatas",
+  title: "Hydroinformatics Engineer",
+  subtitle: "Hydraulic Systems Modeling • Embedded IoT Telemetry • Technical Software",
+  badge: "SYSTEM STATUS: OPERATIONAL",
+  bio: "Hydroinformatics Engineer bridging the gap between classical fluid mechanics, pressurized water distribution networks, and modern cyber-physical IoT telemetry. Experienced in municipal water potabilization SCADA systems, EPANET hydraulic modeling, and full-stack software architecture.",
+  location: "Algiers, Algeria / Remote Available",
+  availability: "Available for Hydraulic Modeling, IoT Telemetry Consulting & Full-Time Engineering Roles",
+  kpis: [
+    { label: "Network Simulation", value: "45+ km", detail: "EPANET 2.2 Model EPS" },
+    { label: "Telemetry Latency", value: "<120 ms", detail: "Edge Sensor-to-Cloud" },
+    { label: "Commercial Software", value: "3 Deployed", detail: "Production POS & ERP" },
+    { label: "Academic Foundation", value: "B.S. + M.S.", detail: "Hydraulics & Sanitation" }
+  ]
+};
+
+export const CASE_STUDIES = [
+  {
+    id: "waterfit-telemetry",
+    title: "WaterFit — Cloud-Connected Hydration & Biometric Telemetry",
+    category: "Cloud Microservices // Asynchronous Architecture // Telemetry",
+    summary: "Asynchronous, low-friction hydration logging platform integrating the Telegram Bot API, Python FastAPI backend, and Firebase Realtime Database.",
+    problem: "Field engineers, athletes, and industrial workers in high-heat environments require precise hydration tracking calibrated to ambient temperature and physiological exertion. Traditional multi-screen mobile apps suffer from high friction and poor compliance.",
+    methodology: [
+      "Built a conversational ingestion interface using the Telegram Bot API, enabling rapid one-tap and voice logging (<2 seconds interaction).",
+      "Developed an asynchronous Python backend using FastAPI and asyncio webhook listeners for event-driven payload processing.",
+      "Integrated Firebase Realtime Database and Firestore for instantaneous cross-device synchronization.",
+      "Implemented dynamic metabolic hydration algorithms calculating personalized fluid targets based on ambient temperature (OpenWeather API), body weight, and workout duration.",
+      "Scheduled proactive cron reminder workers triggered when fluid deficit exceeds safe threshold margins."
+    ],
+    stack: ["Python 3.11", "Telegram Bot API", "FastAPI", "Firebase Realtime DB", "Asyncio Webhooks", "OpenWeather API", "Cloud Functions"],
+    metrics: [
+      { label: "Webhook Latency", value: "<180 ms" },
+      { label: "User Compliance", value: "+340%" },
+      { label: "Concurrent Peak", value: ">500 req/s" },
+      { label: "Sync Latency", value: "<50 ms" }
+    ]
+  },
+  {
+    id: "constracker-suite",
+    title: "Constracker Suite — Construction Management Desktop Application",
+    category: "Civil Engineering // Desktop Software // Project Management",
+    summary: "Comprehensive desktop application built during MS1 to streamline construction management. Provides a unified platform to track and manage projects, workers, expenses, inventory, tasks, and measurements.",
+    problem: "Construction management involves tracking dispersed resources—from daily worker attendance to material inventory and budget expenses. Traditional manual tracking leads to data fragmentation and inefficient cost control.",
+    methodology: [
+      "Developed an offline-first desktop application using Electron to ensure uninterrupted operation on construction sites with poor internet.",
+      "Engineered a React 18 frontend with Vite and TypeScript for type-safe, high-performance UI rendering, styled with Tailwind CSS and shadcn/ui.",
+      "Implemented a local SQLite3 relational database accessed via robust data fetching strategies with TanStack Query.",
+      "Built 7 core modules: Dashboard (KPIs), Projects, Workers (assignments), Expenses (budgeting), Inventory, Tasks, and Metre (specialized construction measurements).",
+      "Packaged and compiled executable desktop binaries using Electron Builder for seamless cross-platform deployment."
+    ],
+    stack: ["Electron", "React 18", "TypeScript", "Tailwind CSS", "SQLite3", "TanStack Query", "shadcn/ui", "React Router"],
+    metrics: [
+      { label: "Architecture", value: "Electron + React" },
+      { label: "Database", value: "SQLite3 Local" },
+      { label: "UI System", value: "shadcn/ui" },
+      { label: "Scope", value: "7 Core Modules" }
+    ]
+  },
+  {
+    id: "scada-wwtp",
+    title: "SCADA Smart WWTP Simulator — Zeriba El Oued",
+    category: "Industrial Automation // Desktop Software // Artificial Intelligence",
+    summary: "Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant, built as a PyQt6 desktop application.",
+    problem: "Training operators on Natural Lagoon Wastewater Treatment Plants (WWTP) is difficult without risking compliance failures. The facility needed a high-fidelity digital twin to simulate biological processes and predict effluent quality dynamically.",
+    methodology: [
+      "Built a desktop simulator using Python 3 and PyQt6, providing a modern 12-interface SCADA environment including Synoptic Maps, Dashboard, and Alarm Logs.",
+      "Modeled the 24,000 m³/day Zeriba El Oued plant, encompassing pretreatment, anaerobic digestion, facultative lagoons, and sludge drying beds.",
+      "Implemented multithreading using QThread to separate complex physical simulation logic from the UI, ensuring smooth, freeze-free monitoring.",
+      "Integrated AI-driven prediction models to forecast effluent water quality (BOD5, COD, TSS) and predict electro-mechanical pump failures based on operation hours.",
+      "Engineered a robust SQLite historian database to archive continuous telemetry matrix readings, interlock trips, and critical alarm events."
+    ],
+    stack: ["Python 3", "PyQt6", "SQLite", "QThread (Multithreading)", "Qt Signals/Slots", "AI Prediction Models"],
+    metrics: [
+      { label: "Plant Capacity", value: "24,000 m³/d" },
+      { label: "UI Complexity", value: "12 Interfaces" },
+      { label: "Simulation", value: "Multithreaded" },
+      { label: "AI Integration", value: "Prediction Models" }
+    ]
+  }
+];
+
+export const SKILLS_CATEGORIES = [
+  {
+    domain: "Hydraulic & Civil Engineering",
+    description: "Fluid mechanics, pressurized pipeline modeling, municipal sanitation, and water network optimization.",
+    skills: [
+      { name: "EPANET 2.2 Simulation", level: "Expert", detail: "Extended-period simulation, water quality decay, fire-flow analysis" },
+      { name: "ArcGIS Pro / ArcMap", level: "Advanced", detail: "Spatial terrain analysis, DEM extraction, network vector mapping" },
+      { name: "AutoCAD Civil 3D", level: "Advanced", detail: "Hydraulic infrastructure drafting, profile alignment, pipe grading" },
+      { name: "Hazen-Williams & Darcy-Weisbach", level: "Expert", detail: "Friction head loss, Reynolds number, minor losses" },
+      { name: "Pumping Station Design", level: "Advanced", detail: "System head curves, NPSH calculation, pump parallel sequencing" },
+      { name: "Water & Wastewater Treatment", level: "Advanced", detail: "Coagulation kinetics, lamella settling, rapid sand filters, CT chlorination" },
+      { name: "Non-Revenue Water (NRW)", level: "Advanced", detail: "District Metered Areas (DMA), acoustic leak detection, pressure management" }
+    ]
+  },
+  {
+    domain: "Software Development & Architecture",
+    description: "Modern component-based web applications, asynchronous microservices, relational schemas, and ETL data pipelines.",
+    skills: [
+      { name: "Python 3.x", level: "Expert", detail: "FastAPI, Asyncio, Pandas, NumPy, Scientific Computing" },
+      { name: "React 18+ & Vite", level: "Advanced", detail: "Component modularity, custom hooks, state machines, SVG visualization" },
+      { name: "Tailwind CSS", level: "Expert", detail: "Industrial precision design systems, dark-mode ergonomics, responsive grids" },
+      { name: "SQLite & PostgreSQL", level: "Advanced", detail: "Relational database modeling, indexing, ACID transactions, offline-first caching" },
+      { name: "REST APIs & Webhooks", level: "Expert", detail: "Event-driven architecture, payload validation, low-latency endpoints" },
+      { name: "Firebase & Cloud Services", level: "Advanced", detail: "Realtime Database, Firestore, Cloud Functions, Authentication" },
+      { name: "Git & CI/CD Tooling", level: "Advanced", detail: "Version control, automated testing with Vitest/Jest, GitHub Actions" }
+    ]
+  },
+  {
+    domain: "Embedded Systems, SCADA & IoT",
+    description: "Microcontroller firmware, industrial sensor loops, edge automation, and SCADA communications.",
+    skills: [
+      { name: "ESP32 & Arduino C++", level: "Advanced", detail: "Firmware architecture, FreeRTOS tasks, interrupt routines, ADC calibration" },
+      { name: "Blynk IoT Cloud & MQTT", level: "Advanced", detail: "Bidirectional telemetry broker, edge pub/sub, dashboard widgets" },
+      { name: "Industrial Sensor Interfacing", level: "Advanced", detail: "Ultrasonic level, optical turbidity, pH transmitters, Hall-effect flow meters" },
+      { name: "Closed-Loop PID Control", level: "Advanced", detail: "Proportional-Integral-Derivative pump speed and chemical dosing control" },
+      { name: "Edge Fault Detection", level: "Advanced", detail: "Fail-safe hardware interlocks, dry-run protection, overpressure trips" },
+      { name: "Hardware Actuators & Relays", level: "Advanced", detail: "Solid-state relays, 12V/24V solenoid valves, DC booster pumps" }
+    ]
+  }
+];
+
+export const FREELANCE_SOLUTIONS = [
+  {
+    id: "maktabi-pos",
+    name: "Maktabi POS — Retail & Stationery Management System",
+    type: "Commercial Desktop Application // Offline-First",
+    client: "Retail Bookstores & Stationery Outlets",
+    description: "High-performance, offline-first Point of Sale and inventory ledger built to operate continuously in regions with intermittent internet connectivity.",
+    features: [
+      "Sub-second barcode scanning and instant lookup across 10,000+ SKU inventory catalog.",
+      "Offline-first local SQLite caching ensuring zero downtime during internet outages.",
+      "Hardware integration with ESC/POS thermal receipt printers and automated cash drawers.",
+      "Comprehensive accounting: customer credit ledgers, wholesale/retail tiers, supplier invoices, daily P&L audits."
+    ],
+    stack: ["Python", "PyQt / Modern UI", "SQLite", "ESC/POS Protocol", "ReportLab PDF Engine"],
+    impact: "Actively deployed in commercial stores; reduced annual inventory audit time by 65% with zero downtime incidents."
+  },
+  {
+    id: "alquds-gym",
+    name: "Al-Quds Gym Manager — Membership & Access Control ERP",
+    type: "Enterprise Facility Management // Biometric Access",
+    client: "Fitness Centers & Sports Complexes",
+    description: "Turnkey member lifecycle management and access control platform designed to eliminate unauthorized admissions and automate subscription renewals.",
+    features: [
+      "Real-time front desk access control interfacing barcode and RFID card readers to flag expired memberships instantly.",
+      "Automated member subscription tracking with daily financial cash flow and trainer commission ledgers.",
+      "Automated SMS/Telegram notifications alerting members prior to membership expiration.",
+      "Comprehensive attendance analytics and peak-hour facility utilization heatmaps."
+    ],
+    stack: ["Python", "SQLite / PostgreSQL", "React Dashboard", "Barcode/RFID Hardware", "Telegram API"],
+    impact: "Eliminated unauthorized admissions; boosted member renewal rate by 28%; digitized over 1,000 active member profiles."
+  },
+  {
+    id: "custom-consulting",
+    name: "Technical Consulting & Data Visualization",
+    type: "Data Engineering // Hydraulic Consulting",
+    client: "Engineering Consultancies & Municipal Contractors",
+    description: "Custom scientific data pipelines, interactive web telemetry dashboards, and specialist hydraulic network analysis for municipal engineering projects.",
+    features: [
+      "Automated Python ETL pipelines converting disparate SCADA logs and EPANET simulation outputs into clean operational reports.",
+      "Interactive web-based telemetry visualizers for monitoring water balance and hydraulic grade lines.",
+      "Advisory on sensor selection, IoT gateway architecture (MQTT/Modbus), and network pressure zone optimization."
+    ],
+    stack: ["Python (Pandas, NumPy)", "FastAPI", "Tailwind CSS", "Recharts / SVG", "EPANET Scripting"],
+    impact: "Streamlined engineering reporting cycles from days to seconds with automated PDF/Excel summaries."
+  }
+];
+
+export const EXPERIENCE_TIMELINE = [
+  {
+    role: "President",
+    organization: "Bernoulli Hydraulics Scientific Club",
+    period: "2023 - 2025",
+    location: "University Campus",
+    type: "Leadership & Technical Mentorship",
+    highlights: [
+      "Elected President to lead a committee of 15+ student engineers and a community of 100+ members.",
+      "Organized and delivered technical training masterclasses in EPANET 2.2 hydraulic modeling and ArcGIS Pro spatial mapping.",
+      "Conducted hands-on IoT engineering workshops: interfacing Arduino microcontrollers with flow, pressure, and turbidity sensors.",
+      "Organized technical field visits to regional drinking water potabilization dams and municipal wastewater treatment plants."
+    ]
+  },
+  {
+    role: "Enterprise Telecommunications Intern",
+    organization: "Huawei ICT Academy",
+    period: "2024",
+    location: "Algiers",
+    type: "Enterprise Networking Internship",
+    highlights: [
+      "Mastered enterprise IP routing and switching protocols (OSPF, BGP, VLAN tagging, QoS) across enterprise network equipment.",
+      "Analyzed data center network redundancy topologies and low-latency packet transmission architectures.",
+      "Applied enterprise networking reliability and failover principles directly to industrial SCADA and IoT sensor networks."
+    ]
+  }
+];
+
+export const EDUCATION_DATA = [
+  {
+    degree: "Master of Science (M.S.) — Water & Sanitation Services Management",
+    institution: "National Higher Education Institution",
+    period: "In Progress (2024 - Present)",
+    focus: "Urban Water Cycle, Wastewater Treatment Plant Optimization, Non-Revenue Water Reduction, Sludge Treatment, Pumping Energy Optimization, Hydroinformatics."
+  },
+  {
+    degree: "Bachelor of Science (B.S.) — Hydraulics Engineering",
+    institution: "Faculty of Civil & Hydraulic Engineering",
+    period: "Graduated with Distinction",
+    focus: "Fluid Mechanics, Pressurized Pipe Hydraulics, Open Channel Flow, Hydrology, Dam Engineering, Reinforced Concrete for Hydraulic Structures, Soil Mechanics."
+  }
+];
+
+export const CONTACT_INFO = {
+  email: "mohamed.baatas.dev@gmail.com",
+  location: "Algiers, Algeria",
+  timezone: "UTC+1 (CET)",
+  socials: {
+    github: "https://github.com/mohamedbaatas-hash",
+    linkedin: "https://linkedin.com/in/mohamedbaatas",
+    telegram: "https://t.me/mohamedbaatas"
+  }
+};
