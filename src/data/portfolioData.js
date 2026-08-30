@@ -225,6 +225,6 @@ export const CONTACT_INFO = {
   socials: {
     github: "https://github.com/mohamedbaatas-hash",
     linkedin: "https://linkedin.com/in/mohamedbaatas",
-    telegram: "https://t.me/mohamedbaatas"
+    telegram: "https://t.me/Fluidev"
   }
 };

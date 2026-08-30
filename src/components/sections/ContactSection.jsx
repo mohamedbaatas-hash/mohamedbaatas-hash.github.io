@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Copy, Check, FileText, Globe, Clock, Github, Linkedin, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Mail, Send, ExternalLink, Check, FileText, Globe, Clock, Github, Linkedin, MessageSquare, ShieldCheck } from 'lucide-react';
 import { CONTACT_INFO } from '../../data/portfolioData';
 import { SectionHeading } from '../common/SectionHeading';
 import { Card } from '../common/Card';
@@ -64,10 +64,10 @@ COMMERCIAL & SCIENTIFIC PROJECTS:
   };
 
   const channels = [
-    { key: 'email', label: 'Direct Email', value: CONTACT_INFO.email, icon: <Mail className="w-4 h-4 text-cobalt-400" /> },
-    { key: 'github', label: 'GitHub Repository', value: CONTACT_INFO.socials.github, icon: <Github className="w-4 h-4 text-slate-300" /> },
-    { key: 'linkedin', label: 'LinkedIn Network', value: CONTACT_INFO.socials.linkedin, icon: <Linkedin className="w-4 h-4 text-cobalt-400" /> },
-    { key: 'telegram', label: 'Telegram Direct', value: CONTACT_INFO.socials.telegram, icon: <Send className="w-4 h-4 text-cyan-400" /> }
+    { key: 'email', label: 'Direct Email', value: CONTACT_INFO.email, link: `mailto:${CONTACT_INFO.email}`, icon: <Mail className="w-4 h-4 text-cobalt-400" /> },
+    { key: 'github', label: 'GitHub Repository', value: CONTACT_INFO.socials.github, link: CONTACT_INFO.socials.github, icon: <Github className="w-4 h-4 text-slate-300" /> },
+    { key: 'linkedin', label: 'LinkedIn Network', value: CONTACT_INFO.socials.linkedin, link: CONTACT_INFO.socials.linkedin, icon: <Linkedin className="w-4 h-4 text-cobalt-400" /> },
+    { key: 'telegram', label: 'Telegram Direct', value: CONTACT_INFO.socials.telegram, link: CONTACT_INFO.socials.telegram, icon: <Send className="w-4 h-4 text-cyan-400" /> }
   ];
 
   return (
@@ -101,13 +101,15 @@ COMMERCIAL & SCIENTIFIC PROJECTS:
                         <span className="block text-xs font-mono text-slate-200 truncate">{ch.value}</span>
                       </div>
                     </div>
-                    <button
-                      onClick={() => handleCopy(ch.value, ch.key)}
-                      className="p-1.5 rounded bg-surface-sunken hover:bg-slate-700 text-slate-300 border border-border-slate shrink-0 transition-colors"
-                      title={`Copy ${ch.label}`}
+                    <a
+                      href={ch.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded bg-surface-sunken hover:bg-slate-700 text-slate-300 border border-border-slate shrink-0 transition-colors inline-flex items-center justify-center"
+                      title={`Open ${ch.label}`}
                     >
-                      {copiedField === ch.key ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                    </button>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 ))}
               </div>
@@ -120,13 +122,15 @@ COMMERCIAL & SCIENTIFIC PROJECTS:
 
               {/* Resume Export CTA */}
               <div className="pt-2">
-                <button
-                  onClick={handleDownloadResume}
+                <a
+                  href="/Mohamed_Baatas_CV.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-elevated-slate hover:bg-slate-700 text-slate-200 border border-border-slate font-mono text-xs font-semibold transition-colors"
                 >
                   <FileText className="w-4 h-4 text-cobalt-400" />
                   <span>Download Mohamed Baatas Resume (CV)</span>
-                </button>
+                </a>
               </div>
             </Card>
           </div>
