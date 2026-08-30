@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, ShieldCheck, Activity, Github, Linkedin, Send } from 'lucide-react';
+import { Terminal, ShieldCheck, Activity, Github, Linkedin, Send, Phone, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { CONTACT_INFO } from '../../data/portfolioData';
 
@@ -66,8 +66,18 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`mailto:${CONTACT_INFO.email}`} className="text-cobalt-400 hover:underline font-mono">
-                  {CONTACT_INFO.email}
+                <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-white flex items-center gap-1.5 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-slate-400" /> {CONTACT_INFO.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${CONTACT_INFO.phone1}`} className="hover:text-white flex items-center gap-1.5 transition-colors font-mono">
+                  <Phone className="w-3.5 h-3.5 text-slate-400" /> {CONTACT_INFO.phone1}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${CONTACT_INFO.phone2}`} className="hover:text-white flex items-center gap-1.5 transition-colors font-mono">
+                  <Phone className="w-3.5 h-3.5 text-slate-400" /> {CONTACT_INFO.phone2}
                 </a>
               </li>
             </ul>

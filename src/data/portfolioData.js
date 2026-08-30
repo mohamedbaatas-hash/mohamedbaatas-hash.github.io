@@ -217,7 +217,9 @@ export const EDUCATION_DATA = [
 ];
 
 export const CONTACT_INFO = {
-  email: "mohamed.baatas.dev@gmail.com",
+  email: "mohamedbaatas@gmail.com",
+  phone1: "+213655748513",
+  phone2: "+213555395934",
   location: "Algiers, Algeria",
   timezone: "UTC+1 (CET)",
   socials: {
