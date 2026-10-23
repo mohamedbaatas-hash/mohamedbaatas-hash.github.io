@@ -9,30 +9,28 @@ import { CircuitBackground } from '../common/CircuitBackground';
 import { GraduationCap, FileCheck, Clock, Globe, Laptop, Split, Sparkles } from 'lucide-react';
 
 export function AcademicHubSection() {
-  const { t, i18n } = useTranslation();
-
-  // Active showcase tab: 'makeover' | 'presentation'
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('makeover');
 
   const stats = [
     {
-      value: '50+ Theses',
-      detail: 'مذكرات ماستر ودكتوراه منجزة',
+      value: t('ACADEMIC_HUB.stats.theses_transformed', '50+ Theses'),
+      detail: t('ACADEMIC_HUB.stats.theses_detail', 'Delivered for Master & PhD defenses'),
       icon: <GraduationCap className="w-4 h-4 text-cyan-400" />
     },
     {
-      value: '100%',
-      detail: 'التزام كامل بدليل ومعايير الجامعة',
+      value: t('ACADEMIC_HUB.stats.defense_ready', '100%'),
+      detail: t('ACADEMIC_HUB.stats.defense_detail', 'Jury-compliant formatting & timing'),
       icon: <FileCheck className="w-4 h-4 text-emerald-400" />
     },
     {
-      value: '< 5 Days',
-      detail: 'تسليم سريع مع تعديلات مستمرة',
+      value: t('ACADEMIC_HUB.stats.turnaround', '< 5 Days'),
+      detail: t('ACADEMIC_HUB.stats.turnaround_detail', 'Rapid turnaround for critical deadlines'),
       icon: <Clock className="w-4 h-4 text-fluid-yellow" />
     },
     {
-      value: '3 Languages',
-      detail: 'عربي • فرنسي • إنجليزي',
+      value: t('ACADEMIC_HUB.stats.satisfaction', '3 Languages'),
+      detail: t('ACADEMIC_HUB.stats.satisfaction_detail', 'Arabic, French & English proficiency'),
       icon: <Globe className="w-4 h-4 text-blue-400" />
     }
   ];
@@ -45,13 +43,12 @@ export function AcademicHubSection() {
       <CircuitBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Punchy & Editorial */}
+        {/* Section Header */}
         <div className="mb-10 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-fluid-yellow" />
-              03 // ACADEMIC TRANSFORMATION &amp; THESIS HUB
+              03 // {t('ACADEMIC_HUB.section_badge', 'ACADEMIC TRANSFORMATION // FLUIDEV')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               01 001 1010
@@ -59,11 +56,14 @@ export function AcademicHubSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-title text-slate-900 dark:text-white tracking-tight leading-tight">
-            خدمات إخراج وتنسيق المذكرات والبحوث
+            {t('ACADEMIC_HUB.section_title', 'Academic Transformation & Thesis Hub')}
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            تحويل المسودات الأكاديمية إلى مذكرات تخرج جاهزة للمناقشة، وعروض تقديمية تفاعلية تبهر لجنة التحكيم.
+            {t(
+              'ACADEMIC_HUB.section_subtitle',
+              'Transforming raw scientific research and engineering drafts into defense-ready theses, high-impact Soutenance presentation decks, and university-compliant publications.'
+            )}
           </p>
         </div>
 

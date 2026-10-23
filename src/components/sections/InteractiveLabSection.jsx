@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Play, Network, Droplets, X, ChevronUp } from 'lucide-react';
+import { Play, Network, Droplets, X, ChevronUp, Activity } from 'lucide-react';
 import { useScadaEngine } from '../../hooks/useScadaEngine';
 import { useEpanetEngine } from '../../hooks/useEpanetEngine';
 import { ScadaFlowDiagram } from '../simulator/scada/ScadaFlowDiagram';
@@ -15,14 +15,23 @@ import { CollageBackground } from '../common/CollageBackground';
 
 export function InteractiveLabSection() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('scada'); // 'scada' | 'epanet'
+  const [activeTab, setActiveTab] = useState('scada');
   const [isOpen, setIsOpen] = useState(false);
 
-  // SCADA Engine Hook (preserves 100% of physical model)
   const scada = useScadaEngine();
-
-  // EPANET Engine Hook (preserves 100% of mathematical solver)
   const epanet = useEpanetEngine();
+
+  useEffect(() => {
+    const handleExternalLaunch = (e) => {
+      const requestedTab = e.detail?.tab;
+      if (requestedTab === 'scada' || requestedTab === 'epanet') {
+        setActiveTab(requestedTab);
+      }
+      setIsOpen(true);
+    };
+    window.addEventListener('fluiddev:launch-lab', handleExternalLaunch);
+    return () => window.removeEventListener('fluiddev:launch-lab', handleExternalLaunch);
+  }, []);
 
   return (
     <BlueprintCadre
@@ -40,17 +49,20 @@ export function InteractiveLabSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/50 px-3 py-1 rounded-full border border-cyan-200 dark:border-cyan-500/30">
-              {t('LAB.section_tag', 'Experimental Testbed')}
+              02 // {t('LAB.section_tag', 'Experimental Testbed')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-slate-900 dark:text-white mt-4">
               {t('LAB.section_title', 'The Interactive Engineering Lab')}
             </h2>
             <p className="mt-3 text-base text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-              {t('LAB.section_desc', 'Explore live, deterministic cyber-physical simulations executed directly in your browser. Toggle between the natural lagoon WWTP process train and the pressurized looped EPANET hydraulic solver.')}
+              {t(
+                'LAB.section_desc',
+                'Explore live, deterministic cyber-physical simulations executed directly in your browser. Toggle between the natural lagoon WWTP process train and the pressurized looped EPANET hydraulic solver.'
+              )}
             </p>
           </div>
 
-          {/* Tab Selector & Launch Button */}
+          {/* Tab Selector */}
           <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 self-start md:self-auto">
             <button
               onClick={() => {
@@ -83,42 +95,56 @@ export function InteractiveLabSection() {
           </div>
         </div>
 
-        {/* Compact Showcase Card (When not opened) */}
+        {/* Compact Showcase Card (When minimized) */}
         {!isOpen && (
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50 p-8 sm:p-10 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-2">
+          <div className="rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white/90 dark:bg-[#0A1B54]/80 p-8 sm:p-10 shadow-xl backdrop-blur-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7">
+                <span className="text-xs font-mono text-fluid-blue dark:text-cyan-400 uppercase tracking-wider font-bold flex items-center gap-1.5 mb-2">
+                  <Activity className="w-3.5 h-3.5 animate-pulse" />
                   {t('LAB.lab_status', 'Laboratory Architecture')}
                 </span>
                 <h3 className="text-2xl font-bold font-title text-slate-900 dark:text-white tracking-tight">
                   {t('LAB.lab_headline', 'Mathematical Rigor Meets In-Browser Interaction')}
                 </h3>
                 <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                  {t('LAB.lab_narrative', 'These engines aren\'t mockups. They run continuous time-step mass balance, diurnal flow algorithms, and non-linear hydraulic matrix equations entirely on client-side JavaScript.')}
+                  {t(
+                    'LAB.lab_narrative',
+                    "These engines aren't mockups. They run continuous time-step mass balance, diurnal flow algorithms, and non-linear hydraulic matrix equations entirely on client-side JavaScript."
+                  )}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Zeriba El Oued Lagoon (24,000 m³/day)
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Hazen-Williams Head Loss
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Newton-Raphson Solver
-                  </span>
+                {/* Live Background Telemetry Readout Strip */}
+                <div className="mt-6 grid grid-cols-3 gap-3 text-xs font-mono">
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">WWTP INFLOW</span>
+                    <span className="font-bold text-slate-900 dark:text-emerald-400">
+                      {Math.round(scada.state.flowM3d).toLocaleString()} m³/d
+                    </span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">EFFLUENT BOD5</span>
+                    <span className="font-bold text-slate-900 dark:text-cyan-400">
+                      {scada.state.bodOut.toFixed(1)} mg/L
+                    </span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">EPANET GRID</span>
+                    <span className="font-bold text-slate-900 dark:text-[#F7B500]">
+                      {epanet.solvedNetwork.nodes.length} Nodes Active
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-end">
+              <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3.5 justify-end">
                 <button
                   onClick={() => {
                     setActiveTab('scada');
                     setIsOpen(true);
                   }}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-fluid-blue hover:bg-fluid-blue-bright text-white font-semibold font-condensed tracking-wide text-sm transition-all shadow-lg hover:shadow-blue-500/20 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-fluid-blue hover:bg-fluid-blue-bright text-white font-semibold font-condensed tracking-wide text-sm transition-all shadow-lg hover:shadow-blue-500/20"
                 >
                   <Play className="w-4 h-4 fill-white" />
                   <span>{t('LAB.btn_launch_scada', 'Launch SCADA Simulation')}</span>
@@ -138,16 +164,15 @@ export function InteractiveLabSection() {
           </div>
         )}
 
-        {/* Live Opened Simulator Frame (Housed in Autonomous High-Contrast Dark CAD Workstation) */}
+        {/* Live Opened Simulator Workstation */}
         {isOpen && (
           <div className="rounded-2xl border border-cyan-500/40 bg-[#07133F] text-slate-100 p-6 sm:p-8 shadow-2xl space-y-6 animate-in fade-in duration-300 relative CAD-workstation-terminal">
-            {/* Top Toolbar */}
             <div className="flex items-center justify-between pb-4 border-b border-cyan-950/60">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="font-mono text-xs font-semibold text-slate-200 uppercase tracking-wider">
-                  {activeTab === 'scada' 
-                    ? t('LAB.scada_live_title', 'SCADA Process Train — Zeriba El Oued WWTP') 
+                  {activeTab === 'scada'
+                    ? t('LAB.scada_live_title', 'SCADA Process Train — Zeriba El Oued WWTP')
                     : t('LAB.epanet_live_title', 'EPANET 2.2 Network Solver — Looped Municipal Grid')}
                 </span>
               </div>
@@ -157,7 +182,9 @@ export function InteractiveLabSection() {
                   onClick={() => setActiveTab(activeTab === 'scada' ? 'epanet' : 'scada')}
                   className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 border border-slate-700 transition-colors"
                 >
-                  {activeTab === 'scada' ? t('LAB.switch_to_epanet', 'Switch to EPANET') : t('LAB.switch_to_scada', 'Switch to SCADA')}
+                  {activeTab === 'scada'
+                    ? t('LAB.switch_to_epanet', 'Switch to EPANET')
+                    : t('LAB.switch_to_scada', 'Switch to SCADA')}
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -169,7 +196,6 @@ export function InteractiveLabSection() {
               </div>
             </div>
 
-            {/* SCADA View (Retains Pure Mathematical State & Realtime Updates) */}
             {activeTab === 'scada' && (
               <div className="space-y-6">
                 <div className="bg-[#0B1120] rounded-xl p-4 border border-cyan-500/20 overflow-x-auto">
@@ -195,7 +221,6 @@ export function InteractiveLabSection() {
               </div>
             )}
 
-            {/* EPANET View (Retains Pure Mathematical Solver & Exact Coordinates) */}
             {activeTab === 'epanet' && (
               <div className="space-y-6">
                 <EpanetControls
@@ -227,7 +252,6 @@ export function InteractiveLabSection() {
               </div>
             )}
 
-            {/* Close Button at bottom */}
             <div className="pt-4 flex justify-end">
               <button
                 onClick={() => setIsOpen(false)}
@@ -244,3 +268,5 @@ export function InteractiveLabSection() {
     </BlueprintCadre>
   );
 }
+
+export default InteractiveLabSection;

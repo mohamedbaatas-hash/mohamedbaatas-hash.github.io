@@ -6,55 +6,44 @@ import { CircuitBackground } from '../common/CircuitBackground';
 
 export function EngineeringPillarsSection() {
   const { t } = useTranslation();
+  const translatedCategories = t('SKILLS_CATEGORIES', { returnObjects: true }) || [];
 
   const pillars = [
     {
       num: '01',
       tapeTag: '01 // FLUID MECHANICS',
-      domain: 'Hydraulic Systems & Infrastructure',
-      tag: 'Fluid Mechanics & Sanitary Modeling',
+      domain: t('PILLARS.hydro_title', 'Hydraulic Systems & Infrastructure'),
+      tag: t('PILLARS.hydro_tag', 'Fluid Mechanics & Sanitary Modeling'),
       icon: <Droplet className="w-5 h-5 text-fluid-blue dark:text-cyan-400" />,
-      punchline: 'Rigorous computational modeling of pressurized drinking networks, treatment plants, and urban water cycles.',
-      skills: [
-        { name: 'EPANET 2.2 Solver', tag: 'Extended Period Simulation' },
-        { name: 'Hazen-Williams & Darcy', tag: 'Head Loss Formulation' },
-        { name: 'ArcGIS Pro / ArcMap', tag: 'DEM & Spatial Networks' },
-        { name: 'AutoCAD Civil 3D', tag: 'Pipeline Alignments' },
-        { name: 'WWTP Process Design', tag: 'Coagulation & Digestion' },
-        { name: 'NRW Leak Detection', tag: 'DMA Pressure Management' }
-      ]
+      punchline: t(
+        'PILLARS.hydro_desc',
+        'Rigorous computational modeling of pressurized drinking networks, treatment plants, and urban water cycles.'
+      ),
+      skills: translatedCategories[0]?.skills || []
     },
     {
       num: '02',
       tapeTag: '02 // SOFTWARE & DATA',
-      domain: 'Full-Stack & Desktop Architecture',
-      tag: 'Modern Software & Relational Systems',
+      domain: t('PILLARS.software_title', 'Full-Stack & Desktop Architecture'),
+      tag: t('PILLARS.software_tag', 'Modern Software & Relational Systems'),
       icon: <Code2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-      punchline: 'High-reliability desktop software, asynchronous Python backends, and resilient offline-first databases.',
-      skills: [
-        { name: 'Python 3.11 / FastAPI', tag: 'Asyncio Microservices' },
-        { name: 'Electron & Desktop ERP', tag: 'Cross-Platform Binaries' },
-        { name: 'React 18 & TypeScript', tag: 'Dynamic Web Interfaces' },
-        { name: 'SQLite3 & PostgreSQL', tag: 'ACID Relational Storage' },
-        { name: 'REST APIs & Webhooks', tag: 'Event-Driven Systems' },
-        { name: 'Design Systems & UI', tag: 'Tailwind CSS Precision' }
-      ]
+      punchline: t(
+        'PILLARS.software_desc',
+        'High-reliability desktop software, asynchronous Python backends, and resilient offline-first databases.'
+      ),
+      skills: translatedCategories[1]?.skills || []
     },
     {
       num: '03',
       tapeTag: '03 // EDGE TELEMETRY',
-      domain: 'Cyber-Physical IoT & Edge Telemetry',
-      tag: 'Embedded Systems & Industrial Telemetry',
+      domain: t('PILLARS.iot_title', 'Cyber-Physical IoT & Edge Telemetry'),
+      tag: t('PILLARS.iot_tag', 'Embedded Systems & Industrial Telemetry'),
       icon: <Cpu className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-      punchline: 'Microcontroller firmware, edge sensor loops, and real-time cloud telemetry for automated fluid infrastructure.',
-      skills: [
-        { name: 'ESP32 & Arduino C++', tag: 'FreeRTOS & ADC Calibration' },
-        { name: 'Industrial Sensor Loops', tag: 'Ultrasonic, Flow & Pressure' },
-        { name: 'Closed-Loop PID Control', tag: 'Automated Dosing & Pumps' },
-        { name: 'MQTT & Cloud Sync', tag: 'Firebase Realtime Broker' },
-        { name: 'Actuators & Relays', tag: 'Solenoid Valves & Boosters' },
-        { name: 'Edge Trip Protection', tag: 'Dry-Run & Overflow Cutoffs' }
-      ]
+      punchline: t(
+        'PILLARS.iot_desc',
+        'Microcontroller firmware, edge sensor loops, and real-time cloud telemetry for automated fluid infrastructure.'
+      ),
+      skills: translatedCategories[2]?.skills || []
     }
   ];
 
@@ -70,12 +59,11 @@ export function EngineeringPillarsSection() {
       <CircuitBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Minimal & Punchy */}
+        {/* Section Header */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-500/30">
-              04 // CORE CAPABILITIES
+              04 // {t('PILLARS.section_tag', 'CORE CAPABILITIES')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               01 · 10 · 11 // TELEMETRY
@@ -86,7 +74,10 @@ export function EngineeringPillarsSection() {
             {t('PILLARS.section_title', 'Three Engineering Pillars')}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Bridging fluid physics, modern software architectures, and embedded edge electronics.
+            {t(
+              'PILLARS.section_desc',
+              'Bridging fluid physics, modern software architectures, and embedded edge electronics.'
+            )}
           </p>
         </div>
 
@@ -97,20 +88,17 @@ export function EngineeringPillarsSection() {
               key={pillar.num}
               className="group rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white dark:bg-[#0A1B54]/80 p-6 flex flex-col justify-between hover:border-blue-400 dark:hover:border-cyan-400 transition-all duration-300 shadow-lg relative overflow-hidden backdrop-blur-sm"
             >
-              {/* Corner Technical Crosshairs */}
               <span className="absolute top-2.5 right-2.5 text-[11px] font-mono text-slate-300 dark:text-cyan-400/50 select-none pointer-events-none">
                 +
               </span>
 
               <div>
-                {/* Yellow Tape Strip Badge at Top */}
                 <div className="inline-block mb-3.5">
                   <span className="px-3 py-1 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs uppercase shadow-sm">
                     {pillar.tapeTag}
                   </span>
                 </div>
 
-                {/* Header with Numbered Badge */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
@@ -131,26 +119,24 @@ export function EngineeringPillarsSection() {
                   </span>
                 </div>
 
-                {/* Single Punchline */}
                 <p className="mt-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-sans">
                   {pillar.punchline}
                 </p>
 
-                {/* Clean Technical Skills Grid */}
                 <div className="mt-5 space-y-2 pt-3.5 border-t border-slate-100 dark:border-slate-800">
-                  {pillar.skills.map((skill, sIdx) => (
+                  {pillar.skills.slice(0, 6).map((skill, sIdx) => (
                     <div
                       key={sIdx}
                       className="p-2.5 rounded-lg bg-slate-50 dark:bg-[#07133F] border border-slate-200/80 dark:border-blue-500/20 flex items-center justify-between gap-2"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 min-w-0">
                         <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0" />
-                        <span className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200">
+                        <span className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200 truncate">
                           {skill.name}
                         </span>
                       </div>
                       <span className="text-[10px] font-mono text-slate-500 dark:text-cyan-300/80 bg-slate-100 dark:bg-blue-950/60 px-2 py-0.5 rounded shrink-0">
-                        {skill.tag}
+                        {skill.level}
                       </span>
                     </div>
                   ))}
@@ -159,8 +145,9 @@ export function EngineeringPillarsSection() {
             </div>
           ))}
         </div>
-
       </div>
     </BlueprintCadre>
   );
 }
+
+export default EngineeringPillarsSection;
