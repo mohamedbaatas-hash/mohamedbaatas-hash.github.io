@@ -381,25 +381,41 @@
     }
   ],
   "NAV": {
-    "projects": "Projets",
-    "simulators": "Simulateurs",
-    "experience": "Expérience",
+    "works": "Projets Choisis",
+    "lab": "Laboratoire Interactif",
+    "pillars": "Compétences",
+    "academic": "Pôle Académique",
+    "trajectory": "Parcours",
     "contact": "Contact"
   },
   "HEADER": {
     "name": "Mohamed Baatas",
-    "role": "Hydroinformatique",
-    "download_cv": "Télécharger CV"
+    "role": "Hydroinformatique & Ingénierie Logicielle",
+    "role_short": "Hydroinformatique & Logiciels",
+    "download_cv": "CV / Résumé"
   },
   "HERO": {
-    "tag": "Hydraulique + Systèmes IoT",
-    "title1": "Ingénierie de Haute Précision",
-    "title2": "Hydroinformatique & SCADA",
-    "title3": "Télémétrie",
-    "download_cv": "Télécharger le CV",
-    "explore": "Explorer les Projets",
-    "scada": "Simulateur SCADA",
-    "epanet": "Solveur EPANET"
+    "role_tag": "Ingénieur en Hydroinformatique & Logiciels",
+    "location": "Alger, Algérie / Disponible à distance",
+    "headline_main": "L'Ingénierie à l'Intersection des",
+    "headline_accent": "Infrastructures de l'Eau",
+    "headline_end": "& du Logiciel Moderne.",
+    "bio_refined": "Ingénieur de niveau Master reliant la mécanique des fluides municipale aux applications de bureau de production, aux solveurs EPANET en temps réel et à la télémétrie IoT.",
+    "cta_works": "Voir les Projets Choisis",
+    "cta_lab": "Laboratoire Interactif",
+    "cta_cv": "Télécharger le CV",
+    "stat_edu_lbl": "Formation Académique",
+    "stat_edu_val": "Master + Licence",
+    "stat_edu_det": "Hydraulique et Assainissement",
+    "stat_prod_lbl": "Logiciels en Production",
+    "stat_prod_val": "3 Systèmes Déployés",
+    "stat_prod_det": "Solutions ERP et POS Commerciales",
+    "stat_sim_lbl": "Moteurs de Simulation",
+    "stat_sim_val": "EPANET & SCADA",
+    "stat_sim_det": "Solveurs Physiques Directement dans le Navigateur",
+    "stat_lead_lbl": "Leadership Scientifique",
+    "stat_lead_val": "Club Bernoulli",
+    "stat_lead_det": "Président et Formateur Technique"
   },
   "CASE_STUDIES_SECTION": {
     "tag": "PROJETS_INGÉNIERIE",
@@ -409,7 +425,11 @@
     "expand": "Développer la Méthodologie",
     "problem": "Énoncé du Problème & Vulnérabilité",
     "methodology": "Méthodologie d'Ingénierie & Implémentation",
-    "stack": "Technologies Matérielles & Logicielles"
+    "stack": "Technologies Matérielles & Logicielles",
+    "view_study": "Voir l'étude de cas complète",
+    "expand_all_prompt": "Cliquez pour développer toutes les méthodologies d'ingénierie et architectures.",
+    "expand_all_btn": "Développer toutes les architectures de projets",
+    "collapse_all_btn": "Réduire les études de cas"
   },
   "EXPERIENCE_SECTION": {
     "tag": "PARCOURS_PRO_ACADÉMIQUE",
@@ -418,27 +438,298 @@
     "col1": "Leadership & Expérience Industrielle",
     "col2": "Éducation Académique & Diplômes",
     "accredited": "Diplôme Accrédité",
-    "focus": "Programme & Sujets Principaux"
+    "focus": "Programme & Sujets Principaux",
+    "credentials_count": "Master + Licence en Hydraulique • Huawei Seeds For Future • Leadership associatif",
+    "expand_btn": "Afficher la chronologie complète et les diplômes",
+    "collapse_btn": "Réduire la chronologie",
+    "specialization": "Spécialisation :",
+    "thesis": "Mémoire / Thèse :"
   },
   "SCADA": {
     "tag": "SIMULATEUR_INTERACTIF_01",
     "title": "Simulateur SCADA de Station d'Épuration",
-    "desc": "Simulation cyber-physique continue en temps réel modélisée sur la station d'épuration de Zeriba El Oued. Comprend la modélisation du flux diurne, la digestion anaérobie et la photosynthèse algale facultative."
+    "desc": "Simulation cyber-physique continue en temps réel modélisée sur la station d'épuration de Zeriba El Oued. Comprend la modélisation du flux diurne, la digestion anaérobie et la photosynthèse algale facultative.",
+    "status_ready": "JUMEAU CYBER-PHYSIQUE PRÊT",
+    "launch_desc": "Lancez le schéma SVG interactif complet, réglez les pompes et surveillez la télémétrie.",
+    "launch_btn": "Lancer le simulateur SCADA interactif",
+    "collapse_btn": "Réduire le simulateur"
   },
   "EPANET": {
     "tag": "SIMULATEUR_INTERACTIF_02",
     "title": "Solveur de Réseau Hydraulique EPANET",
-    "desc": "Solveur en temps réel pour un réseau de distribution d'eau sous pression. Comprend les calculs de perte de charge Hazen-Williams, la résolution de la pression des nœuds et la gestion des conditions aux limites des réservoirs."
+    "desc": "Solveur en temps réel pour un réseau de distribution d'eau sous pression. Comprend les calculs de perte de charge Hazen-Williams, la résolution de la pression des nœuds et la gestion des conditions aux limites des réservoirs.",
+    "status_ready": "MOTEUR HYDRAULIQUE COMPILÉ",
+    "launch_desc": "Lancez la vue du réseau interactif, inspectez les pressions nodales et testez les scénarios.",
+    "launch_btn": "Lancer le solveur hydraulique EPANET",
+    "collapse_btn": "Réduire le simulateur"
   },
   "FOOTER": {
-    "desc": "Portfolio d'ingénierie spécialisé reliant l'hydraulique municipale, la télémétrie SCADA cyber-physique, les simulations numériques EPANET et les logiciels web modernes.",
-    "specs": "Spécifications de Simulation",
-    "channels": "Canaux",
-    "rights": "Toutes les spécifications d'ingénierie et le code sont authentiques.",
-    "nominal": "TOUS LES SYSTÈMES NOMINAUX",
+    "desc": "Portfolio d'ingénierie spécialisé reliant l'hydraulique municipale, la télémétrie SCADA, la simulation EPANET et le logiciel moderne.",
+    "navigation": "Navigation Rapide",
+    "channels": "Canaux de Contact",
+    "rights": "Conçu avec précision d'ingénierie et clarté architecturale.",
+    "back_to_top": "Haut de page",
     "github": "Profil GitHub",
-    "linkedin": "Réseau LinkedIn",
-    "telegram": "Chaîne Telegram",
-    "location": "Lat/Long: Alger (36.75°N, 3.05°E)"
+    "linkedin": "Réseau LinkedIn"
+  },
+  "SKILLS_SECTION": {
+    "tag": "MATRICE_DE_COMPETENCES",
+    "title": "Compétences Techniques & Piles d'Ingénierie",
+    "desc": "Catégorisation rigoureuse couvrant la modélisation hydraulique, l'architecture logicielle moderne et la télémétrie IoT.",
+    "core_domains": "Domaines clés de l'ingénierie :",
+    "domain_hydro": "Hydraulique et Assainissement",
+    "domain_soft": "Logiciels et Piles Web",
+    "domain_iot": "Matériel SCADA et IoT",
+    "skills_count": "21 compétences vérifiées en production",
+    "featured_preview": "Aperçu des compétences clés (12 compétences) :",
+    "expand_prompt": "Cliquez pour développer la matrice complète avec descriptions détaillées et niveaux.",
+    "expand_btn": "Afficher la matrice complète et les tableaux",
+    "collapse_btn": "Réduire la matrice"
+  },
+  "FREELANCE_SECTION": {
+    "tag": "LOGICIELS_COMMERCIAUX",
+    "title": "Ingénierie Freelance & Logiciels Sur Mesure",
+    "desc": "Solutions de bureau haute fiabilité, ERP de contrôle d'accès et visualiseurs de données scientifiques déployés pour des clients commerciaux.",
+    "capabilities": "Capacités d'Ingénierie",
+    "view_features": "Voir toutes les capacités",
+    "expand_prompt": "Cliquez pour développer toutes les fonctionnalités et intégrations matérielles.",
+    "expand_btn": "Développer tous les systèmes commerciaux",
+    "collapse_btn": "Réduire les systèmes"
+  },
+  "WORKS": {
+    "section_tag": "Travaux Choisis",
+    "section_title": "Systèmes d'Ingénierie & Logiciels Sélectionnés",
+    "section_desc": "Une sélection rigoureuse d'applications de bureau de production, de pipelines de télémétrie IoT et de modèles hydrauliques computationnels.",
+    "constracker_title": "Constracker Suite",
+    "constracker_sub": "ERP de Bureau pour l'Ingénierie Civile & Gestion de Chantier",
+    "constracker_tag": "Application de Bureau • ERP Chantier",
+    "constracker_desc": "Logiciel de bureau conçu pour fonctionner sans connexion internet sur les chantiers. Conçu avec Electron, React 18 et SQLite3 pour unifier le suivi des ouvriers, les dépenses, l'inventaire et les métrés spécialisés.",
+    "constracker_h1": "Architecture SQLite locale offline-first avec zéro latence.",
+    "constracker_h2": "7 modules intégrés : Projets, Ouvriers, Dépenses, Inventaire, Tâches, Métré et KPIs.",
+    "constracker_h3": "Génération d'exécutables natifs multiplateformes via Electron Builder.",
+    "waterfit_title": "WaterFit Telemetry",
+    "waterfit_sub": "Suivi de Consommation d'Eau Connecté au Cloud & Microservice IoT",
+    "waterfit_tag": "Télémétrie IoT • Microservice Cloud",
+    "waterfit_desc": "Plateforme de télémétrie asynchrone reliant des capteurs d'eau domestiques à une interface conversationnelle Telegram Bot, un backend Python FastAPI et Firebase pour détecter les micro-fuites.",
+    "waterfit_h1": "Interface d'ingestion via Telegram Bot en moins de 2 secondes.",
+    "waterfit_h2": "Écouteurs webhook asynchrones FastAPI avec tâches d'arrière-plan.",
+    "waterfit_h3": "Synchronisation temps réel avec alertes de déficit et drapeaux d'anomalie de fuite.",
+    "maktabi_title": "Maktabi POS & Systèmes Commerciaux",
+    "maktabi_sub": "Gestion de Caisse & ERP de Contrôle d'Accès Biométrique",
+    "maktabi_tag": "Logiciels Commerciaux • Déployés en Production",
+    "maktabi_desc": "Suite d'applications de bureau déployées pour des entreprises commerciales. Maktabi POS gère des catalogues de plus de 10 000 articles avec imprimantes thermiques, et Al-Quds Gym contrôle les tourniquets biométriques avec alertes Telegram.",
+    "maktabi_h1": "Scan et recherche de code-barres en moins d'une seconde sur 10 000+ références.",
+    "maktabi_h2": "Contrôle direct par protocole série des imprimantes thermiques ESC/POS et tiroirs-caisses.",
+    "maktabi_h3": "Intégration matérielle biométrique avec augmentation de 28% des renouvellements via alertes automatiques.",
+    "epanet_title": "EPANET 2.2 Solveur de Réseau Bouclé",
+    "epanet_sub": "Graphe Hydraulique Municipal & Moteur Numérique Temps Réel",
+    "epanet_tag": "Modélisation Hydraulique • Simulation Numérique",
+    "epanet_desc": "Solveur hydraulique dans le navigateur modélisant la distribution d'eau sous pression. Implémente les équations de Hazen-Williams et les itérations non linéaires de Newton-Raphson pour calculer les pressions nodales et vitesses.",
+    "epanet_h1": "Calcul déterministe des pertes de charge calibré aux diamètres et coefficients de rugosité C.",
+    "epanet_h2": "Itérations de gradient de Newton-Raphson calculant les équilibres de pression en temps réel.",
+    "epanet_h3": "Scénarios interactifs : pointe matinale, débit d'incendie, laminage de vannes et rupture de conduite.",
+    "metric_arch": "Architecture",
+    "metric_modules": "Modules",
+    "metric_db": "Base de données",
+    "metric_latency": "Latence Webhook",
+    "metric_compliance": "Taux d'Adhésion",
+    "metric_concurrency": "Débit",
+    "metric_deployment": "Déploiement",
+    "metric_audit": "Temps d'Audit",
+    "metric_uptime": "Disponibilité",
+    "metric_topology": "Topologie",
+    "metric_physics": "Pertes de Charge",
+    "metric_interactivity": "Interactivité"
+  },
+  "LAB": {
+    "section_tag": "Banc d'Essai Expérimental",
+    "section_title": "Le Laboratoire d'Ingénierie Interactif",
+    "section_desc": "Explorez des simulations cyber-physiques déterministes exécutées directement dans votre navigateur. Basculez entre la station d'épuration lagunaire (SCADA) et le solveur de réseau EPANET 2.2.",
+    "tab_scada": "Station SCADA WWTP",
+    "tab_epanet": "Solveur EPANET",
+    "lab_status": "Architecture du Laboratoire",
+    "lab_headline": "Rigueur Mathématique et Interaction Web Directe",
+    "lab_narrative": "Ces moteurs ne sont pas de simples maquettes. Ils exécutent des bilans massiques continus et des équations matricielles hydrauliques entièrement en JavaScript côté client.",
+    "btn_launch_scada": "Lancer la Simulation SCADA",
+    "btn_launch_epanet": "Lancer le Solveur EPANET",
+    "scada_live_title": "Chaîne de Traitement SCADA — STEP Zeriba El Oued (24 000 m³/j)",
+    "epanet_live_title": "Solveur EPANET 2.2 — Réseau Municipal Bouclé",
+    "switch_to_epanet": "Basculer vers EPANET",
+    "switch_to_scada": "Basculer vers SCADA",
+    "close_lab": "Réduire la Console du Laboratoire"
+  },
+  "PILLARS": {
+    "section_tag": "Compétences Clés",
+    "section_title": "Trois Piliers d'Ingénierie",
+    "section_desc": "Relier le domaine physique des fluides et des infrastructures aux logiciels computationnels et au matériel IoT.",
+    "hydro_title": "Systèmes Hydrauliques & Infrastructures",
+    "hydro_tag": "Mécanique des Fluides & Modélisation Sanitaire",
+    "hydro_desc": "Modélisation mathématique rigoureuse des réseaux sous pression, potabilisation municipale et traitement des eaux usées avec SIG spatial.",
+    "software_title": "Architecture Logicielle & Bureau",
+    "software_tag": "Logiciels Modernes & Systèmes Relationnels",
+    "software_desc": "Applications de bureau haute fiabilité, microservices asynchrones, interfaces web sécurisées et bases de données locales robustes.",
+    "iot_title": "IoT Cyber-Physique & Télémétrie Edge",
+    "iot_tag": "Systèmes Embarqués & Capteurs Industriels",
+    "iot_desc": "Firmware pour microcontrôleurs, automatisation locale, conditionnement de signaux industriels et télémétrie bidirectionnelle cloud."
+  },
+  "TRAJECTORY": {
+    "section_tag": "Parcours & Leadership",
+    "section_title": "Expérience d'Ingénierie & Racines Académiques",
+    "section_desc": "Gouvernance de club scientifique, formation aux réseaux d'entreprise et diplômes universitaires en hydraulique et services de l'eau.",
+    "col_leadership": "Leadership & Expérience Industrielle",
+    "col_education": "Titres & Diplômes Académiques",
+    "bernoulli_role": "Président",
+    "bernoulli_org": "Club Scientifique d'Hydraulique Bernoulli",
+    "bernoulli_type": "Leadership & Mentorat Technique",
+    "bernoulli_b1": "Élu pour diriger un comité exécutif de 15+ ingénieurs et une communauté de plus de 100 membres.",
+    "bernoulli_b2": "Conception et animation de masterclasses en modélisation EPANET 2.2 et analyse spatiale ArcGIS Pro.",
+    "bernoulli_b3": "Animation d'ateliers pratiques IoT reliant des microcontrôleurs Arduino à des capteurs de débit, pression et turbidité.",
+    "bernoulli_b4": "Organisation de délégations techniques vers les stations d'épuration et barrages régionaux.",
+    "huawei_role": "Stagiaire en Télécommunications d'Entreprise",
+    "huawei_org": "Huawei ICT Academy, Alger",
+    "huawei_type": "Ingénierie Réseaux d'Entreprise",
+    "huawei_b1": "Maîtrise des protocoles de routage et commutation IP (OSPF, BGP, VLANs, QoS) sur matériel réel.",
+    "huawei_b2": "Analyse des topologies de redondance de centres de données et transmissions à faible latence.",
+    "huawei_b3": "Application directe des principes de fiabilité des télécoms aux réseaux SCADA et capteurs IoT.",
+    "ms_degree": "Master of Science (M.S.) — Gestion des Services d'Eau & Assainissement",
+    "ms_inst": "École Nationale Supérieure d'Hydraulique",
+    "ms_status": "En cours",
+    "ms_detail": "Économie du cycle urbain de l'eau, optimisation des stations d'épuration, réduction des eaux non facturées (NRW), traitement des boues et hydroinformatique.",
+    "bs_degree": "Licence en Sciences (B.S.) — Ingénierie Hydraulique",
+    "bs_inst": "Faculté de Génie Civil & Hydraulique",
+    "bs_status": "Diplômé avec Distinction",
+    "bs_detail": "Mécanique des fluides, hydraulique en charge, écoulement à surface libre, hydrologie, barrages, béton armé hydraulique et mécanique des sols."
+  },
+  "ACADEMIC_HUB": {
+    "section_badge": "TRANSFORMATION ACADÉMIQUE // FLUIDEV",
+    "section_title": "Accompagnement Académique & Pôle Thèses",
+    "section_subtitle": "Transformation de brouillons et recherches d'ingénierie bruts en mémoires prêts pour soutenance, présentations percutantes et publications conformes aux normes universitaires.",
+    "stats": {
+      "theses_transformed": "+50 Thèses",
+      "theses_detail": "Livrées pour soutenances de Master & Doctorat",
+      "defense_ready": "100%",
+      "defense_detail": "Conformes aux exigences et au timing du jury",
+      "turnaround": "< 5 Jours",
+      "turnaround_detail": "Délai rapide pour les échéances critiques",
+      "satisfaction": "3 Langues",
+      "satisfaction_detail": "Maîtrise en Arabe, Français & Anglais"
+    },
+    "tabs": {
+      "thesis_makeover": "Refonte du Mémoire",
+      "presentation_mockup": "Présentation Soutenance",
+      "services": "Services Académiques"
+    },
+    "makeover": {
+      "kicker": "AVANT & APRÈS // TRANSFORMATION INTERACTIVE",
+      "title": "Votre recherche mérite une présentation à la hauteur de vos efforts.",
+      "description": "Nous transformons les brouillons bruts, les citations désordonnées et les titres disparates en un manuscrit académique soigné, rigoureux et prêt pour le jury.",
+      "toggle_split": "Comparaison Séparée",
+      "toggle_before": "Brouillon Brut (Avant)",
+      "toggle_after": "Mémoire FluiDev (Après)",
+      "slider_instruction": "Faites glisser le curseur ou cliquez sur les boutons pour révéler la métamorphose",
+      "before_badge": "AVANT // BROUILLON BRUT",
+      "before_status": "Non structuré & Désorganisé",
+      "before_title": "Étude aération lagunage facultatif STEP",
+      "before_penalty": "Pénalités de mise en page & citations manquantes",
+      "before_note_1": "Marges irrégulières & polices disparates",
+      "before_note_2": "Hiérarchie de titres rompue sans styles Word",
+      "before_note_3": "Bibliographie manuelle désordonnée",
+      "before_note_4": "Fautes de frappe & style non académique",
+      "after_badge": "APRÈS // PRÊT POUR SOUTENANCE",
+      "after_status": "Normes Universitaires Accréditées",
+      "after_chapter": "CHAPITRE 01 // HYDRODYNAMIQUE",
+      "after_title": "Modélisation Hydrodynamique et Optimisation de l'Oxygène Dissous en Lagunage Facultatif",
+      "after_subtitle": "École Nationale Supérieure d'Hydraulique • Mémoire de Recherche",
+      "after_lead": "Analyse expérimentale des cinétiques biologiques et du transfert de masse dans les stations d'épuration décentralisées sous climat aride.",
+      "after_citation": "[Baatas et al., 2026 • Normes IEEE / APA 7th]",
+      "hotspots": {
+        "h1_title": "Hiérarchie Structurée des Titres",
+        "h1_desc": "Styles H1/H2/H3 conformes aux normes universitaires avec interligne calibré et numérotation automatique des chapitres.",
+        "h2_title": "Indexation Automatique & Figures",
+        "h2_desc": "Sommaire dynamique, tables des figures et tableaux, avec pagination distincte (romaine pour les préliminaires, arabe pour le corps).",
+        "h3_title": "Harmonisation APA / IEEE",
+        "h3_desc": "Normalisation des citations dans le texte et de la bibliographie avec vérification des DOI et synchronisation Zotero/Mendeley.",
+        "h4_title": "Relecture Scientifique & Terminologie",
+        "h4_desc": "Correction orthographique rigoureuse, fluidité syntaxique et harmonisation de la terminologie technique en arabe, français et anglais."
+      }
+    },
+    "presentation": {
+      "kicker": "DIAPOSITIVE DE SOUTENANCE // SUPPORT VISUEL",
+      "title": "Du mémoire technique à une soutenance fluide et percutante devant le jury.",
+      "subtitle": "Les jurys évaluent la clarté et la maîtrise. Nous créons des supports de présentation conçus sur mesure pour les soutenances de Master et Doctorat avec infographies vectorielles et storytelling soigné.",
+      "screen_kicker": "SOUTENANCE DE THÈSE // 2026",
+      "slide_title": "RÉSULTATS DE RECHERCHE : OPTIMISATION STEP",
+      "slide_subtitle": "Télémétrie hydroinformatique & bilan de masse",
+      "presenter": "Ing. Mohamed Baatas — Ingénieur Hydroinformatique",
+      "institution": "École Nationale Supérieure d'Hydraulique",
+      "metrics": {
+        "cod_label": "Rendement Élimination DCO",
+        "cod_value": "92.4%",
+        "cod_target": "Objectif requis > 85.0%",
+        "bod_label": "Conformité DBO5",
+        "bod_value": "89.1%",
+        "bod_target": "Normes Réglementaires Respectées",
+        "energy_label": "Économie d'Énergie Aération",
+        "energy_value": "+28.5%",
+        "energy_target": "Régulation en Boucle Fermée",
+        "do_label": "Stabilité Oxygène Dissous",
+        "do_value": "4.8 mg/L",
+        "do_target": "Plage Biologique Optimale"
+      },
+      "takeaways": [
+        "Narration concise et structurée mettant en valeur la rigueur méthodologique",
+        "Graphiques vectoriels haute définition captant l'attention du jury",
+        "Rythme visuel calibré pour respecter scrupuleusement le temps imparti"
+      ]
+    },
+    "services": {
+      "kicker": "ACCOMPAGNEMENT INTÉGRAL",
+      "title": "Quatre Services Clés d'Ingénierie Académique",
+      "subtitle": "Assistance éditoriale, technique et visuelle complète pour chercheurs et étudiants en ingénierie.",
+      "items": {
+        "format": {
+          "number": "01",
+          "title": "Mise en Page Académique Professionnelle",
+          "desc": "Mise en page rigoureuse selon le canevas officiel de l'université, marges, hiérarchie typographique et pagination automatique.",
+          "deliverables": ["Respect du Guide de l'Université", "Sommaire & Tables des Figures Automatiques", "Numérotation Hiérarchique des Titres", "Pages de Garde & Annexes Structurées"]
+        },
+        "language": {
+          "number": "02",
+          "title": "Relecture & Correction Linguistique",
+          "desc": "Relecture scientifique approfondie en arabe, français et anglais, élimination des coquilles et raffinement du style académique.",
+          "deliverables": ["Syntaxe Scientifique Soignée", "Orthographe & Grammaire Impeccables", "Relecture Trilingue (AR / FR / EN)", "Terminologie Technique Unifiée"]
+        },
+        "references": {
+          "number": "03",
+          "title": "Gestion des Références & Indexation (APA / IEEE)",
+          "desc": "Normalisation des citations (APA 7e, IEEE), vérification des identifiants DOI, consolidation bibliographique et indexation.",
+          "deliverables": ["Conformité APA 7e / IEEE / Vancouver", "Vérification des Liens & DOI", "Intégration Mendeley / Zotero / BibTeX", "Renvois Automatisés aux Figures"]
+        },
+        "presentation": {
+          "number": "04",
+          "title": "Conception de Présentations de Soutenance",
+          "desc": "Diaporamas percutants conçus pour les jurys de soutenance, alliant concision rédactionnelle et visualisations scientifiques.",
+          "deliverables": ["Fichier PowerPoint / PDF Clé en Main", "Infographies Vectorielles Sur Mesure", "Structure Chronologique Efficace", "Fiches Mémo pour l'Exposé Oral"]
+        }
+      }
+    },
+    "ethics": {
+      "badge": "CHARTE D'INTÉGRITÉ SCIENTIFIQUE",
+      "title": "Accompagnement Académique Responsable & Éthique",
+      "description": "Nous intervenons sur la mise en page, la révision linguistique, la normalisation des citations et le design visuel des diapositives. L'ensemble des calculs, expérimentations et déductions scientifiques demeure à 100% l'œuvre originale et exclusive de l'étudiant, dans le respect absolu de l'éthique de la recherche."
+    },
+    "cta": {
+      "ready_kicker": "PRÊT POUR VOTRE SOUTENANCE ?",
+      "title": "Réservez Votre Refonte de Mémoire ou de Diaporama",
+      "subtitle": "Transmettez votre spécialité, votre document préliminaire et votre date butoir pour une évaluation technique immédiate et un devis de planning.",
+      "btn_whatsapp": "Contacter sur WhatsApp",
+      "btn_telegram": "Contacter sur Telegram",
+      "btn_inquire": "Commander un Accompagnement",
+      "guarantees": [
+        "Livraison rapide adaptée aux délais stricts de soutenance",
+        "Confidentialité absolue & 100% de préservation de l'originalité",
+        "Ajustements et révisions continus jusqu'au jour de la soutenance"
+      ]
+    }
   }
 }

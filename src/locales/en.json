@@ -381,25 +381,41 @@
     }
   ],
   "NAV": {
-    "projects": "Projects",
-    "simulators": "Simulators",
-    "experience": "Experience",
+    "works": "Selected Works",
+    "lab": "Engineering Lab",
+    "pillars": "Capabilities",
+    "academic": "Academic Hub",
+    "trajectory": "Experience",
     "contact": "Contact"
   },
   "HEADER": {
     "name": "Mohamed Baatas",
-    "role": "Hydroinformatics",
-    "download_cv": "Download CV"
+    "role": "Hydroinformatics & Software Engineer",
+    "role_short": "Hydroinformatics & Software",
+    "download_cv": "Resume / CV"
   },
   "HERO": {
-    "tag": "Hydraulics + IoT Systems",
-    "title1": "Engineering High-Precision",
-    "title2": "Hydroinformatics & SCADA",
-    "title3": "Telemetry",
-    "download_cv": "Download Resume / CV",
-    "explore": "Explore Engineering Case Studies",
-    "scada": "SCADA Simulator",
-    "epanet": "EPANET Solver"
+    "role_tag": "Hydroinformatics & Software Engineer",
+    "location": "Algiers, Algeria / Remote Available",
+    "headline_main": "Engineering at the Intersection of",
+    "headline_accent": "Water Infrastructure",
+    "headline_end": "& Modern Software.",
+    "bio_refined": "Master's-level engineer bridging municipal fluid mechanics with production desktop applications, real-time EPANET hydraulic solvers, and embedded IoT telemetry pipelines.",
+    "cta_works": "View Selected Works",
+    "cta_lab": "Interactive Engineering Lab",
+    "cta_cv": "Resume / CV",
+    "stat_edu_lbl": "Academic Foundation",
+    "stat_edu_val": "M.S. + B.S. Degree",
+    "stat_edu_det": "Hydraulics & Water Sanitation",
+    "stat_prod_lbl": "Production Software",
+    "stat_prod_val": "3 Systems Deployed",
+    "stat_prod_det": "Commercial Retail POS & ERP Solutions",
+    "stat_sim_lbl": "Simulation Engines",
+    "stat_sim_val": "EPANET & SCADA",
+    "stat_sim_det": "Deterministic In-Browser Physical Solvers",
+    "stat_lead_lbl": "Scientific Leadership",
+    "stat_lead_val": "Bernoulli Club",
+    "stat_lead_det": "President & Masterclass Instructor"
   },
   "CASE_STUDIES_SECTION": {
     "tag": "ENGINEERING_PROJECTS",
@@ -409,7 +425,11 @@
     "expand": "Expand Full Methodology",
     "problem": "Problem Statement & Field Vulnerability",
     "methodology": "Engineered Methodology & Technical Implementation",
-    "stack": "Hardware & Software Technology Stack"
+    "stack": "Hardware & Software Technology Stack",
+    "view_study": "View Full Case Study",
+    "expand_all_prompt": "Click to expand all engineering methodologies, field problems, and architectural stacks.",
+    "expand_all_btn": "Expand Complete Project Architectures",
+    "collapse_all_btn": "Collapse Case Studies"
   },
   "EXPERIENCE_SECTION": {
     "tag": "CAREER_AND_ACADEMICS",
@@ -418,27 +438,298 @@
     "col1": "Leadership & Industry Experience",
     "col2": "Academic Education & Degrees",
     "accredited": "Accredited Degree",
-    "focus": "Curriculum Focus & Core Subjects"
+    "focus": "Curriculum Focus & Core Subjects",
+    "credentials_count": "M.S. + B.S. in Hydraulics & Sanitation • Huawei Seeds For Future • Scientific Club Leadership",
+    "expand_btn": "Expand Full Timeline & Credentials",
+    "collapse_btn": "Collapse Timeline",
+    "specialization": "Specialization:",
+    "thesis": "Focus / Thesis:"
   },
   "SCADA": {
     "tag": "INTERACTIVE_SIMULATOR_01",
     "title": "SCADA Smart Natural Lagoon WWTP Simulator",
-    "desc": "Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant. Features real-time diurnal flow modeling, anaerobic digestion, and facultative algal photosynthesis."
+    "desc": "Live continuous cyber-physical process simulation modeled on the Zeriba El Oued municipal wastewater treatment plant. Features real-time diurnal flow modeling, anaerobic digestion, and facultative algal photosynthesis.",
+    "status_ready": "CYBER-PHYSICAL TWIN READY",
+    "launch_desc": "Launch the full interactive SVG diagram, adjust live pumps, trigger surges, and monitor telemetry.",
+    "launch_btn": "Launch Interactive SCADA Simulator",
+    "collapse_btn": "Collapse Simulator"
   },
   "EPANET": {
     "tag": "INTERACTIVE_SIMULATOR_02",
     "title": "EPANET Hydraulic Network Solver",
-    "desc": "Real-time solver for a pressurized water distribution network. Features Hazen-Williams headloss calculations, demand-driven node pressure resolution, and tank boundary condition management."
+    "desc": "Real-time solver for a pressurized water distribution network. Features Hazen-Williams headloss calculations, demand-driven node pressure resolution, and tank boundary condition management.",
+    "status_ready": "HYDRAULIC ENGINE COMPILED",
+    "launch_desc": "Launch the interactive network canvas, inspect nodal pressures, throttle valves, and run real-time scenarios.",
+    "launch_btn": "Launch Interactive EPANET Solver",
+    "collapse_btn": "Collapse Simulator"
   },
   "FOOTER": {
-    "desc": "Specialized engineering portfolio bridging municipal water hydraulics, cyber-physical SCADA telemetry, EPANET numerical simulations, and modern web software.",
-    "specs": "Simulation Specs",
+    "desc": "Specialized engineering portfolio bridging municipal water hydraulics, cyber-physical SCADA telemetry, EPANET numerical simulations, and modern software.",
+    "navigation": "Quick Navigation",
     "channels": "Channels",
-    "rights": "All engineering specifications and code genuine.",
-    "nominal": "ALL SYSTEMS NOMINAL",
+    "rights": "Engineered with Precision & Minimalist Clarity.",
+    "back_to_top": "Back to top",
     "github": "GitHub Profile",
-    "linkedin": "LinkedIn Network",
-    "telegram": "Telegram Channel",
-    "location": "Lat/Long: Algiers (36.75°N, 3.05°E)"
+    "linkedin": "LinkedIn Network"
+  },
+  "SKILLS_SECTION": {
+    "tag": "COMPETENCIES_MATRIX",
+    "title": "Technical Competencies & Engineering Stacks",
+    "desc": "Rigorous domain categorization across hydraulic modeling, modern full-stack software architecture, and cyber-physical IoT telemetry.",
+    "core_domains": "Core Engineering Domains:",
+    "domain_hydro": "Hydraulics & Sanitation",
+    "domain_soft": "Software & Web Stacks",
+    "domain_iot": "SCADA & IoT Hardware",
+    "skills_count": "21 Verified Production Skills",
+    "featured_preview": "Featured Competencies Preview (12 Skills):",
+    "expand_prompt": "Click to expand complete capability matrix with detailed engineering descriptions, standards, and levels.",
+    "expand_btn": "Expand Full Competency Matrix & Tables",
+    "collapse_btn": "Collapse Matrix"
+  },
+  "FREELANCE_SECTION": {
+    "tag": "COMMERCIAL_SOFTWARE",
+    "title": "Freelance Engineering & Bespoke Software",
+    "desc": "High-reliability desktop solutions, access control ERPs, and custom scientific data visualizers designed and deployed for commercial business clients.",
+    "capabilities": "Engineered Capabilities",
+    "view_features": "View Full Capabilities",
+    "expand_prompt": "Click to expand all engineering capabilities, hardware integrations, and client deployment details.",
+    "expand_btn": "Expand All Commercial Systems",
+    "collapse_btn": "Collapse Systems"
+  },
+  "WORKS": {
+    "section_tag": "Signature Works",
+    "section_title": "Selected Engineering & Software Systems",
+    "section_desc": "A curated portfolio of production desktop applications, IoT telemetry pipelines, and computational hydraulic models built for real-world impact.",
+    "constracker_title": "Constracker Suite",
+    "constracker_sub": "Civil Engineering & Construction Management Desktop ERP",
+    "constracker_tag": "Desktop Application • Civil ERP",
+    "constracker_desc": "Offline-first desktop software engineered to eliminate data fragmentation on construction sites. Built with Electron, React 18, and SQLite3 to unify worker assignments, expense budgeting, material inventory, and specialized measurements without requiring active internet.",
+    "constracker_h1": "Offline-first local SQLite architecture with zero-latency data querying in remote locations.",
+    "constracker_h2": "7 integrated core modules: Projects, Workers, Expenses, Inventory, Tasks, Metre, and KPIs.",
+    "constracker_h3": "Cross-platform native executable packaging via Electron Builder.",
+    "waterfit_title": "WaterFit Telemetry",
+    "waterfit_sub": "Cloud-Connected Water Consumption & IoT Microservice",
+    "waterfit_tag": "IoT Telemetry • Cloud Microservice",
+    "waterfit_desc": "Asynchronous telemetry platform connecting domestic water sensors and conversational interfaces. Combines Telegram Bot API with an asynchronous Python FastAPI backend and Firebase Firestore to log hydration, calibrate fluid deficits to ambient temperatures, and spot abnormal micro-leaks.",
+    "waterfit_h1": "Conversational sub-2s ingestion interface via Telegram Bot API.",
+    "waterfit_h2": "Asynchronous FastAPI webhook listeners with event-driven background tasks.",
+    "waterfit_h3": "Real-time sync to Firebase with proactive deficit alerts and leak anomaly flags.",
+    "maktabi_title": "Maktabi POS & Commercial Systems",
+    "maktabi_sub": "Production Retail Inventory Ledger & Biometric Access ERPs",
+    "maktabi_tag": "Commercial Software • Retail Production",
+    "maktabi_desc": "Suite of high-reliability commercial desktop applications deployed for business clients in retail and fitness. Maktabi POS manages 10,000+ item catalogs with hardware thermal receipt printing, while Al-Quds Gym Manager controls member RFID/biometric turnstiles with automated SMS/Telegram renewal alerts.",
+    "maktabi_h1": "Sub-second barcode lookup across 10,000+ SKU inventory databases.",
+    "maktabi_h2": "Direct ESC/POS thermal printer and automated cash drawer serial protocol control.",
+    "maktabi_h3": "Hardware biometric integration with +28% member renewal increase via automated Telegram alerts.",
+    "epanet_title": "EPANET 2.2 Looped Network Solver",
+    "epanet_sub": "Interactive Municipal Hydraulic Graph & Numerical Engine",
+    "epanet_tag": "Hydraulic Modeling • Numerical Simulation",
+    "epanet_desc": "Deterministic in-browser hydraulic solver modeling pressurized municipal drinking water distribution. Implements Hazen-Williams friction equations and Newton-Raphson nonlinear matrix iterations to compute nodal pressures, pipe velocities, valve throttling, and rupture scenarios.",
+    "epanet_h1": "Deterministic head loss computation calibrated to roughness C-factors and pipe diameters.",
+    "epanet_h2": "Newton-Raphson nodal gradient iterations computing dynamic pressure balances in real-time.",
+    "epanet_h3": "Interactive scenario testing: diurnal morning peak, fire flow suppression, and pipe rupture.",
+    "metric_arch": "Architecture",
+    "metric_modules": "Modules",
+    "metric_db": "Database",
+    "metric_latency": "Webhook Latency",
+    "metric_compliance": "Compliance Rate",
+    "metric_concurrency": "Throughput",
+    "metric_deployment": "Deployment",
+    "metric_audit": "Audit Time Saved",
+    "metric_uptime": "System Uptime",
+    "metric_topology": "Topology",
+    "metric_physics": "Head Loss",
+    "metric_interactivity": "Interactivity"
+  },
+  "LAB": {
+    "section_tag": "Experimental Testbed",
+    "section_title": "The Interactive Engineering Lab",
+    "section_desc": "Explore live, deterministic cyber-physical simulations executed directly in your browser. Toggle between the natural lagoon WWTP process train and the pressurized looped EPANET hydraulic solver.",
+    "tab_scada": "SCADA Water Plant",
+    "tab_epanet": "EPANET Solver",
+    "lab_status": "Laboratory Architecture",
+    "lab_headline": "Mathematical Rigor Meets In-Browser Interaction",
+    "lab_narrative": "These engines aren't mockups. They run continuous time-step mass balance, diurnal flow algorithms, and non-linear hydraulic matrix equations entirely on client-side JavaScript.",
+    "btn_launch_scada": "Launch SCADA Simulation",
+    "btn_launch_epanet": "Launch EPANET Solver",
+    "scada_live_title": "SCADA Process Train — Zeriba El Oued WWTP (24,000 m³/day)",
+    "epanet_live_title": "EPANET 2.2 Network Solver — Looped Municipal Grid",
+    "switch_to_epanet": "Switch to EPANET",
+    "switch_to_scada": "Switch to SCADA",
+    "close_lab": "Minimize Lab Console"
+  },
+  "PILLARS": {
+    "section_tag": "Core Capabilities",
+    "section_title": "Three Engineering Pillars",
+    "section_desc": "Bridging the physical domain of fluids and infrastructure with modern computational software and edge hardware.",
+    "hydro_title": "Hydraulic Systems & Infrastructure",
+    "hydro_tag": "Fluid Mechanics & Sanitary Modeling",
+    "hydro_desc": "Rigorous mathematical modeling of pressurized pipe grids, municipal potabilization, and wastewater treatment processes with spatial geospatial integration.",
+    "software_title": "Full-Stack & Desktop Architecture",
+    "software_tag": "Modern Software & Relational Systems",
+    "software_desc": "High-reliability desktop applications, asynchronous microservices, type-safe frontend interfaces, and resilient local-first offline databases.",
+    "iot_title": "Cyber-Physical IoT & Edge Telemetry",
+    "iot_tag": "Embedded Systems & Industrial Telemetry",
+    "iot_desc": "Microcontroller firmware, edge automation, industrial sensor signal conditioning, and bidirectional cloud telemetry pipelines."
+  },
+  "TRAJECTORY": {
+    "section_tag": "Background & Leadership",
+    "section_title": "Engineering Experience & Academic Roots",
+    "section_desc": "Scientific club governance, enterprise telecommunication training, and accredited academic degrees in municipal water services and hydraulics.",
+    "col_leadership": "Leadership & Industry Training",
+    "col_education": "Academic Credentials",
+    "bernoulli_role": "President",
+    "bernoulli_org": "Bernoulli Hydraulics Scientific Club",
+    "bernoulli_type": "Leadership & Technical Mentorship",
+    "bernoulli_b1": "Elected to lead an executive committee of 15+ student engineers and a community of 100+ active members.",
+    "bernoulli_b2": "Designed and delivered technical masterclasses in EPANET 2.2 hydraulic modeling and ArcGIS Pro spatial analysis.",
+    "bernoulli_b3": "Conducted hands-on IoT hardware workshops interfacing Arduino microcontrollers with flow, pressure, and turbidity sensors.",
+    "bernoulli_b4": "Coordinated technical field delegations to regional municipal water treatment plants and dam reservoirs.",
+    "huawei_role": "Enterprise Telecommunications Intern",
+    "huawei_org": "Huawei ICT Academy, Algiers",
+    "huawei_type": "Enterprise Network Engineering",
+    "huawei_b1": "Mastered enterprise IP routing and switching protocols (OSPF, BGP, VLAN tagging, QoS) across production equipment.",
+    "huawei_b2": "Analyzed data center network redundancy topologies and low-latency packet transmission architectures.",
+    "huawei_b3": "Transferred enterprise network reliability principles directly to industrial SCADA and edge IoT sensor networks.",
+    "ms_degree": "Master of Science (M.S.) — Water & Sanitation Services Management",
+    "ms_inst": "National Higher Education Institution",
+    "ms_status": "Enrolled",
+    "ms_detail": "Urban water cycle economics, wastewater treatment plant optimization, non-revenue water (NRW) reduction, sludge digestor treatment, and hydroinformatics computational methods.",
+    "bs_degree": "Bachelor of Science (B.S.) — Hydraulics Engineering",
+    "bs_inst": "Faculty of Civil & Hydraulic Engineering",
+    "bs_status": "Graduated with Distinction",
+    "bs_detail": "Fluid mechanics, pressurized pipeline hydraulics, open-channel flow, hydrology, dam engineering, reinforced concrete for hydraulic structures, and soil mechanics."
+  },
+  "ACADEMIC_HUB": {
+    "section_badge": "ACADEMIC TRANSFORMATION // FLUIDEV",
+    "section_title": "Academic Transformation & Thesis Hub",
+    "section_subtitle": "Transforming raw scientific research and engineering drafts into defense-ready theses, high-impact Soutenance presentation decks, and university-compliant publications.",
+    "stats": {
+      "theses_transformed": "50+ Theses",
+      "theses_detail": "Delivered for Master & PhD defenses",
+      "defense_ready": "100%",
+      "defense_detail": "Jury-compliant formatting & timing",
+      "turnaround": "< 5 Days",
+      "turnaround_detail": "Rapid turnaround for critical deadlines",
+      "satisfaction": "3 Languages",
+      "satisfaction_detail": "Arabic, French & English proficiency"
+    },
+    "tabs": {
+      "thesis_makeover": "Thesis Makeover",
+      "presentation_mockup": "Defense Presentation",
+      "services": "Academic Services"
+    },
+    "makeover": {
+      "kicker": "BEFORE & AFTER // INTERACTIVE MAKEOVER",
+      "title": "Your research deserves presentation that matches your effort.",
+      "description": "We take raw unformatted drafts, disorganized citations, and broken headings, turning them into a clean, university-compliant, defense-ready manuscript.",
+      "toggle_split": "Split Compare",
+      "toggle_before": "Raw Draft (Before)",
+      "toggle_after": "FluiDev Thesis (After)",
+      "slider_instruction": "Drag the slider or click buttons to reveal the structural transformation",
+      "before_badge": "BEFORE // RAW DRAFT",
+      "before_status": "Unstructured & Disorganized",
+      "before_title": "Study of WWTP facultative lagoon aeration",
+      "before_penalty": "Formatting penalty & missing citations",
+      "before_note_1": "Inconsistent margins & uncalibrated fonts",
+      "before_note_2": "Broken heading numbering & missing styles",
+      "before_note_3": "Disorganized manual bibliography",
+      "before_note_4": "Typographical errors & informal phrasing",
+      "after_badge": "AFTER // DEFENSE READY",
+      "after_status": "Accredited University Standard",
+      "after_chapter": "CHAPTER 01 // HYDRODYNAMICS",
+      "after_title": "Hydrodynamic Modeling and Dissolved Oxygen Optimization in Facultative Lagoons",
+      "after_subtitle": "National Higher School of Hydraulics • Research Thesis",
+      "after_lead": "Experimental analysis of biological kinetics and kinetic mass transfer in decentralized wastewater stabilization ponds under arid climate conditions.",
+      "after_citation": "[Baatas et al., 2026 • IEEE / APA 7th Compliant]",
+      "hotspots": {
+        "h1_title": "Structural Heading Hierarchy",
+        "h1_desc": "University-approved H1/H2/H3 styles with calibrated leading and automated section numbering.",
+        "h2_title": "Automated Indexing & Figures",
+        "h2_desc": "Dynamic Table of Contents, List of Figures and Tables, and separate Roman/Arabic pagination.",
+        "h3_title": "Unified APA / IEEE References",
+        "h3_desc": "Standardized citations with DOI verification and Mendeley/Zotero reference manager sync.",
+        "h4_title": "Academic Proofreading & Terminology",
+        "h4_desc": "Rigorous scientific terminology polish and grammatical correction in Arabic, French, and English."
+      }
+    },
+    "presentation": {
+      "kicker": "SOUTENANCE DEFENSE SLIDE // PRESENTATION DECK",
+      "title": "From dense thesis chapters to an impactful, persuasive defense.",
+      "subtitle": "Juries evaluate clarity and confidence. We craft executive presentation decks tailored for Master and PhD defenses with custom vector charts, data infographics, and clean storytelling.",
+      "screen_kicker": "THESIS DEFENSE // SOUTENANCE 2026",
+      "slide_title": "RESEARCH FINDINGS: WWTP OPTIMIZATION",
+      "slide_subtitle": "Hydroinformatics telemetry & mass balance analysis",
+      "presenter": "Eng. Mohamed Baatas — Hydroinformatics Engineer",
+      "institution": "National Higher School of Hydraulics",
+      "metrics": {
+        "cod_label": "COD Removal Efficiency",
+        "cod_value": "92.4%",
+        "cod_target": "Target > 85.0%",
+        "bod_label": "BOD5 Compliance Rate",
+        "bod_value": "89.1%",
+        "bod_target": "Regulatory Norms Met",
+        "energy_label": "Aeration Energy Savings",
+        "energy_value": "+28.5%",
+        "energy_target": "Closed-loop DO Control",
+        "do_label": "Dissolved Oxygen Stability",
+        "do_value": "4.8 mg/L",
+        "do_target": "Optimal Biological Range"
+      },
+      "takeaways": [
+        "Structured & concise narrative highlighting experimental methodology",
+        "High-definition vector charts that impress defense committee members",
+        "Visual pacing engineered to keep jury attention within strict time limits"
+      ]
+    },
+    "services": {
+      "kicker": "COMPREHENSIVE ACCOMPANIMENT",
+      "title": "Four Core Academic Engineering Services",
+      "subtitle": "End-to-end editorial, technical, and presentation assistance for researchers and engineering students.",
+      "items": {
+        "format": {
+          "number": "01",
+          "title": "Academic Formatting & University Standards",
+          "desc": "Complete formatting aligned with official university guidelines, margin standards, font hierarchy, and automated pagination.",
+          "deliverables": ["Official University Guidelines", "Automated Table of Contents & Figures", "Hierarchical Section Numbering", "Front Matter & Appendices Layout"]
+        },
+        "language": {
+          "number": "02",
+          "title": "Scientific Linguistic Proofreading",
+          "desc": "Rigorous linguistic proofreading in Arabic, French, and English, eliminating grammatical flaws and elevating academic phrasing.",
+          "deliverables": ["Academic Phrasing & Syntax Polish", "Precise Scientific Terminology", "Trilingual Review (AR / FR / EN)", "Zero Grammar or Typographical Flaws"]
+        },
+        "references": {
+          "number": "03",
+          "title": "Reference Management & Indexing",
+          "desc": "Standardized citation styling (APA 7th, IEEE), DOI verification, bibliography consolidation, and table/figure indexing.",
+          "deliverables": ["APA 7th / IEEE / Vancouver Standards", "DOI & Link Verification", "Mendeley / Zotero / BibTeX Integration", "Figure & Table Cross-Referencing"]
+        },
+        "presentation": {
+          "number": "04",
+          "title": "Soutenance Defense Slide Decks",
+          "desc": "High-impact presentation decks engineered for defense juries, combining executive conciseness with custom scientific charts.",
+          "deliverables": ["Defense-Ready PowerPoint / PDF", "Custom Vector Infographics & Charts", "Structured Slide Flow & Timing", "Speaker Notes & Presentation Coaching"]
+        }
+      }
+    },
+    "ethics": {
+      "badge": "ACADEMIC INTEGRITY GUARANTEE",
+      "title": "Responsible Academic Accompaniment & Scientific Ethics",
+      "description": "We provide editorial, formatting, linguistic, and presentation structuring support. All core scientific research, calculations, data collection, and intellectual conclusions remain 100% the student's original work in strict adherence to academic honesty and ethics."
+    },
+    "cta": {
+      "ready_kicker": "READY FOR YOUR DEFENSE?",
+      "title": "Book Your Academic Thesis & Presentation Makeover",
+      "subtitle": "Send your field of study, draft document, and target defense deadline for an immediate technical evaluation and timeline quote.",
+      "btn_whatsapp": "Inquire via WhatsApp",
+      "btn_telegram": "Contact on Telegram",
+      "btn_inquire": "Order Academic Support",
+      "guarantees": [
+        "Rapid turnaround respecting tight defense deadlines",
+        "Strict confidentiality & 100% scientific originality preservation",
+        "Continuous adjustments and revisions up to defense day"
+      ]
+    }
   }
 }

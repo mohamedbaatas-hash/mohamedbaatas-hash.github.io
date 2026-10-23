@@ -1,16 +1,119 @@
+@import './figma/index.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
+  :root {
     color-scheme: dark;
+    --bg-app: #07133f;
+    --bg-surface: #0a1b54;
+    --bg-elevated: #0e246e;
+    --text-primary: #f8fafc;
+    --text-secondary: #a9b9e7;
+    --text-muted: #8292c2;
+    --border-cadre: rgba(0, 229, 255, 0.18);
+    --border-accent: #00e5ff;
+    --color-accent-blue: #001db5;
+    --color-accent-cyan: #00e5ff;
+    --color-accent-yellow: #f7b500;
+    --accent-yellow: #f7b500;
+    --accent-cyan: #00e5ff;
   }
-  
+
+  html.light,
+  .light {
+    color-scheme: light;
+    --bg-app: #f8f9fa;
+    --bg-surface: #ffffff;
+    --bg-elevated: #f1f4f9;
+    --text-primary: #07133f;
+    --text-secondary: #4d5774;
+    --text-muted: #68718a;
+    --border-cadre: rgba(0, 29, 181, 0.15);
+    --border-accent: #001db5;
+    --color-accent-blue: #001db5;
+    --color-accent-cyan: #00aeea;
+    --color-accent-yellow: #f7b500;
+    --accent-yellow: #f7b500;
+    --accent-cyan: #00aeea;
+
+    background-color: #f8f9fa;
+    background-image:
+      linear-gradient(rgba(0, 50, 160, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 50, 160, 0.08) 1px, transparent 1px);
+    background-size: 18px 18px;
+    color: #07133f;
+  }
+
+  html.dark,
+  .dark {
+    color-scheme: dark;
+    --bg-app: #07133f;
+    --bg-surface: #0a1b54;
+    --bg-elevated: #0e246e;
+    --text-primary: #f8fafc;
+    --text-secondary: #a9b9e7;
+    --text-muted: #8292c2;
+    --border-cadre: rgba(0, 229, 255, 0.18);
+    --border-accent: #00e5ff;
+    --color-accent-blue: #001db5;
+    --color-accent-cyan: #00e5ff;
+    --color-accent-yellow: #f7b500;
+    --accent-yellow: #f7b500;
+    --accent-cyan: #00e5ff;
+
+    background-color: #07133f;
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #f8fafc;
+  }
+
   body {
-    background-color: #020617;
-    color: #f1f5f9;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
+
+  html.light body,
+  body.light {
+    background-color: #f8f9fa;
+    background-image:
+      linear-gradient(rgba(0, 50, 160, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 50, 160, 0.08) 1px, transparent 1px);
+    background-size: 18px 18px;
+    color: #07133f;
+  }
+
+  html.dark body,
+  body.dark {
+    background-color: #07133f;
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #f8fafc;
+  }
+}
+
+/* Engineering Graph Paper Backgrounds */
+.bg-graph-paper {
+  background-color: #f8f9fa;
+  background-image:
+    linear-gradient(rgba(0, 50, 160, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 50, 160, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.dark .bg-graph-paper {
+  background-color: #07133f;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* Monospace Telemetry Font Features */
@@ -18,24 +121,37 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Dark Slate Industrial Scrollbars */
+/* Responsive Technical Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1120;
+  background: #040b26;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f4f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #0e246e;
   border-radius: 4px;
-  border: 1px solid #334155;
+  border: 1px solid rgba(0, 229, 255, 0.25);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #a9b9e7;
+  border: 1px solid rgba(0, 29, 181, 0.15);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #1a3a99;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #001db5;
 }
 
 /* Strict Zero Custom Cursor / Pure Native Pointer */
@@ -45,4 +161,33 @@
 
 button, a, select, input[type="button"], input[type="submit"], [role="button"] {
   cursor: pointer;
+}
+
+
+/* Blueprint Animations */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinReverseSlow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 50s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverseSlow 35s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
 }

@@ -23,9 +23,17 @@ i18n
     }
   });
 
-i18n.on('languageChanged', (lng) => {
+// Set direction and lang immediately on load
+if (typeof document !== 'undefined') {
   document.documentElement.dir = i18n.dir();
-  document.documentElement.lang = lng;
+  document.documentElement.lang = i18n.language || 'en';
+}
+
+i18n.on('languageChanged', (lng) => {
+  if (typeof document !== 'undefined') {
+    document.documentElement.dir = i18n.dir();
+    document.documentElement.lang = lng;
+  }
 });
 
 export default i18n;

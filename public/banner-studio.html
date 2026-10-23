@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluiDev — Instagram Split Banner Studio (Canva Replica)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@600;700;800;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .font-oswald { font-family: 'Oswald', sans-serif; letter-spacing: -0.02em; }
+    .font-inter { font-family: 'Inter', sans-serif; }
+    
+    /* Diagonal Blue Stripe Background Pattern */
+    .bg-striped-blue {
+      background-color: #001DB5;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        #001DB5,
+        #001DB5 18px,
+        #005BFF 18px,
+        #005BFF 28px
+      );
+    }
+
+    /* Unified Seamless Grid Paper Pattern */
+    .bg-grid-paper {
+      background-color: #F8F9FA;
+      background-image: 
+        linear-gradient(to right, rgba(0, 50, 160, 0.08) 1.5px, transparent 1.5px),
+        linear-gradient(to bottom, rgba(0, 50, 160, 0.08) 1.5px, transparent 1.5px);
+      background-size: 38px 38px;
+    }
+
+    /* Die-Cut White Sticker Effect for Photo */
+    .sticker-white-outline {
+      filter: 
+        drop-shadow(6px 0 0 #FFFFFF) 
+        drop-shadow(-6px 0 0 #FFFFFF) 
+        drop-shadow(0 6px 0 #FFFFFF) 
+        drop-shadow(0 -6px 0 #FFFFFF)
+        drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+  <!-- Top Navigation Bar -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-600/30 font-inter">
+        FD
+      </div>
+      <div>
+        <h1 class="font-bold text-lg text-white">FluiDev — استوديو البانر الثلاثي المتصل (Canva Replica Studio)</h1>
+        <p class="text-xs text-slate-400">بانر احترافي موحد لإنستغرام (3240 × 1350 px) بورقة مربعات واحدة متصلة وبدون إيموجي</p>
+      </div>
+    </div>
+
+    <!-- Export Action Buttons -->
+    <div class="flex items-center flex-wrap gap-2">
+      <button id="btnDownloadAll" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-950 transition-all">
+        <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        <span id="btnAllText">تحميل البوستات الثلاثة مقصوصة (1080×1350)</span>
+      </button>
+      <button id="btnDownloadFull" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-blue-950 transition-all">
+        <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>تحميل البانر كاملاً (3240x1350)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Studio Workspace -->
+  <main class="max-w-7xl mx-auto p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <!-- LEFT: Live Scaled Interactive Preview (Col 8) -->
+    <div class="lg:col-span-8 space-y-4">
+      
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-2xl">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs">
+          <div class="flex items-center gap-2 text-slate-300 font-mono">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>المعاينة الحية للمقاس الحقيقي (3240 × 1350 px)</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="flex items-center gap-2 cursor-pointer text-slate-300 hover:text-white">
+              <input type="checkbox" id="chkShowGuides" checked class="rounded bg-slate-800 border-slate-700 text-blue-600">
+              <span>إظهار خطوط تقسيم إنستغرام (1080px & 2160px)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- SCALED BANNER WRAPPER (Visual Scaling Container) -->
+        <div id="bannerWrapper" class="relative w-full overflow-hidden rounded-xl bg-slate-950 border border-slate-800 shadow-2xl" style="aspect-ratio: 3240 / 1350;">
+          
+          <!-- THE ACTUAL 3240 x 1350 BANNER CANVAS -->
+          <div id="bannerRoot" dir="ltr" class="absolute" style="top: 0; left: 0; width: 3240px; height: 1350px; transform-origin: 0 0;">
+            
+            <!-- 1. BASE BACKGROUND: Striped Blue (Spans x = 0 to 3240) -->
+            <div class="absolute inset-0 bg-striped-blue overflow-hidden">
+              
+              <!-- Cyan Fluid Wave Top-Left (Panel 3) -->
+              <div class="absolute top-8 left-10 z-10 opacity-90">
+                <svg width="240" height="90" viewBox="0 0 240 90" fill="none">
+                  <path d="M10 20 Q 30 5, 50 20 T 90 20 T 130 20 T 170 20 T 210 20" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M10 45 Q 30 30, 50 45 T 90 45 T 130 45 T 170 45 T 210 45" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M10 70 Q 30 55, 50 70 T 90 70 T 130 70 T 170 70 T 210 70" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <!-- Cyan Fluid Wave Top-Right (Panel 1) -->
+              <div class="absolute top-8 right-16 z-10 opacity-90">
+                <svg width="240" height="90" viewBox="0 0 240 90" fill="none">
+                  <path d="M10 20 Q 30 5, 50 20 T 90 20 T 130 20 T 170 20 T 210 20" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M10 45 Q 30 30, 50 45 T 90 45 T 130 45 T 170 45 T 210 45" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M10 70 Q 30 55, 50 70 T 90 70 T 130 70 T 170 70 T 210 70" stroke="#00E5FF" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <!-- Top Right Capsule Logos Badge -->
+              <div class="absolute top-9 right-28 z-20 bg-white rounded-full px-8 py-3.5 flex items-center gap-3 shadow-xl border border-slate-200">
+                <span class="w-4 h-4 rounded-full bg-blue-600"></span>
+                <span class="font-bold text-2xl text-blue-900 font-inter tracking-tight">FluiDev</span>
+              </div>
+            </div>
+
+            <!-- 2. ONE SINGLE CONTINUOUS NOTEBOOK GRAPH PAPER SHEET -->
+            <!-- Spanning x = 120px (Panel 3) across Panel 2 to x = 2420px (Panel 1, under speaker) -->
+            <div class="absolute top-0 bottom-[100px] left-[120px] w-[2300px] z-10 rounded-br-3xl bg-grid-paper border-r-2 border-black/10 shadow-[0_30px_70px_rgba(0,0,0,0.55),_0_10px_25px_rgba(0,0,0,0.35)] overflow-hidden">
+              
+              <!-- Subtle Paper Texture & Lighting Gradient Across Whole Sheet -->
+              <div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/10 via-transparent to-black/5"></div>
+              <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/40 via-transparent to-black/10"></div>
+
+              <!-- Realistic Metallic Paperclip (At top seam between Panel 3 & Panel 2 at x ~ 940px) -->
+              <div class="absolute top-0 left-[930px] z-30 pointer-events-none">
+                <svg width="65" height="190" viewBox="0 0 65 190" fill="none" class="drop-shadow-[0_8px_14px_rgba(0,0,0,0.45)]">
+                  <path d="M22 175 V40 C22 22 44 22 44 40 V155 C44 167 30 167 30 155 V52 C30 44 38 44 38 52 V145" stroke="#7E8793" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M22 175 V40 C22 22 44 22 44 40 V155 C44 167 30 167 30 155 V52 C30 44 38 44 38 52 V145" stroke="#F1F4F7" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M20 175 V40 C20 20 46 20 46 40 V155 C46 169 28 169 28 155 V52 C28 42 40 42 40 52 V145" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <!-- 3 Classic Colored Dots (Top area of Panel 2) -->
+              <div class="absolute top-8 left-[1930px] flex items-center gap-4 z-20">
+                <span class="w-9 h-9 rounded-full bg-[#F7B500] border-4 border-white shadow-md inline-block"></span>
+                <span class="w-9 h-9 rounded-full bg-[#FA8C16] border-4 border-white shadow-md inline-block"></span>
+                <span class="w-9 h-9 rounded-full bg-[#D62828] border-4 border-white shadow-md inline-block"></span>
+              </div>
+
+              <!-- CONTENT GRID ON THE SINGLE NOTEBOOK SHEET -->
+              <div class="absolute inset-0 pl-24 pr-16 pt-14 pb-8 grid grid-cols-12 gap-10 items-start">
+                
+                <!-- LEFT HALF: PANEL 3 (WHAT TO EXPECT & ACADEMIC GUARANTEES) - Col 5 -->
+                <div class="col-span-5 pr-8 border-r-2 border-slate-300/80 space-y-6 pt-2 text-right" dir="rtl">
+                  <div>
+                    <span class="font-oswald text-4xl font-bold text-black uppercase tracking-wider block font-inter" dir="ltr">
+                      WHAT TO EXPECT:
+                    </span>
+                    <h3 id="viewCtaSub" class="text-3xl font-extrabold text-blue-900 mt-1 leading-snug">
+                      خدمات أكاديمية متكاملة لطلبة الجامعات والباحثين
+                    </h3>
+                    <p class="text-lg text-slate-600 font-semibold mt-1">
+                      مرافقة احترافية لإعداد وتنسيق مذكرات التخرج والعروض التقديمية بأعلى جودة.
+                    </p>
+                  </div>
+
+                  <!-- 3 Academic Guarantees with Clean Vector SVG Glyphs (Zero Emojis) -->
+                  <div class="space-y-4 pt-1">
+                    <div class="flex items-start gap-4 p-3.5 rounded-xl bg-white/75 border border-slate-200/90 shadow-sm">
+                      <div class="w-11 h-11 rounded-xl bg-blue-900 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="text-xl font-extrabold text-slate-900">دقة أكاديمية وضبط المراجع</h5>
+                        <p class="text-base text-slate-600 font-medium mt-0.5">صياغة وتنسيق صارم وفق معايير الجامعات ودليل الأطروحة (APA / IEEE).</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-3.5 rounded-xl bg-white/75 border border-slate-200/90 shadow-sm">
+                      <div class="w-11 h-11 rounded-xl bg-[#F7B500] text-black flex items-center justify-center shrink-0 shadow-md">
+                        <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="text-xl font-extrabold text-slate-900">إخراج بصري وعروض تبهر اللجنة</h5>
+                        <p class="text-base text-slate-600 font-medium mt-0.5">تصميم عروض تقديمية تفاعلية ومخططات بيانية دقيقة تبرز مجهودك الأكاديمي.</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-3.5 rounded-xl bg-white/75 border border-slate-200/90 shadow-sm">
+                      <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                        <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 class="text-xl font-extrabold text-slate-900">تسليم في الموعد ومتابعة مستمرة</h5>
+                        <p class="text-base text-slate-600 font-medium mt-0.5">التزام تام بالمواعيد المحددة مع تعديلات ومتابعة مستمرة حتى يوم المناقشة.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Two Information Badges -->
+                  <div class="pt-3 border-t-2 border-slate-300 space-y-3">
+                    <div class="flex items-center gap-3.5">
+                      <div class="w-11 h-11 rounded-full bg-[#D62828] text-white flex items-center justify-center shadow-md shrink-0">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                          <line x1="16" y1="2" x2="16" y2="6"/>
+                          <line x1="8" y1="2" x2="8" y2="6"/>
+                          <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <span class="text-[11px] font-mono text-slate-500 block uppercase font-bold tracking-wider" dir="ltr">AVAILABILITY & ORDERS</span>
+                        <span id="viewBadge1" class="text-lg font-extrabold text-black">متاح للطلبة والباحثين وأصحاب المشاريع (PFE / Master)</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-3.5">
+                      <div class="w-11 h-11 rounded-full bg-[#D62828] text-white flex items-center justify-center shadow-md shrink-0">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <span class="text-[11px] font-mono text-slate-500 block uppercase font-bold tracking-wider" dir="ltr">FREE CONSULTATION</span>
+                        <span id="viewBadge2" class="text-lg font-extrabold text-black">استشارة ومناقشة تفاصيل العمل مباشرة عبر الخاص (DM)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Action Prompt -->
+                  <div class="pt-3 border-t-2 border-slate-300 flex items-center justify-between">
+                    <div>
+                      <span class="text-[11px] font-mono text-slate-500 block uppercase font-bold tracking-wider" dir="ltr">READY TO START?</span>
+                      <span class="text-xl font-black text-blue-900 block mt-0.5">ابدأ مذكرتك أو عرضك التقديمي اليوم</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center shadow-md shrink-0">
+                      <svg class="w-5 h-5 fill-none stroke-current stroke-2 -rotate-180" viewBox="0 0 24 24">
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- RIGHT HALF: PANEL 2 (MAIN TITLE & 3 ROUTINE UNIVERSITY SERVICES) - Col 7 -->
+                <div class="col-span-7 pl-4 text-center space-y-4 pt-1">
+                  
+                  <!-- Heavy Compressed All-Caps Titles (Canva Poster Typography) -->
+                  <div>
+                    <h2 id="viewMainTitle1" class="font-oswald text-[95px] font-bold text-black uppercase leading-[0.95] tracking-tight">
+                      خدمات برمجية وأكاديمية
+                    </h2>
+                    <h2 id="viewMainTitle2" class="font-oswald text-[72px] font-bold text-black uppercase leading-[0.95] tracking-tight mt-1 font-inter">
+                      TURNING IDEAS INTO REALITY
+                    </h2>
+                  </div>
+
+                  <!-- Tilted Yellow Ribbon Tape -->
+                  <div class="inline-block -rotate-1 shadow-xl">
+                    <div class="bg-[#F7B500] text-black font-bold text-2xl px-10 py-2.5 rounded-lg border-2 border-black/10">
+                      <span id="viewSubRibbon">مذكرات تخرج • عروض باوربوينت • حلول برمجية ذكية</span>
+                    </div>
+                  </div>
+
+                  <!-- 3 Routine Academic & Student Services (Typographic Badges 01, 02, 03 - NO EMOJIS) -->
+                  <div class="space-y-4 pt-3 text-right max-w-2xl mx-auto" dir="rtl">
+                    
+                    <!-- Service 1 -->
+                    <div class="p-4 rounded-xl bg-white/85 border border-slate-200/95 shadow-sm flex items-start gap-4">
+                      <div class="w-12 h-12 rounded-xl bg-blue-900 text-white font-black text-xl flex items-center justify-center shrink-0 shadow font-inter">
+                        01
+                      </div>
+                      <div class="flex-1">
+                        <h4 id="viewService1Title" class="text-2xl font-extrabold text-slate-900">
+                          إعداد وتنسيق المذكرات والبحوث الجامعية (Theses & Research)
+                        </h4>
+                        <p id="viewService1Desc" class="text-lg text-slate-600 font-medium mt-1 leading-relaxed">
+                          صياغة وتنسيق مذكرات التخرج (Licence / Master / PFE)، التدقيق اللغوي، وضبط المراجع الأكاديمية (APA / IEEE).
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-4 rounded-xl bg-white/85 border border-slate-200/95 shadow-sm flex items-start gap-4">
+                      <div class="w-12 h-12 rounded-xl bg-[#F7B500] text-black font-black text-xl flex items-center justify-center shrink-0 shadow font-inter">
+                        02
+                      </div>
+                      <div class="flex-1">
+                        <h4 id="viewService2Title" class="text-2xl font-extrabold text-slate-900">
+                          تصميم عروض الباوربوينت التقديمية (PowerPoint & Soutenance)
+                        </h4>
+                        <p id="viewService2Desc" class="text-lg text-slate-600 font-medium mt-1 leading-relaxed">
+                          عروض مناقشة المذكرات والملتقيات، بتصميم بصري جذاب، انفوجرافيك احترافي، ومخططات بيانية دقيقة تبهر اللجنة.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-4 rounded-xl bg-white/85 border border-slate-200/95 shadow-sm flex items-start gap-4">
+                      <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white font-black text-xl flex items-center justify-center shrink-0 shadow font-inter">
+                        03
+                      </div>
+                      <div class="flex-1">
+                        <h4 id="viewService3Title" class="text-2xl font-extrabold text-slate-900">
+                          المهام اليومية والحلول البرمجية للطلبة (Daily Tasks & Student Tools)
+                        </h4>
+                        <p id="viewService3Desc" class="text-lg text-slate-600 font-medium mt-1 leading-relaxed">
+                          معالجة وتفريغ جداول Excel والإحصاء، تلخيص المقالات والمحاضرات، وبرمجة أدوات وحلول رقمية مساعدة مخصصة للطلبة.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- 3. REALISTIC SPIRAL BINDER ON THE FAR-LEFT NOTEBOOK MARGIN (x = 110px to 165px) -->
+            <div class="absolute top-10 bottom-28 left-[110px] w-14 z-30 flex flex-col justify-between items-center pointer-events-none">
+              <template id="spiralTemplate">
+                <div class="relative w-14 h-12 -my-1">
+                  <!-- Punch hole slot through paper showing blue background -->
+                  <div class="absolute left-6 top-2.5 w-5 h-6 rounded-md bg-[#001DB5] shadow-[inset_0_3px_5px_rgba(0,0,0,0.85)] border border-black/20"></div>
+                  <!-- 3D Metallic White Wire Loop -->
+                  <div class="absolute left-1 top-0 w-14 h-10 rounded-[18px] border-[6px] border-white shadow-[0_5px_12px_rgba(0,0,0,0.45)] -rotate-12 bg-transparent"></div>
+                  <!-- Specular highlight line -->
+                  <div class="absolute left-2.5 top-1 w-11 h-8 rounded-[14px] border-t-[2px] border-slate-300 -rotate-12 pointer-events-none"></div>
+                </div>
+              </template>
+              <div id="spiralsContainer" class="flex flex-col justify-between h-full w-full"></div>
+            </div>
+
+            <!-- 4. SPEAKER PHOTO CUTOUT (Panel 1: x = 2160 to 3240) -->
+            <div class="absolute bottom-[100px] right-0 w-[1100px] h-[1250px] z-30 pointer-events-none flex items-end justify-center overflow-visible">
+              
+              <!-- Soft Depth Shadow Behind Speaker -->
+              <div class="absolute bottom-20 right-28 w-[650px] h-[900px] bg-black/35 rounded-full blur-3xl pointer-events-none"></div>
+
+              <!-- Speaker Image Wrapper with Die-Cut White Outline -->
+              <div id="speakerWrapper" class="relative z-20 sticker-white-outline transition-transform duration-75">
+                <img id="speakerImg" src="extracted/mohamed_suit_cutout.png" alt="Speaker" class="max-h-[1150px] w-auto object-contain select-none">
+              </div>
+
+              <!-- Two Stacked Identification Badges Overlapping Speaker (Like Canva Poster) -->
+              <div class="absolute bottom-36 right-[420px] z-40 space-y-2.5 pointer-events-auto shadow-2xl">
+                <!-- Top Badge: Yellow Name Card -->
+                <div class="bg-[#F7B500] text-black font-extrabold text-4xl px-8 py-3 rounded-lg shadow-lg border border-black/10 font-inter tracking-tight">
+                  <span id="viewNameTag">Mohammed | FluiDev</span>
+                </div>
+                <!-- Bottom Badge: White Title Card -->
+                <div class="bg-white text-black font-bold text-2xl px-6 py-2 rounded-lg shadow-lg border border-slate-200">
+                  <span id="viewRoleTag">مهندس مياه وبرمجيات | خدمات أكاديمية ورقمية</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 5. CONTINUOUS BOTTOM YELLOW BAR (Spanning All 3 Posts: y = 1250px to 1350px) -->
+            <div class="absolute bottom-0 left-0 right-0 h-[100px] bg-[#F7B500] z-40 border-t-4 border-black/10 flex items-center justify-between px-16 shadow-2xl font-inter">
+              
+              <!-- Panel 3 (Left): Phone -->
+              <div class="w-[1000px] flex items-center justify-center gap-4 text-black text-2xl font-bold">
+                <div class="w-12 h-12 rounded-full bg-[#D62828] text-white flex items-center justify-center shadow-md shrink-0">
+                  <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <span id="viewPhone">+213 655 74 85 13</span>
+              </div>
+
+              <!-- Panel 2 (Center): Website / Portfolio -->
+              <div class="w-[1000px] flex items-center justify-center gap-4 text-black text-2xl font-bold">
+                <div class="w-12 h-12 rounded-full bg-[#D62828] text-white flex items-center justify-center shadow-md shrink-0">
+                  <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                  </svg>
+                </div>
+                <span id="viewWebsite">mohamedbaatas-hash.github.io</span>
+              </div>
+
+              <!-- Panel 1 (Right): Email -->
+              <div class="w-[1000px] flex items-center justify-center gap-4 text-black text-2xl font-bold">
+                <div class="w-12 h-12 rounded-full bg-[#D62828] text-white flex items-center justify-center shadow-md shrink-0">
+                  <svg class="w-6 h-6 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <span id="viewEmail">mohamedbaatas@gmail.com</span>
+              </div>
+
+            </div>
+
+            <!-- 6. INSTAGRAM RED GUIDES OVERLAY (At 1080px and 2160px) -->
+            <div id="guidesOverlay" class="absolute inset-0 pointer-events-none z-50">
+              <!-- Guide 1 at 1080px -->
+              <div class="absolute top-0 bottom-0 left-[1080px] w-1 border-r-4 border-dashed border-red-500 flex flex-col justify-between items-center py-4">
+                <span class="bg-red-600 text-white font-mono font-bold text-xs px-2 py-1 rounded shadow">1080 px</span>
+                <span class="bg-red-600 text-white font-mono font-bold text-xs px-2 py-1 rounded shadow">حد البوست 3 و 2</span>
+              </div>
+              <!-- Guide 2 at 2160px -->
+              <div class="absolute top-0 bottom-0 left-[2160px] w-1 border-r-4 border-dashed border-red-500 flex flex-col justify-between items-center py-4">
+                <span class="bg-red-600 text-white font-mono font-bold text-xs px-2 py-1 rounded shadow">2160 px</span>
+                <span class="bg-red-600 text-white font-mono font-bold text-xs px-2 py-1 rounded shadow">حد البوست 2 و 1</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 3 Posts Slices Download Buttons (Ordered to match visual panels Right to Left) -->
+        <div class="grid grid-cols-3 gap-3 mt-4 text-center">
+          <!-- Right Column (RTL First): Post 1 Right -->
+          <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span class="text-emerald-400 font-bold text-xs block mb-1">البوست 1 (اليمين)</span>
+            <span class="text-[11px] text-slate-400 block mb-2">الصورة الشخصية والاسم</span>
+            <button id="btnSlice1" class="w-full py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs transition-colors">تحميل (1080×1350)</button>
+          </div>
+
+          <!-- Center Column (RTL Middle): Post 2 Center -->
+          <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span class="text-yellow-400 font-bold text-xs block mb-1">البوست 2 (الوسط)</span>
+            <span class="text-[11px] text-slate-400 block mb-2">ورقة المربعات والخدمات</span>
+            <button id="btnSlice2" class="w-full py-2 rounded-lg bg-yellow-600 hover:bg-yellow-500 text-slate-950 font-bold text-xs transition-colors">تحميل (1080×1350)</button>
+          </div>
+
+          <!-- Left Column (RTL Third): Post 3 Left -->
+          <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/60">
+            <span class="text-blue-400 font-bold text-xs block mb-1">البوست 3 (اليسار)</span>
+            <span class="text-[11px] text-slate-400 block mb-2">الضمانات والتواصل الأكاديمي</span>
+            <button id="btnSlice3" class="w-full py-2 rounded-lg bg-blue-700 hover:bg-blue-600 text-white font-bold text-xs transition-colors">تحميل (1080×1350)</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Controls & Content Customizer (Col 4) -->
+    <div class="lg:col-span-4 space-y-6">
+      
+      <!-- Photo Controls -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-xl space-y-4">
+        <h2 class="font-bold text-sm text-white flex items-center gap-2 pb-2 border-b border-slate-800">
+          <svg class="w-4 h-4 text-blue-400 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span>صورتك الشخصية (البوست 1 - اليمين)</span>
+        </h2>
+
+        <div>
+          <label class="block text-xs text-slate-400 mb-1.5 font-medium">ارفع صورتك (يفضل بدون خلفية PNG):</label>
+          <input type="file" id="photoUpload" accept="image/*" class="w-full text-xs text-slate-400 file:mr-2 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-500 cursor-pointer">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">الحجم (Scale):</label>
+            <input type="range" id="ctrlScale" min="0.5" max="1.8" step="0.05" value="1.0" class="w-full accent-blue-500">
+          </div>
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">الموقع الأفقي (X):</label>
+            <input type="range" id="ctrlX" min="-300" max="300" step="5" value="0" class="w-full accent-blue-500">
+          </div>
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">الموقع الرأسي (Y):</label>
+            <input type="range" id="ctrlY" min="-300" max="300" step="5" value="0" class="w-full accent-blue-500">
+          </div>
+          <div class="flex items-center pt-4">
+            <label class="flex items-center gap-1.5 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="ctrlOutline" checked class="rounded bg-slate-800 border-slate-700 text-blue-600">
+              <span>تحديد أبيض (Sticker)</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Inputs Form -->
+      <div class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-xl space-y-4 text-xs">
+        <h2 class="font-bold text-sm text-white flex items-center gap-2 pb-2 border-b border-slate-800">
+          <svg class="w-4 h-4 text-yellow-400 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span>تعديل النصوص المباشرة</span>
+        </h2>
+
+        <!-- Panel 1 (Right) -->
+        <div class="space-y-2">
+          <span class="font-bold text-emerald-400 block">البوست 1 (اليمين - بطاقات الاسم):</span>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الشريط الأصفر (الاسم):</label>
+            <input type="text" id="inpName" value="Mohammed | FluiDev" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white font-inter">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">البطاقة البيضاء (الصفة):</label>
+            <input type="text" id="inpRole" value="مهندس مياه وبرمجيات | خدمات أكاديمية ورقمية" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+        </div>
+
+        <!-- Panel 2 (Center) -->
+        <div class="space-y-2 pt-3 border-t border-slate-800">
+          <span class="font-bold text-yellow-400 block">البوست 2 (الوسط - العناوين والخدمات):</span>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">العنوان العريض السطر 1:</label>
+            <input type="text" id="inpTitle1" value="خدمات برمجية وأكاديمية" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">العنوان العريض السطر 2:</label>
+            <input type="text" id="inpTitle2" value="TURNING IDEAS INTO REALITY" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white font-inter">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الشريط الأصفر المائل:</label>
+            <input type="text" id="inpSubRibbon" value="مذكرات تخرج • عروض باوربوينت • حلول برمجية ذكية" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الخدمة 1 (المذكرات والبحوث):</label>
+            <input type="text" id="inpService1" value="إعداد وتنسيق المذكرات والبحوث الجامعية (Theses & Research)" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الخدمة 2 (عروض الباوربوينت):</label>
+            <input type="text" id="inpService2" value="تصميم عروض الباوربوينت التقديمية (PowerPoint & Soutenance)" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الخدمة 3 (المهام اليومية والأدوات):</label>
+            <input type="text" id="inpService3" value="المهام اليومية والحلول البرمجية للطلبة (Daily Tasks & Student Tools)" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+        </div>
+
+        <!-- Panel 3 (Left) -->
+        <div class="space-y-2 pt-3 border-t border-slate-800">
+          <span class="font-bold text-blue-400 block">البوست 3 (اليسار - العنوان الفرعي):</span>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">العنوان العربي للضمانات:</label>
+            <input type="text" id="inpCtaSub" value="خدمات أكاديمية متكاملة لطلبة الجامعات والباحثين" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white">
+          </div>
+        </div>
+
+        <!-- Bottom Yellow Bar -->
+        <div class="space-y-2 pt-3 border-t border-slate-800">
+          <span class="font-bold text-yellow-400 block">الشريط الأصفر السفلي:</span>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الهاتف (البوست 3):</label>
+            <input type="text" id="inpPhone" value="+213 655 74 85 13" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white font-mono">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الموقع (البوست 2):</label>
+            <input type="text" id="inpWebsite" value="mohamedbaatas-hash.github.io" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white font-mono">
+          </div>
+          <div>
+            <label class="text-[11px] text-slate-400 block mb-0.5">الإيميل (البوست 1):</label>
+            <input type="text" id="inpEmail" value="mohamedbaatas@gmail.com" class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-white font-mono">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // 1. Generate Spirals in the Notebook Left Spine
+    const spiralsContainer = document.getElementById('spiralsContainer');
+    const template = document.getElementById('spiralTemplate');
+    if (spiralsContainer && template) {
+      for (let i = 0; i < 16; i++) {
+        const clone = template.content.cloneNode(true);
+        spiralsContainer.appendChild(clone);
+      }
+    }
+
+    // 2. Default Speaker Image Initialization
+    const speakerImg = document.getElementById('speakerImg');
+    if (speakerImg) {
+      speakerImg.src = 'extracted/mohamed_suit_cutout.png';
+      speakerImg.onerror = () => {
+        speakerImg.src = 'extracted/asset_58_1917x2556.png';
+      };
+    }
+
+    // 3. Responsive Banner Scaling for Container
+    function updateBannerScale() {
+      const banner = document.getElementById('bannerRoot');
+      const wrapper = document.getElementById('bannerWrapper');
+      if (!banner || !wrapper) return;
+
+      const width = wrapper.clientWidth || wrapper.getBoundingClientRect().width;
+      if (width > 0) {
+        const scale = width / 3240;
+        banner.style.transform = `scale(${scale})`;
+        wrapper.style.height = `${Math.round(width * (1350 / 3240))}px`;
+      }
+    }
+
+    window.addEventListener('resize', updateBannerScale);
+    window.addEventListener('load', updateBannerScale);
+    document.addEventListener('DOMContentLoaded', updateBannerScale);
+
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(() => updateBannerScale());
+      const wrap = document.getElementById('bannerWrapper');
+      if (wrap) ro.observe(wrap);
+    }
+
+    updateBannerScale();
+    setTimeout(updateBannerScale, 50);
+    setTimeout(updateBannerScale, 200);
+    setTimeout(updateBannerScale, 600);
+
+    // 4. Live Text Inputs Binding
+    const bindings = [
+      { input: 'inpName', view: 'viewNameTag' },
+      { input: 'inpRole', view: 'viewRoleTag' },
+      { input: 'inpTitle1', view: 'viewMainTitle1' },
+      { input: 'inpTitle2', view: 'viewMainTitle2' },
+      { input: 'inpSubRibbon', view: 'viewSubRibbon' },
+      { input: 'inpService1', view: 'viewService1Title' },
+      { input: 'inpService2', view: 'viewService2Title' },
+      { input: 'inpService3', view: 'viewService3Title' },
+      { input: 'inpCtaSub', view: 'viewCtaSub' },
+      { input: 'inpPhone', view: 'viewPhone' },
+      { input: 'inpWebsite', view: 'viewWebsite' },
+      { input: 'inpEmail', view: 'viewEmail' },
+    ];
+
+    bindings.forEach(b => {
+      const inp = document.getElementById(b.input);
+      const view = document.getElementById(b.view);
+      if (inp && view) {
+        inp.addEventListener('input', (e) => {
+          view.textContent = e.target.value;
+        });
+      }
+    });
+
+    // 5. Speaker Controls (Upload, Scale, Offset, Outline)
+    let photoOffsetX = 0;
+    let photoOffsetY = 0;
+    let photoScale = 1.0;
+
+    function updateSpeakerTransform() {
+      const wrapper = document.getElementById('speakerWrapper');
+      if (!wrapper) return;
+      wrapper.style.transform = `translate(${photoOffsetX}px, ${photoOffsetY}px) scale(${photoScale})`;
+      if (document.getElementById('ctrlOutline').checked) {
+        wrapper.classList.add('sticker-white-outline');
+      } else {
+        wrapper.classList.remove('sticker-white-outline');
+      }
+    }
+
+    document.getElementById('ctrlScale').addEventListener('input', (e) => {
+      photoScale = parseFloat(e.target.value);
+      updateSpeakerTransform();
+    });
+    document.getElementById('ctrlX').addEventListener('input', (e) => {
+      photoOffsetX = parseFloat(e.target.value);
+      updateSpeakerTransform();
+    });
+    document.getElementById('ctrlY').addEventListener('input', (e) => {
+      photoOffsetY = parseFloat(e.target.value);
+      updateSpeakerTransform();
+    });
+    document.getElementById('ctrlOutline').addEventListener('change', updateSpeakerTransform);
+
+    document.getElementById('photoUpload').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          speakerImg.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // 6. Guides Toggle
+    document.getElementById('chkShowGuides').addEventListener('change', (e) => {
+      document.getElementById('guidesOverlay').style.display = e.target.checked ? 'block' : 'none';
+    });
+
+    // 7. HIGH-RESOLUTION PNG EXPORT & SLICING (Using html-to-image)
+    async function generateBannerCanvas() {
+      const node = document.getElementById('bannerRoot');
+      const guides = document.getElementById('guidesOverlay');
+      
+      const oldGuidesDisplay = guides.style.display;
+      guides.style.display = 'none';
+
+      const dataUrl = await htmlToImage.toPng(node, {
+        width: 3240,
+        height: 1350,
+        pixelRatio: 1,
+        style: {
+          transform: 'none',
+          position: 'static'
+        }
+      });
+
+      guides.style.display = oldGuidesDisplay;
+
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => {
+          const cvs = document.createElement('canvas');
+          cvs.width = 3240;
+          cvs.height = 1350;
+          const c = cvs.getContext('2d');
+          c.drawImage(img, 0, 0);
+          resolve(cvs);
+        };
+        img.src = dataUrl;
+      });
+    }
+
+    function downloadCanvasSlice(fullCanvas, startX, filename) {
+      const sliceCvs = document.createElement('canvas');
+      sliceCvs.width = 1080;
+      sliceCvs.height = 1350;
+      const sCtx = sliceCvs.getContext('2d');
+
+      sCtx.drawImage(fullCanvas, startX, 0, 1080, 1350, 0, 0, 1080, 1350);
+
+      const a = document.createElement('a');
+      a.download = filename;
+      a.href = sliceCvs.toDataURL('image/png', 1.0);
+      a.click();
+    }
+
+    // Individual Slice Downloads
+    document.getElementById('btnSlice1').addEventListener('click', async () => {
+      const cvs = await generateBannerCanvas();
+      downloadCanvasSlice(cvs, 2160, '01_FluiDev_Right_Profile_1080x1350.png');
+    });
+
+    document.getElementById('btnSlice2').addEventListener('click', async () => {
+      const cvs = await generateBannerCanvas();
+      downloadCanvasSlice(cvs, 1080, '02_FluiDev_Center_Services_1080x1350.png');
+    });
+
+    document.getElementById('btnSlice3').addEventListener('click', async () => {
+      const cvs = await generateBannerCanvas();
+      downloadCanvasSlice(cvs, 0, '03_FluiDev_Left_Contact_1080x1350.png');
+    });
+
+    // Full Banner Download
+    document.getElementById('btnDownloadFull').addEventListener('click', async () => {
+      const cvs = await generateBannerCanvas();
+      const a = document.createElement('a');
+      a.download = 'FluiDev_Full_Banner_3240x1350.png';
+      a.href = cvs.toDataURL('image/png', 1.0);
+      a.click();
+    });
+
+    // Download All 3 Slices at Once
+    document.getElementById('btnDownloadAll').addEventListener('click', async () => {
+      const btn = document.getElementById('btnDownloadAll');
+      const btnText = document.getElementById('btnAllText');
+      btnText.textContent = 'جاري المعالجة والقص بدقة عالية...';
+      btn.disabled = true;
+
+      try {
+        const cvs = await generateBannerCanvas();
+        downloadCanvasSlice(cvs, 2160, '01_FluiDev_Right_Profile_1080x1350.png');
+        setTimeout(() => downloadCanvasSlice(cvs, 1080, '02_FluiDev_Center_Services_1080x1350.png'), 400);
+        setTimeout(() => downloadCanvasSlice(cvs, 0, '03_FluiDev_Left_Contact_1080x1350.png'), 800);
+        setTimeout(() => {
+          btnText.textContent = 'تم تحميل البوستات الثلاثة بنجاح!';
+          setTimeout(() => {
+            btnText.textContent = 'تحميل البوستات الثلاثة مقصوصة (1080×1350)';
+            btn.disabled = false;
+          }, 2500);
+        }, 1200);
+      } catch (err) {
+        console.error(err);
+        btnText.textContent = 'حدث خطأ، حاول مجدداً';
+        btn.disabled = false;
+      }
+    });
+
+    window.addEventListener('load', updateBannerScale);
+  </script>
+</body>
+</html>
