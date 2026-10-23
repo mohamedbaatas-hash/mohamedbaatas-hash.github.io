@@ -1,11 +1,11 @@
-# Mohamed Baatas — Portfolio & Hydroinformatics Codebase
+# Mohamed Baatas — FluiDev v3.0 Codebase
 
 > Generated for AI analysis and pair-programming.
 > Contains project structure and complete source code of all core architectural, hydraulic, and UI components.
 
 ## 1. Project Directory Structure
 
-```text
+`	ext
 mohamed-baatas-hydroinformatics-portfolio/
 ├── assets/
 │   ├── index-ioDA8u_Q.js
@@ -118,7 +118,6 @@ mohamed-baatas-hydroinformatics-portfolio/
 │   └── themeEngine.test.js
 ├── .gitignore
 ├── FLUIDEV_INSTAGRAM_BANNER_MASTER_DOSSIER.md
-├── generate_full_code.cjs
 ├── index.html
 ├── package.json
 ├── PORTFOLIO_DOSSIER.md
@@ -128,13 +127,13 @@ mohamed-baatas-hydroinformatics-portfolio/
 ├── TEST_INFRA.md
 ├── TEST_READY.md
 └── vite.config.js
-```
+`
 
 ## 2. Core Source Files
 
-### File: `package.json`
+### File: package.json
 
-```json
+`json
 {
   "name": "mohamed-baatas-hydroinformatics-portfolio",
   "private": true,
@@ -172,11 +171,11 @@ mohamed-baatas-hydroinformatics-portfolio/
     "vitest": "^3.0.5"
   }
 }
-```
+`
 
-### File: `vite.config.js`
+### File: vite.config.js
 
-```jsx
+`jsx
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -196,11 +195,11 @@ export default defineConfig({
     setupFiles: './test/setup.js'
   }
 });
-```
+`
 
-### File: `tailwind.config.js`
+### File: tailwind.config.js
 
-```jsx
+`jsx
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
@@ -275,34 +274,44 @@ export default {
   },
   plugins: [],
 }
-```
+`
 
-### File: `postcss.config.js`
+### File: postcss.config.js
 
-```jsx
+`jsx
 export default {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
   },
 }
-```
+`
 
-### File: `index.html`
+### File: index.html
 
-```html
+`html
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z'/%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300E5FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z'/%3E%3C/svg%3E" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohamed Baatas | Hydroinformatics Engineer & Technical Systems Developer</title>
-    <meta name="description" content="Portfolio of Mohamed Baatas, Hydroinformatics Engineer combining hydraulic engineering, IoT telemetry, and high-reliability software." />
+    <title>Mohamed Baatas (FluiDev) | Hydroinformatics & Software Systems Engineer</title>
+    <meta name="description" content="Executive engineering portfolio of Mohamed Baatas (FluiDev) — State Hydraulics Engineer (ENSH) & Full-Stack Software Developer specializing in EPANET modeling, SCADA digital twins, offline-first desktop ERPs, and academic thesis consulting." />
+    
+    <!-- OpenGraph / LinkedIn / WhatsApp Preview Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mohamedbaatas-hash.github.io/" />
+    <meta property="og:title" content="Mohamed Baatas (FluiDev) | Hydroinformatics & Software Engineer" />
+    <meta property="og:description" content="Bridging fluid mechanics & municipal water networks with offline-first desktop ERPs, in-browser EPANET/SCADA simulators, and academic excellence." />
+    <meta property="og:image" content="https://mohamedbaatas-hash.github.io/assets/mohamed-portrait-cutout.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <!-- Fonts: Alexandria, Barlow Condensed, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Zero-FOUC Theme Hydration -->
     <script>
       (function() {
@@ -333,11 +342,11 @@ export default {
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-```
+`
 
-### File: `src/main.jsx`
+### File: src/main.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -349,11 +358,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 );
-```
+`
 
-### File: `src/App.jsx`
+### File: src/App.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -387,11 +396,11 @@ export default function App() {
     </div>
   );
 }
-```
+`
 
-### File: `src/index.css`
+### File: src/index.css
 
-```css
+`css
 @import './figma/index.css';
 @tailwind base;
 @tailwind components;
@@ -585,11 +594,11 @@ button, a, select, input[type="button"], input[type="submit"], [role="button"] {
 .animate-pulse-glow {
   animation: pulseGlow 4s ease-in-out infinite;
 }
-```
+`
 
-### File: `src/i18n.js`
+### File: src/i18n.js
 
-```jsx
+`jsx
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -629,11 +638,11 @@ i18n.on('languageChanged', (lng) => {
 });
 
 export default i18n;
-```
+`
 
-### File: `src/hooks/useTheme.js`
+### File: src/hooks/useTheme.js
 
-```jsx
+`jsx
 import { useState, useEffect, useCallback } from 'react';
 
 const THEME_STORAGE_KEY = 'fluiddev-theme';
@@ -729,11 +738,11 @@ export function useTheme() {
 }
 
 export default useTheme;
-```
+`
 
-### File: `src/locales/ar.json`
+### File: src/locales/ar.json
 
-```json
+`json
 {
   "HERO_DATA": {
     "fullName": "Mohamed Baatas",
@@ -1469,11 +1478,11 @@ export default useTheme;
     }
   }
 }
-```
+`
 
-### File: `src/locales/en.json`
+### File: src/locales/en.json
 
-```json
+`json
 {
   "HERO_DATA": {
     "fullName": "Mohamed Baatas",
@@ -2209,11 +2218,11 @@ export default useTheme;
     }
   }
 }
-```
+`
 
-### File: `src/locales/fr.json`
+### File: src/locales/fr.json
 
-```json
+`json
 {
   "HERO_DATA": {
     "fullName": "Mohamed Baatas",
@@ -2949,11 +2958,11 @@ export default useTheme;
     }
   }
 }
-```
+`
 
-### File: `src/components/layout/Header.jsx`
+### File: src/components/layout/Header.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { Menu, X, Download, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -3117,11 +3126,11 @@ export function Header() {
 }
 
 export default Header;
-```
+`
 
-### File: `src/components/layout/Footer.jsx`
+### File: src/components/layout/Footer.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Github, Linkedin, Send, Phone, Mail, ArrowUp } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -3289,11 +3298,11 @@ export function Footer() {
 }
 
 export default Footer;
-```
+`
 
-### File: `src/components/common/BlueprintCadre.jsx`
+### File: src/components/common/BlueprintCadre.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 /**
@@ -3514,11 +3523,11 @@ export function BlueprintCadre({
 }
 
 export default BlueprintCadre;
-```
+`
 
-### File: `src/components/common/CollageBackground.jsx`
+### File: src/components/common/CollageBackground.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function CollageBackground({ className = '' }) {
@@ -3721,11 +3730,11 @@ export function CollageBackground({ className = '' }) {
 }
 
 export default CollageBackground;
-```
+`
 
-### File: `src/components/common/CircuitBackground.jsx`
+### File: src/components/common/CircuitBackground.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function CircuitBackground({ className = '' }) {
@@ -3843,11 +3852,11 @@ export function CircuitBackground({ className = '' }) {
     </div>
   );
 }
-```
+`
 
-### File: `src/components/common/FluiDevLogo.jsx`
+### File: src/components/common/FluiDevLogo.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 /**
@@ -3992,11 +4001,11 @@ export function FluiDevLogo({
 }
 
 export default FluiDevLogo;
-```
+`
 
-### File: `src/components/common/ThemeToggle.jsx`
+### File: src/components/common/ThemeToggle.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
@@ -4051,11 +4060,11 @@ export function ThemeToggle({
 }
 
 export default ThemeToggle;
-```
+`
 
-### File: `src/components/common/SectionHeading.jsx`
+### File: src/components/common/SectionHeading.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -4102,11 +4111,11 @@ export function SectionHeading({ tag, title, description, align = "left", onClic
     </div>
   );
 }
-```
+`
 
-### File: `src/components/common/Card.jsx`
+### File: src/components/common/Card.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function Card({ children, className = "", hover = false, onClick }) {
@@ -4122,11 +4131,11 @@ export function Card({ children, className = "", hover = false, onClick }) {
     </div>
   );
 }
-```
+`
 
-### File: `src/components/common/MetricBadge.jsx`
+### File: src/components/common/MetricBadge.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function MetricBadge({ label, value, unit, status = "nominal", detail }) {
@@ -4158,19 +4167,145 @@ export function MetricBadge({ label, value, unit, status = "nominal", detail }) 
     </div>
   );
 }
-```
+`
 
-### File: `src/components/sections/HeroSection.jsx`
+### File: src/components/sections/HeroSection.jsx
 
-```jsx
+`jsx
 import React from 'react';
-import { Download, Mail, Phone, Github, Code2, Activity, GraduationCap, Droplet, ArrowLeft } from 'lucide-react';
+import {
+  Download,
+  Mail,
+  Phone,
+  Github,
+  Code2,
+  Activity,
+  GraduationCap,
+  Droplet,
+  Play
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { BlueprintCadre } from '../common/BlueprintCadre';
 import { CollageBackground } from '../common/CollageBackground';
 
+const DOSSIER_I18N = {
+  ar: {
+    tape: 'ENGINEERING IDENTITY // هوية المهندس',
+    kicker: 'FLUIDEV / IDENTITY & CREDENTIALS',
+    name: 'محمد بعتاس',
+    roleHighlight: 'مهندس مياه وبرمجيات',
+    bio: 'مهندس دولة خريج المدرسة الوطنية العليا للري (ENSH)، وباحث ماستر في تسيير منظومات مياه الشرب والتطهير، ومطوّر نظم برمجية متقدم. أكرّس خبرتي لدمج الفهم الفيزيائي الدقيق لشبكات المياه ومحطات المعالجة، مع هندسة البرمجيات الحديثة، النظم المستقلة (Offline-First)، وتقنيات الأتمتة والبحث العلمي.',
+    sloganSub: 'نحوّل الأفكار الهندسية إلى حلول رقمية تعمل.',
+    pillars: [
+      {
+        num: '01',
+        title: 'الهندسة المائية والري (Hydraulics & Sanitation)',
+        desc: 'مهندس دولة خريج المدرسة الوطنية العليا للري + ماستر تسيير منشآت مياه الشرب ومحطات التطهير (WWTP) ونمذجة الشبكات المعقدة بـ EPANET و GIS.'
+      },
+      {
+        num: '02',
+        title: 'تطوير النظم والبرمجيات (Full-Stack & Desktop Systems)',
+        desc: 'هندسة برمجيات سطح المكتب المستقلة (Offline-First بـ Electron و Python)، محاكيات تفاعلية، ولوحات تحكم صناعية (SCADA).'
+      },
+      {
+        num: '03',
+        title: 'الخدمات الأكاديمية والبحثية (Academic Hub & Mentorship)',
+        desc: 'مرافقة الباحثين والطلبة، تدقيق وصياغة مذكرات التخرج ورسائل الماجستير (APA / IEEE)، وتصميم عروض المناقشة الاحترافية.'
+      }
+    ],
+    btnCv: 'تحميل السيرة الذاتية (CV)',
+    btnContact: 'تواصل معي مباشرة',
+    btnLab: 'تشغيل المختبر التفاعلي',
+    avail: 'متاح للمشاريع والتعاقد التقني (Algiers / Remote)',
+    ch1: '01 // أعمال وبرمجيات',
+    ch2: '02 // المختبر الهيدروليكي',
+    ch3: '03 // المركز الأكاديمي',
+    ch4: '04 // الركائز والقدرات'
+  },
+  fr: {
+    tape: 'ENGINEERING IDENTITY // DOSSIER INGÉNIEUR',
+    kicker: 'FLUIDEV / IDENTITÉ & COMPÉTENCES',
+    name: 'Mohamed Baatas',
+    roleHighlight: 'Ingénieur en Hydroinformatique & Logiciels',
+    bio: "Ingénieur d'État diplômé de l'École Nationale Supérieure d'Hydraulique (ENSH), chercheur en Master (Gestion des Services d'Eau et d'Assainissement) et architecte logiciel Full-Stack. Je fusionne la mécanique des fluides et la modélisation hydraulique avec des logiciels de bureau Offline-First, des jumeaux numériques SCADA et l'accompagnement académique.",
+    sloganSub: 'Transformer les concepts d’ingénierie en systèmes numériques fiables.',
+    pillars: [
+      {
+        num: '01',
+        title: 'Génie Hydraulique & Assainissement (ENSH)',
+        desc: 'Modélisation sous pression EPANET 2.2, stations d’épuration (STEP), réduction des eaux non facturées (NRW) et SIG spatial (ArcGIS Pro).'
+      },
+      {
+        num: '02',
+        title: 'Architecture Logicielle & ERP Desktop (Offline-First)',
+        desc: 'Applications de bureau haute fiabilité (Electron, React 18, Python PyQt6, SQLite), systèmes POS commerciaux et télémétrie IoT.'
+      },
+      {
+        num: '03',
+        title: 'Pôle Académique & Soutenance (Academic Hub)',
+        desc: 'Mise en page normée de mémoires (APA 7e / IEEE), révision linguistique trilingue et conception de présentations de soutenance.'
+      }
+    ],
+    btnCv: 'Télécharger le CV',
+    btnContact: 'Contact Direct',
+    btnLab: 'Lancer le Labo Interactif',
+    avail: 'Disponible pour Projets & Consulting (Alger / Remote)',
+    ch1: '01 // Projets & Logiciels',
+    ch2: '02 // Laboratoire Hydraulique',
+    ch3: '03 // Pôle Académique',
+    ch4: '04 // Compétences Clés'
+  },
+  en: {
+    tape: 'ENGINEERING IDENTITY // EXECUTIVE DOSSIER',
+    kicker: 'FLUIDEV / IDENTITY & CREDENTIALS',
+    name: 'Mohamed Baatas',
+    roleHighlight: 'Hydroinformatics & Software Engineer',
+    bio: 'State Hydraulics Engineer (ENSH Algiers), M.S. researcher in Water & Sanitation Services Management, and Full-Stack Software Architect. Dedicated to bridging pressurized water network physics and WWTP process engineering with offline-first desktop ERPs, real-time SCADA digital twins, and academic research excellence.',
+    sloganSub: 'Turning complex engineering physics into production software.',
+    pillars: [
+      {
+        num: '01',
+        title: 'Hydraulics & Water Infrastructure (ENSH)',
+        desc: 'Pressurized pipe network modeling (EPANET 2.2), wastewater treatment plant (WWTP) optimization, NRW reduction, and ArcGIS Pro.'
+      },
+      {
+        num: '02',
+        title: 'Full-Stack & Offline-First Desktop Systems',
+        desc: 'Production desktop ERPs & POS suites (Electron, React 18, Python PyQt6, SQLite3), browser-based physical solvers, and IoT telemetry.'
+      },
+      {
+        num: '03',
+        title: 'Academic Transformation & Thesis Hub',
+        desc: 'University-compliant thesis formatting (APA 7th / IEEE), trilingual scientific proofreading, and executive defense presentation decks.'
+      }
+    ],
+    btnCv: 'Download Resume (CV)',
+    btnContact: 'Direct Inquiry',
+    btnLab: 'Launch Interactive Lab',
+    avail: 'Available for Consulting & Engineering Roles (Algiers / Remote)',
+    ch1: '01 // Selected Works',
+    ch2: '02 // Hydraulic Lab',
+    ch3: '03 // Academic Hub',
+    ch4: '04 // Core Pillars'
+  }
+};
+
 export function HeroSection() {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const langKey = i18n.language?.startsWith('ar')
+    ? 'ar'
+    : i18n.language?.startsWith('fr')
+    ? 'fr'
+    : 'en';
+  const copy = DOSSIER_I18N[langKey];
+  const isRTL = langKey === 'ar';
+
+  const handleOpenLab = (e) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('fluiddev:launch-lab', { detail: { tab: 'epanet' } }));
+    const labEl = document.getElementById('interactive-lab');
+    if (labEl) labEl.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <BlueprintCadre
@@ -4178,73 +4313,49 @@ export function HeroSection() {
       cadreTag="FLUIDEV // IDENTITY_BLUEPRINT"
       coordinates="LAT:36.75 / LON:3.05"
       showConduit={false}
-      className="relative pt-4 pb-10 sm:pt-6 sm:pb-14 bg-[#07133F] overflow-hidden min-h-[92vh] flex flex-col justify-between"
+      className="relative pt-4 pb-10 sm:pt-6 sm:pb-14 bg-slate-100/80 dark:bg-[#07133F] overflow-hidden min-h-[90vh] flex flex-col justify-between transition-colors duration-300"
     >
-      {/* Background Cut Paper Sheets, Circuit Traces & Golden Nodes */}
       <CollageBackground />
 
       <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex-1 flex flex-col justify-between">
-        
-        {/* Main 2-Column Command Hero Composition */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-1 my-auto py-4">
           
-          {/* Column A (Right in RTL): Balanced Portrait + Animated Rotating Radar + FluiDev Slogan */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center text-center lg:items-end lg:text-right">
-            
-            {/* Portrait Stage with Concentric Rotating Radar Rings */}
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-[340px] sm:h-[400px] lg:h-[440px] flex items-end justify-center lg:justify-end mb-4">
-              
-              {/* Radial Cyan Glow Behind Head */}
+          {/* Portrait & Radar Column */}
+          <div className={`lg:col-span-5 ${isRTL ? 'order-1 lg:order-2 lg:items-end lg:text-right' : 'order-1 lg:order-2 lg:items-end lg:text-right'} flex flex-col items-center text-center`}>
+            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-[330px] sm:h-[390px] lg:h-[430px] flex items-end justify-center lg:justify-end mb-4">
               <div className="absolute top-1/4 inset-x-8 h-64 bg-gradient-to-tr from-blue-600/30 via-cyan-400/25 to-transparent rounded-full filter blur-3xl pointer-events-none" />
 
-              {/* 1. ANIMATED ROTATING RADAR / COMPASS RINGS (Centered behind Portrait) */}
+              {/* Animated Rotating Radar Rings */}
               <div className="absolute inset-0 flex items-center justify-center lg:justify-end lg:right-6 pointer-events-none select-none">
-                
-                {/* Outer Dashed Orbit Ring - Rotating Clockwise */}
-                <div className="w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] lg:w-[460px] lg:h-[460px] rounded-full border border-dashed border-cyan-400/50 animate-spin-slow flex items-center justify-center relative">
-                  
-                  {/* Orbiting Planetary Solder Nodes */}
+                <div className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[440px] lg:h-[440px] rounded-full border border-dashed border-fluid-blue/40 dark:border-cyan-400/50 animate-spin-slow flex items-center justify-center relative">
                   <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#F7B500] border-2 border-white shadow-[0_0_12px_#F7B500]" />
                   <span className="absolute bottom-6 right-6 w-3 h-3 rounded-full bg-[#00E5FF] border border-[#07133F] shadow-[0_0_8px_#00E5FF]" />
                   <span className="absolute top-16 left-6 w-3 h-3 rounded-full bg-[#D62828] border border-white shadow-[0_0_6px_#D62828]" />
-                  
-                  {/* Telemetry Degree Stamps */}
-                  <span className="absolute top-2 right-1/4 text-[9px] font-mono font-bold text-cyan-300/80">000° // N</span>
-                  <span className="absolute bottom-3 left-1/4 text-[9px] font-mono font-bold text-cyan-300/80">180° // S</span>
+                  <span className="absolute top-2 right-1/4 text-[9px] font-mono font-bold text-fluid-blue dark:text-cyan-300/80">000° // N</span>
+                  <span className="absolute bottom-3 left-1/4 text-[9px] font-mono font-bold text-fluid-blue dark:text-cyan-300/80">180° // S</span>
                 </div>
 
-                {/* Middle Precision Scale Ring - Counter-Rotating Counter-Clockwise */}
-                <div className="absolute w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[360px] lg:h-[360px] rounded-full border border-cyan-400/40 animate-spin-reverse-slow flex items-center justify-center">
+                <div className="absolute w-[250px] h-[250px] sm:w-[310px] sm:h-[310px] lg:w-[350px] lg:h-[350px] rounded-full border border-fluid-blue/30 dark:border-cyan-400/40 animate-spin-reverse-slow flex items-center justify-center">
                   <div className="w-full h-full rounded-full border border-dashed border-blue-500/60 scale-95" />
                   <span className="absolute -right-2 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#F7B500] border border-white" />
                   <span className="absolute -left-2 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#00E5FF] border border-[#07133F]" />
                 </div>
 
-                {/* Inner Crosshair Target */}
-                <div className="absolute w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] rounded-full border border-blue-400/30 flex items-center justify-center">
+                <div className="absolute w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] rounded-full border border-blue-400/30 flex items-center justify-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-full h-[1px] bg-cyan-400/20" />
-                    <span className="absolute h-full w-[1px] bg-cyan-400/20" />
-                  </div>
                 </div>
 
-                {/* Translucent Blueprint Watermark "01" */}
                 <div
                   className="absolute right-0 bottom-4 text-transparent font-black font-condensed text-[120px] sm:text-[150px] lg:text-[180px] leading-none opacity-20 pointer-events-none select-none"
-                  style={{
-                    WebkitTextStroke: '1.5px rgba(0, 229, 255, 0.4)',
-                  }}
+                  style={{ WebkitTextStroke: '1.5px rgba(0, 229, 255, 0.4)' }}
                 >
                   01
                 </div>
-
               </div>
 
-              {/* Ultra-Res Cutout Portrait - Sized with Dignity and Balance */}
               <img
                 src="/assets/mohamed-portrait-cutout.png"
-                alt="محمد بعتاس"
+                alt="Mohamed Baatas"
                 className="relative z-10 max-h-full max-w-full object-contain pointer-events-none select-none transition-transform duration-500 hover:scale-[1.02]"
                 style={{
                   filter: `
@@ -4252,16 +4363,14 @@ export function HeroSection() {
                     drop-shadow(-2px 0 0 white)
                     drop-shadow(0 -2px 0 white)
                     drop-shadow(0 3px 0 white)
-                    drop-shadow(-10px 18px 24px rgba(0, 0, 0, 0.65))
-                  `,
+                    drop-shadow(-10px 18px 24px rgba(0, 0, 0, 0.5))
+                  `
                 }}
               />
             </div>
 
-            {/* Persona Identity Badge Block (Direct from Banner Right Panel) */}
+            {/* Persona Identity Badge Block */}
             <div className="space-y-2 relative z-10 w-full max-w-md lg:max-w-lg">
-              
-              {/* Brand Pill */}
               <div className="inline-flex items-center gap-3 px-3.5 py-1 rounded bg-white text-[#07133F] shadow-lg border-l-4 border-[#F7B500]">
                 <span className="w-6 h-6 rounded bg-[#00E5FF] text-[#07133F] font-black font-condensed text-sm flex items-center justify-center transform -skew-x-12">
                   F
@@ -4270,20 +4379,18 @@ export function HeroSection() {
                 <span className="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">• FLUID DEVELOPER</span>
               </div>
 
-              {/* Persona Slogan */}
               <div className="space-y-0.5">
                 <div className="text-xs font-mono font-bold tracking-widest text-[#d62828] uppercase" dir="ltr">
                   ENGINEERING
                 </div>
-                <div className="text-2xl sm:text-3xl font-black font-condensed tracking-tight text-white leading-none">
+                <div className="text-2xl sm:text-3xl font-black font-condensed tracking-tight text-slate-900 dark:text-white leading-none">
                   SMART SOLUTIONS.
                 </div>
-                <div className="text-xs sm:text-sm text-cyan-300 font-medium pt-0.5 border-t border-[#F7B500]/60 inline-block">
-                  نحوّل الأفكار الهندسية إلى حلول رقمية تعمل.
+                <div className="text-xs sm:text-sm text-fluid-blue dark:text-cyan-300 font-medium pt-0.5 border-t border-[#F7B500]/60 inline-block">
+                  {copy.sloganSub}
                 </div>
               </div>
 
-              {/* Badges Strip */}
               <div className="flex flex-wrap items-center justify-center lg:justify-end gap-1.5 pt-1">
                 <span className="px-2.5 py-0.5 rounded bg-[#001db5] border-l-2 border-[#F7B500] text-white text-[10px] font-mono font-bold tracking-wider uppercase shadow-sm">
                   HYDROINFORMATICS
@@ -4296,13 +4403,12 @@ export function HeroSection() {
                 </span>
               </div>
             </div>
-
           </div>
 
-          {/* Column B (Left in RTL): Tactile Cut Paper Dossier (ورقة المربعات الهندسية - Who I Am First) */}
-          <div className="lg:col-span-7 order-2 lg:order-1" dir="rtl">
+          {/* Tactile Cut Paper Engineering Dossier Column */}
+          <div className="lg:col-span-7 order-2 lg:order-1" dir={isRTL ? 'rtl' : 'ltr'}>
             <div
-              className="relative p-6 sm:p-9 lg:p-10 rounded-2xl shadow-2xl text-slate-900 overflow-hidden transform hover:-translate-y-0.5 transition-transform duration-300"
+              className="relative p-6 sm:p-9 lg:p-10 rounded-2xl shadow-2xl text-slate-900 overflow-hidden transition-transform duration-300"
               style={{
                 backgroundColor: '#FAFBFD',
                 backgroundImage: `
@@ -4311,202 +4417,172 @@ export function HeroSection() {
                 `,
                 backgroundSize: '18px 18px',
                 border: '1px solid rgba(0, 29, 181, 0.18)',
-                boxShadow: '0 25px 65px -15px rgba(2, 11, 39, 0.65), 0 0 0 1px rgba(0, 29, 181, 0.12)',
-                transform: 'rotate(-0.5deg)',
+                boxShadow: '0 25px 65px -15px rgba(2, 11, 39, 0.45), 0 0 0 1px rgba(0, 29, 181, 0.12)'
               }}
             >
-              {/* Metallic Paperclip Pinned over Top Edge */}
+              {/* Metallic Paperclip */}
               <div
                 className="absolute -top-3 left-10 w-5 h-12 pointer-events-none"
                 style={{
                   border: '3px solid #9ea4ad',
                   borderBottom: 'none',
                   borderRadius: '99px 99px 0 0',
-                  boxShadow: 'inset 0 2px 2px rgba(255,255,255,0.7), 2px 4px 6px rgba(7, 19, 63, 0.25)',
+                  boxShadow: 'inset 0 2px 2px rgba(255,255,255,0.7), 2px 4px 6px rgba(7, 19, 63, 0.25)'
                 }}
               />
 
-              {/* Binder Punch Holes along Left Edge */}
-              <div className="absolute top-10 bottom-10 left-3 flex flex-col justify-between pointer-events-none opacity-40">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span
-                    key={`punch-${i}`}
-                    className="w-2.5 h-2.5 rounded-full bg-slate-300 border border-slate-400 shadow-inner"
-                  />
-                ))}
-              </div>
-
-              {/* Traffic Dots (Corner) */}
+              {/* Traffic Dots */}
               <div className="absolute top-5 left-16 flex items-center gap-1.5 pointer-events-none" dir="ltr">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#f7b500] border border-[#001db5]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#fa8c16] border border-[#001db5]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#d62828] border border-[#001db5]" />
               </div>
 
-              {/* Red Notebook Margin Line (On the Right for Arabic) */}
-              <div className="absolute top-0 bottom-0 right-8 sm:right-12 w-0.5 bg-red-500/60 pointer-events-none" />
+              {/* Notebook Red Margin Line */}
+              <div
+                className={`absolute top-0 bottom-0 ${
+                  isRTL ? 'right-6 sm:right-10' : 'left-6 sm:left-10'
+                } w-0.5 bg-red-500/60 pointer-events-none`}
+              />
 
-              {/* Yellow Masking Tape Header */}
-              <div className="inline-block mb-3 pr-6 sm:pr-10">
-                <span
-                  className="inline-block px-3.5 py-1 bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs sm:text-sm uppercase shadow-sm"
-                  style={{
-                    transform: 'rotate(1deg)',
-                  }}
-                >
-                  ENGINEERING IDENTITY // هوية المهندس
-                </span>
-              </div>
-
-              {/* Who I Am Section Header */}
-              <div className="mb-5 pr-6 sm:pr-10 text-right">
-                <div className="text-[11px] font-mono font-bold tracking-widest text-[#001db5] uppercase mb-0.5" dir="ltr">
-                  FLUIDEV / IDENTITY &amp; CREDENTIALS
-                </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-title tracking-tight text-[#07133F] leading-tight">
-                  محمد بعتاس <br />
-                  <span className="text-[#001db5]">مهندس مياه وبرمجيات</span>
-                </h1>
-                <p className="mt-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans max-w-2xl">
-                  مهندس دولة خريج المدرسة الوطنية العليا للري (ENSH)، وباحث ماستر في تسيير منظومات مياه الشرب والتطهير، ومطوّر نظم برمجية متقدم. أكرّس خبرتي لدمج الفهم الفيزيائي الدقيق لشبكات المياه ومحطات المعالجة، مع هندسة البرمجيات الحديثة، النظم المستقلة (Offline-First)، وتقنيات الأتمتة والبحث العلمي.
-                </p>
-              </div>
-
-              {/* 3 Core Identity Credentials (Clean Right-to-Left Alignment) */}
-              <div className="space-y-2.5 mb-5 pr-6 sm:pr-10 border-t border-slate-200/90 pt-4 text-right">
-                
-                <div className="group flex items-start gap-3 p-2 rounded-xl hover:bg-blue-50/70 transition-colors">
-                  <span className="w-8 h-8 rounded-lg bg-[#001db5] text-white font-black font-condensed text-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
-                    01
+              <div className={isRTL ? 'pr-5 sm:pr-8 text-right' : 'pl-5 sm:pl-8 text-left'}>
+                {/* Yellow Masking Tape Header */}
+                <div className="inline-block mb-3">
+                  <span className="inline-block px-3.5 py-1 bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs sm:text-sm uppercase shadow-sm">
+                    {copy.tape}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className="text-xs sm:text-sm font-bold text-[#07133F] group-hover:text-[#001db5] transition-colors leading-snug">
-                      الهندسة المائية والري (Hydraulics &amp; Sanitation)
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed mt-0.5">
-                      مهندس دولة خريج المدرسة الوطنية العليا للري + ماستر تسيير منشآت مياه الشرب ومحطات التطهير (WWTP) ونمذجة الشبكات المعقدة بـ EPANET و GIS.
-                    </p>
-                  </div>
                 </div>
 
-                <div className="group flex items-start gap-3 p-2 rounded-xl hover:bg-blue-50/70 transition-colors">
-                  <span className="w-8 h-8 rounded-lg bg-[#001db5] text-white font-black font-condensed text-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
-                    02
+                {/* Identity Headline */}
+                <div className="mb-5">
+                  <div className="text-[11px] font-mono font-bold tracking-widest text-[#001db5] uppercase mb-0.5" dir="ltr">
+                    {copy.kicker}
+                  </div>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-title tracking-tight text-[#07133F] leading-tight">
+                    {copy.name} <br />
+                    <span className="text-[#001db5]">{copy.roleHighlight}</span>
+                  </h1>
+                  <p className="mt-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans max-w-2xl">
+                    {copy.bio}
+                  </p>
+                </div>
+
+                {/* 3 Core Identity Credentials */}
+                <div className="space-y-2.5 mb-5 border-t border-slate-200/90 pt-4">
+                  {copy.pillars.map((item) => (
+                    <div
+                      key={item.num}
+                      className="group flex items-start gap-3 p-2 rounded-xl hover:bg-blue-50/80 transition-colors"
+                    >
+                      <span className="w-8 h-8 rounded-lg bg-[#001db5] text-white font-black font-condensed text-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
+                        {item.num}
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="text-xs sm:text-sm font-bold text-[#07133F] group-hover:text-[#001db5] transition-colors leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed mt-0.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Quick Action Strip */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-200/90">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <a
+                      href="/Mohamed_Baatas_CV.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F7B500] hover:bg-[#FFC72C] text-[#07133F] font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all"
+                    >
+                      <Download className="w-4 h-4 text-[#07133F]" />
+                      <span>{copy.btnCv}</span>
+                    </a>
+
+                    <a
+                      href="#interactive-lab"
+                      onClick={handleOpenLab}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#001db5] hover:bg-[#0027ea] text-white font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-white" />
+                      <span>{copy.btnLab}</span>
+                    </a>
+
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-sm transition-all"
+                    >
+                      <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>{copy.btnContact}</span>
+                    </a>
+                  </div>
+
+                  <span className="text-[11px] sm:text-xs font-mono text-slate-600 font-semibold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    {copy.avail}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className="text-xs sm:text-sm font-bold text-[#07133F] group-hover:text-[#001db5] transition-colors leading-snug">
-                      تطوير النظم والبرمجيات (Full-Stack &amp; Desktop Systems)
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed mt-0.5">
-                      هندسة برمجيات سطح المكتب المستقلة (Offline-First بالـ Electron و Python)، محاكيات تفاعلية، ولوحات تحكم صناعية (SCADA).
-                    </p>
-                  </div>
                 </div>
-
-                <div className="group flex items-start gap-3 p-2 rounded-xl hover:bg-blue-50/70 transition-colors">
-                  <span className="w-8 h-8 rounded-lg bg-[#001db5] text-white font-black font-condensed text-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
-                    03
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="text-xs sm:text-sm font-bold text-[#07133F] group-hover:text-[#001db5] transition-colors leading-snug">
-                      الخدمات الأكاديمية والبحثية (Academic Hub &amp; Mentorship)
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed mt-0.5">
-                      مرافقة الباحثين والطلبة، تدقيق وصياغة مذكرات التخرج ورسائل الماجستير (APA / IEEE)، وتصميم عروض المناقشة الاحترافية.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Bottom Quick Action Strip on the Paper */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-200/90 pr-6 sm:pr-10">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <a
-                    href="/Mohamed_Baatas_CV.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F7B500] hover:bg-[#FFC72C] text-[#07133F] font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all group"
-                  >
-                    <Download className="w-4 h-4 text-[#07133F]" />
-                    <span>تحميل السيرة الذاتية (CV)</span>
-                  </a>
-
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#001db5] hover:bg-[#0027ea] text-white font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all group"
-                  >
-                    <Mail className="w-4 h-4" />
-                    <span>تواصل معي مباشرة</span>
-                  </a>
-                </div>
-
-                <span className="text-[11px] sm:text-xs font-mono text-slate-600 font-semibold flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  متاح للمشاريع والتعاقد التقني (Algiers / Remote)
-                </span>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Technical Chapters & Contact Bar Strip Across the Entire Hero */}
-        <div className="pt-4 mt-2 border-t border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-3">
-          
-          {/* Chapter Navigation Badges */}
+        {/* Bottom Technical Chapters & Contact Bar Strip */}
+        <div className="pt-4 mt-2 border-t border-slate-300 dark:border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            <a 
+            <a
               href="#selected-works"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-950/80 hover:bg-blue-900 border border-blue-500/30 text-white font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-white font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
             >
-              <Code2 className="w-3.5 h-3.5 text-cyan-300" />
-              <span>01 // أعمال وبرمجيات</span>
+              <Code2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-300" />
+              <span>{copy.ch1}</span>
             </a>
 
-            <a 
+            <a
               href="#interactive-lab"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-950/80 hover:bg-blue-900 border border-blue-500/30 text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
             >
-              <Activity className="w-3.5 h-3.5 text-cyan-400" />
-              <span>02 // المختبر الهيدروليكي</span>
+              <Activity className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+              <span>{copy.ch2}</span>
             </a>
 
-            <a 
+            <a
               href="#academic-hub"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-950/80 hover:bg-blue-900 border border-blue-500/30 text-cyan-300 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-fluid-blue dark:text-cyan-300 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
             >
-              <GraduationCap className="w-3.5 h-3.5 text-fluid-yellow" />
-              <span>03 // المركز الأكاديمي</span>
+              <GraduationCap className="w-3.5 h-3.5 text-amber-500 dark:text-fluid-yellow" />
+              <span>{copy.ch3}</span>
             </a>
 
-            <a 
+            <a
               href="#engineering-pillars"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-950/80 hover:bg-blue-900 border border-blue-500/30 text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
             >
-              <Droplet className="w-3.5 h-3.5 text-blue-400" />
-              <span>04 // الركائز والقدرات</span>
+              <Droplet className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+              <span>{copy.ch4}</span>
             </a>
           </div>
 
-          {/* Banner-Style Direct Contact Bars */}
-          <div className="flex items-center gap-3 text-xs font-mono text-cyan-300">
-            <a href="tel:+213655748513" className="flex items-center gap-1.5 hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-700 dark:text-cyan-300" dir="ltr">
+            <a href="tel:+213655748513" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
               <Phone className="w-3.5 h-3.5 text-[#F7B500]" />
               <span>+213 655 74 85 13</span>
             </a>
             <span className="text-blue-500">•</span>
-            <a href="mailto:mohamedbaatas@gmail.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Mail className="w-3.5 h-3.5 text-cyan-400" />
+            <a href="mailto:mohamedbaatas@gmail.com" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
+              <Mail className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400" />
               <span>mohamedbaatas@gmail.com</span>
             </a>
             <span className="text-blue-500">•</span>
-            <a href="https://github.com/mohamedbaatas-hash" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <Github className="w-3.5 h-3.5 text-slate-300" />
+            <a href="https://github.com/mohamedbaatas-hash" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
+              <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
             </a>
           </div>
-
         </div>
 
       </div>
@@ -4515,19 +4591,39 @@ export function HeroSection() {
 }
 
 export default HeroSection;
-```
+`
 
-### File: `src/components/sections/SelectedWorksSection.jsx`
+### File: src/components/sections/SelectedWorksSection.jsx
 
-```jsx
-import React from 'react';
+`jsx
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, Laptop, Droplets, Store, Activity } from 'lucide-react';
+import {
+  CheckCircle2,
+  Laptop,
+  Droplets,
+  Store,
+  Activity,
+  Layers,
+  Play,
+  X,
+  ShieldAlert,
+  Cpu
+} from 'lucide-react';
 import { BlueprintCadre } from '../common/BlueprintCadre';
 import { CircuitBackground } from '../common/CircuitBackground';
 
 export function SelectedWorksSection() {
   const { t } = useTranslation();
+  const [selectedModalWork, setSelectedModalWork] = useState(null);
+
+  const caseStudies = t('CASE_STUDIES', { returnObjects: true }) || [];
+  const freelanceSolutions = t('FREELANCE_SOLUTIONS', { returnObjects: true }) || [];
+
+  const findCaseStudy = (id) =>
+    Array.isArray(caseStudies) ? caseStudies.find((c) => c.id === id) : null;
+  const findFreelance = (id) =>
+    Array.isArray(freelanceSolutions) ? freelanceSolutions.find((f) => f.id === id) : null;
 
   const works = [
     {
@@ -4535,86 +4631,107 @@ export function SelectedWorksSection() {
       num: '01',
       tapeTag: '01 // CIVIL DESKTOP ERP',
       title: t('WORKS.constracker_title', 'Constracker Suite'),
-      subtitle: 'Civil Engineering & Construction Management ERP',
-      tag: 'Desktop Application • Offline-First',
+      tag: t('WORKS.constracker_tag', 'Desktop Application • Civil ERP'),
       icon: <Laptop className="w-5 h-5 text-fluid-blue dark:text-cyan-400" />,
-      punchline: 'Offline-first desktop software engineered with Electron, React 18, and SQLite3 to unify site worker assignments, budgeting, and materials without active internet.',
+      punchline: t(
+        'WORKS.constracker_desc',
+        'Offline-first desktop software engineered with Electron, React 18, and SQLite3 to unify site worker assignments, budgeting, and materials without active internet.'
+      ),
       bullets: [
-        'Zero-latency local SQLite3 database',
-        '7 integrated core project management modules',
-        'Cross-platform native executable packaging'
+        t('WORKS.constracker_h1', 'Offline-first local SQLite3 database with zero-latency querying.'),
+        t('WORKS.constracker_h2', '7 integrated core project management & measurement modules.'),
+        t('WORKS.constracker_h3', 'Cross-platform native executable packaging via Electron Builder.')
       ],
-      stack: ['Electron', 'React 18', 'TypeScript', 'SQLite3', 'Tailwind CSS'],
+      stack: ['Electron', 'React 18', 'TypeScript', 'SQLite3', 'Tailwind CSS', 'shadcn/ui'],
       metrics: [
-        { label: 'Architecture', value: 'Offline-First' },
-        { label: 'Modules', value: '7 Core Tools' },
-        { label: 'Database', value: 'SQLite Local' }
-      ]
+        { label: t('WORKS.metric_arch', 'Architecture'), value: 'Offline-First' },
+        { label: t('WORKS.metric_modules', 'Modules'), value: '7 Core Tools' },
+        { label: t('WORKS.metric_db', 'Database'), value: 'SQLite Local' }
+      ],
+      deepDive: findCaseStudy('constracker-suite')
     },
     {
       id: 'waterfit-telemetry',
       num: '02',
       tapeTag: '02 // IOT TELEMETRY & CLOUD',
       title: t('WORKS.waterfit_title', 'WaterFit Telemetry'),
-      subtitle: 'Cloud-Connected Water & IoT Microservice',
-      tag: 'IoT Telemetry • Cloud Microservice',
+      tag: t('WORKS.waterfit_tag', 'IoT Telemetry • Cloud Microservice'),
       icon: <Droplets className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-      punchline: 'Asynchronous telemetry platform connecting domestic water sensors with an async FastAPI backend and Telegram alerts to log consumption and flag micro-leaks.',
+      punchline: t(
+        'WORKS.waterfit_desc',
+        'Asynchronous telemetry platform connecting water sensors with an async Python FastAPI backend and Telegram Bot API to log consumption and flag micro-leaks.'
+      ),
       bullets: [
-        'Sub-180ms webhook ingestion latency',
-        'Automated fluid deficit & micro-leak anomaly alerts',
-        'Bidirectional Telegram Bot API & Firestore sync'
+        t('WORKS.waterfit_h1', 'Sub-2s conversational ingestion via Telegram Bot API.'),
+        t('WORKS.waterfit_h2', 'Asynchronous FastAPI webhook listeners & background tasks.'),
+        t('WORKS.waterfit_h3', 'Real-time Firebase sync with proactive deficit & leak alerts.')
       ],
-      stack: ['Python 3.11', 'FastAPI', 'Telegram API', 'Firebase', 'Asyncio'],
+      stack: ['Python 3.11', 'FastAPI', 'Telegram Bot API', 'Firebase', 'Asyncio Webhooks'],
       metrics: [
-        { label: 'Latency', value: '<180 ms' },
-        { label: 'Alert Rate', value: 'Real-time' },
-        { label: 'Throughput', value: '500+ req/s' }
-      ]
+        { label: t('WORKS.metric_latency', 'Latency'), value: '<180 ms' },
+        { label: t('WORKS.metric_compliance', 'Compliance'), value: '+340%' },
+        { label: t('WORKS.metric_concurrency', 'Throughput'), value: '500+ req/s' }
+      ],
+      deepDive: findCaseStudy('waterfit-telemetry')
     },
     {
       id: 'maktabi-pos',
       num: '03',
       tapeTag: '03 // COMMERCIAL DESKTOP POS',
       title: t('WORKS.maktabi_title', 'Maktabi POS & Commercial Systems'),
-      subtitle: 'Production Retail Ledger & Turnstile ERPs',
-      tag: 'Commercial Software • Retail Production',
+      tag: t('WORKS.maktabi_tag', 'Commercial Software • Retail Production'),
       icon: <Store className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-      punchline: 'Production commercial desktop suites deployed for business clients in retail and fitness, handling 10,000+ item catalogs and hardware biometric turnstiles.',
+      punchline: t(
+        'WORKS.maktabi_desc',
+        'Production commercial desktop suites deployed for business clients in retail and fitness, handling 10,000+ item catalogs and hardware biometric turnstiles.'
+      ),
       bullets: [
-        'Sub-second barcode lookup across 10,000+ items',
-        'Direct ESC/POS thermal printer and serial drawer control',
-        'Hardware biometric integration & automated renewal alerts'
+        t('WORKS.maktabi_h1', 'Sub-second barcode lookup across 10,000+ SKU catalogs.'),
+        t('WORKS.maktabi_h2', 'Direct ESC/POS thermal printer and serial cash drawer control.'),
+        t('WORKS.maktabi_h3', 'Biometric/RFID turnstile control with +28% renewal increase.')
       ],
-      stack: ['Python', 'PyQt / Qt', 'SQLite', 'ESC/POS Protocol', 'Hardware Drivers'],
+      stack: ['Python', 'PyQt6 / Qt', 'SQLite', 'ESC/POS Protocol', 'RFID / Biometrics'],
       metrics: [
-        { label: 'Deployment', value: 'Retail Stores' },
-        { label: 'Inventory', value: '10,000+ SKUs' },
-        { label: 'Uptime', value: '100% Offline' }
-      ]
+        { label: t('WORKS.metric_deployment', 'Deployment'), value: '3 Stores / Gyms' },
+        { label: t('WORKS.metric_audit', 'Audit Saved'), value: '-65% Time' },
+        { label: t('WORKS.metric_uptime', 'Uptime'), value: '100% Offline' }
+      ],
+      deepDive: findFreelance('maktabi-pos')
     },
     {
       id: 'epanet-solver',
       num: '04',
-      tapeTag: '04 // HYDRAULIC GRAPH ENGINE',
-      title: t('WORKS.epanet_title', 'EPANET 2.2 Looped Network Solver'),
-      subtitle: 'Interactive Municipal Hydraulic Graph Engine',
-      tag: 'Hydraulic Modeling • Numerical Simulation',
+      tapeTag: '04 // HYDRAULIC & SCADA ENGINES',
+      title: t('WORKS.epanet_title', 'EPANET 2.2 & SCADA Digital Twins'),
+      tag: t('WORKS.epanet_tag', 'Hydraulic Modeling • Numerical Simulation'),
       icon: <Activity className="w-5 h-5 text-fluid-blue dark:text-blue-400" />,
-      punchline: 'Deterministic in-browser hydraulic solver modeling municipal drinking water networks with Hazen-Williams friction equations and Newton-Raphson iteration.',
+      punchline: t(
+        'WORKS.epanet_desc',
+        'Deterministic hydraulic solver and Zeriba El Oued WWTP SCADA digital twin implementing Hazen-Williams friction equations and Newton-Raphson matrix iterations.'
+      ),
       bullets: [
-        'Deterministic head loss calibrated to roughness C-factors',
-        'Newton-Raphson nodal gradient iterations in real-time',
-        'Interactive scenario testing: peak demand & pipe rupture'
+        t('WORKS.epanet_h1', 'Deterministic head loss calibrated to pipe roughness C-factors.'),
+        t('WORKS.epanet_h2', 'Newton-Raphson nodal gradient iterations solving pressures live.'),
+        t('WORKS.epanet_h3', 'Interactive scenarios: morning peak, fire flow & pipe rupture.')
       ],
-      stack: ['React', 'JavaScript Math Engine', 'Hazen-Williams', 'SVG Canvas'],
+      stack: ['EPANET 2.2 Math', 'Newton-Raphson', 'Hazen-Williams', 'PyQt6 / React SVG'],
       metrics: [
-        { label: 'Topology', value: '8 Nodes • 11 Links' },
-        { label: 'Physics', value: 'Hazen-Williams' },
-        { label: 'Solver', value: 'Newton-Raphson' }
-      ]
+        { label: t('WORKS.metric_topology', 'Topology'), value: '8 Nodes • 11 Links' },
+        { label: t('WORKS.metric_physics', 'Physics'), value: 'Hazen-Williams' },
+        { label: t('WORKS.metric_interactivity', 'Solver'), value: 'Newton-Raphson' }
+      ],
+      deepDive: findCaseStudy('scada-wwtp'),
+      hasLiveLab: true
     }
   ];
+
+  const handleLaunchLab = (tabName) => {
+    window.dispatchEvent(new CustomEvent('fluiddev:launch-lab', { detail: { tab: tabName } }));
+    const labSection = document.getElementById('interactive-lab');
+    if (labSection) {
+      labSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <BlueprintCadre
@@ -4628,12 +4745,11 @@ export function SelectedWorksSection() {
       <CircuitBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Minimal & Punchy */}
+        {/* Section Header */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-fluid-blue dark:text-cyan-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-500/30">
-              01 // SIGNATURE WORKS
+              01 // {t('WORKS.section_tag', 'SIGNATURE WORKS')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               0101 / FLOW.DATA
@@ -4644,31 +4760,31 @@ export function SelectedWorksSection() {
             {t('WORKS.section_title', 'Selected Engineering & Software Systems')}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Production desktop applications, IoT telemetry pipelines, and computational hydraulic solvers built for real-world reliability.
+            {t(
+              'WORKS.section_desc',
+              'Production desktop applications, IoT telemetry pipelines, and computational hydraulic solvers built for real-world reliability.'
+            )}
           </p>
         </div>
 
-        {/* Selected Works Grid: Physical Paper & Blueprint Aesthetic */}
+        {/* Selected Works Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {works.map((work) => (
             <div
               key={work.id}
               className="group rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white dark:bg-[#0A1B54]/80 hover:border-blue-400 dark:hover:border-cyan-400 transition-all duration-300 p-6 flex flex-col justify-between shadow-lg relative overflow-hidden backdrop-blur-sm"
             >
-              {/* Corner Technical Crosshairs */}
               <span className="absolute top-2.5 right-2.5 text-[11px] font-mono text-slate-300 dark:text-cyan-400/50 select-none pointer-events-none">
                 +
               </span>
 
               <div>
-                {/* Yellow Tape Strip Badge at Top */}
                 <div className="inline-block mb-3.5">
                   <span className="px-3 py-1 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs uppercase shadow-sm">
                     {work.tapeTag}
                   </span>
                 </div>
 
-                {/* Header Strip with Icon and Title */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
@@ -4689,35 +4805,37 @@ export function SelectedWorksSection() {
                   </span>
                 </div>
 
-                {/* Single Punchline */}
                 <p className="mt-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-sans">
                   {work.punchline}
                 </p>
 
-                {/* Micro-Bullets (3 short bullet points) */}
                 <ul className="mt-4 space-y-1.5 pt-3.5 border-t border-slate-100 dark:border-slate-800/80">
                   {work.bullets.map((b, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0" />
+                    <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0 mt-0.5" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Bottom Strip: Metrics & Tech Stack */}
               <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                {/* Real Metrics Badges */}
                 <div className="grid grid-cols-3 gap-2">
                   {work.metrics.map((m, mIdx) => (
-                    <div key={mIdx} className="p-2 rounded-lg bg-slate-50 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/20 text-center">
-                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block">{m.label}</span>
-                      <span className="text-xs font-bold font-condensed text-slate-900 dark:text-cyan-300 mt-0.5 block">{m.value}</span>
+                    <div
+                      key={mIdx}
+                      className="p-2 rounded-lg bg-slate-50 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/20 text-center"
+                    >
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block truncate">
+                        {m.label}
+                      </span>
+                      <span className="text-xs font-bold font-condensed text-slate-900 dark:text-cyan-300 mt-0.5 block">
+                        {m.value}
+                      </span>
                     </div>
                   ))}
                 </div>
 
-                {/* Stack Pills */}
                 <div className="flex flex-wrap gap-1.5">
                   {work.stack.map((stk, sIdx) => (
                     <span
@@ -4728,23 +4846,111 @@ export function SelectedWorksSection() {
                     </span>
                   ))}
                 </div>
+
+                {/* Interactive Deep-Dive & Live Simulator Action Row */}
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 dark:border-slate-800/60">
+                  {work.deepDive && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedModalWork(work)}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-fluid-blue dark:text-cyan-400 hover:underline"
+                    >
+                      <Layers className="w-3.5 h-3.5" />
+                      <span>{t('CASE_STUDIES_SECTION.view_study', 'View Full Case Study')}</span>
+                    </button>
+                  )}
+
+                  {work.hasLiveLab && (
+                    <button
+                      type="button"
+                      onClick={() => handleLaunchLab('epanet')}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-fluid-blue hover:bg-fluid-blue-bright text-white text-xs font-condensed font-bold tracking-wide shadow-sm transition-all"
+                    >
+                      <Play className="w-3 h-3 fill-white" />
+                      <span>{t('LAB.btn_launch_epanet', 'Launch EPANET Solver')}</span>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
-
       </div>
+
+      {/* Case Study Architecture Modal */}
+      {selectedModalWork && selectedModalWork.deepDive && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedModalWork(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl bg-white dark:bg-[#07133F] border border-slate-200 dark:border-cyan-500/40 p-6 sm:p-8 shadow-2xl text-slate-900 dark:text-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
+              <div>
+                <span className="px-2.5 py-0.5 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed text-xs uppercase">
+                  {selectedModalWork.tapeTag}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold font-title mt-2">
+                  {selectedModalWork.deepDive.title || selectedModalWork.deepDive.name}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedModalWork(null)}
+                className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="mt-5 space-y-5 text-xs sm:text-sm">
+              {selectedModalWork.deepDive.problem && (
+                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-500/30">
+                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-red-600 dark:text-red-400 uppercase mb-1.5">
+                    <ShieldAlert className="w-4 h-4" />
+                    <span>{t('CASE_STUDIES_SECTION.problem', 'Problem Statement & Field Vulnerability')}</span>
+                  </div>
+                  <p className="text-slate-700 dark:text-slate-200 leading-relaxed">
+                    {selectedModalWork.deepDive.problem}
+                  </p>
+                </div>
+              )}
+
+              <div>
+                <h4 className="font-mono text-xs font-bold text-fluid-blue dark:text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <Cpu className="w-4 h-4" />
+                  <span>{t('CASE_STUDIES_SECTION.methodology', 'Engineered Methodology & Implementation')}</span>
+                </h4>
+                <ul className="space-y-2">
+                  {(selectedModalWork.deepDive.methodology || selectedModalWork.deepDive.features || []).map(
+                    (step, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-slate-700 dark:text-slate-200">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span>{step}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </BlueprintCadre>
   );
 }
-```
 
-### File: `src/components/sections/InteractiveLabSection.jsx`
+export default SelectedWorksSection;
+`
 
-```jsx
-import React, { useState } from 'react';
+### File: src/components/sections/InteractiveLabSection.jsx
+
+`jsx
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Play, Network, Droplets, X, ChevronUp } from 'lucide-react';
+import { Play, Network, Droplets, X, ChevronUp, Activity } from 'lucide-react';
 import { useScadaEngine } from '../../hooks/useScadaEngine';
 import { useEpanetEngine } from '../../hooks/useEpanetEngine';
 import { ScadaFlowDiagram } from '../simulator/scada/ScadaFlowDiagram';
@@ -4759,14 +4965,23 @@ import { CollageBackground } from '../common/CollageBackground';
 
 export function InteractiveLabSection() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('scada'); // 'scada' | 'epanet'
+  const [activeTab, setActiveTab] = useState('scada');
   const [isOpen, setIsOpen] = useState(false);
 
-  // SCADA Engine Hook (preserves 100% of physical model)
   const scada = useScadaEngine();
-
-  // EPANET Engine Hook (preserves 100% of mathematical solver)
   const epanet = useEpanetEngine();
+
+  useEffect(() => {
+    const handleExternalLaunch = (e) => {
+      const requestedTab = e.detail?.tab;
+      if (requestedTab === 'scada' || requestedTab === 'epanet') {
+        setActiveTab(requestedTab);
+      }
+      setIsOpen(true);
+    };
+    window.addEventListener('fluiddev:launch-lab', handleExternalLaunch);
+    return () => window.removeEventListener('fluiddev:launch-lab', handleExternalLaunch);
+  }, []);
 
   return (
     <BlueprintCadre
@@ -4784,17 +4999,20 @@ export function InteractiveLabSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/50 px-3 py-1 rounded-full border border-cyan-200 dark:border-cyan-500/30">
-              {t('LAB.section_tag', 'Experimental Testbed')}
+              02 // {t('LAB.section_tag', 'Experimental Testbed')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-slate-900 dark:text-white mt-4">
               {t('LAB.section_title', 'The Interactive Engineering Lab')}
             </h2>
             <p className="mt-3 text-base text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-              {t('LAB.section_desc', 'Explore live, deterministic cyber-physical simulations executed directly in your browser. Toggle between the natural lagoon WWTP process train and the pressurized looped EPANET hydraulic solver.')}
+              {t(
+                'LAB.section_desc',
+                'Explore live, deterministic cyber-physical simulations executed directly in your browser. Toggle between the natural lagoon WWTP process train and the pressurized looped EPANET hydraulic solver.'
+              )}
             </p>
           </div>
 
-          {/* Tab Selector & Launch Button */}
+          {/* Tab Selector */}
           <div className="flex items-center gap-2 p-1.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 self-start md:self-auto">
             <button
               onClick={() => {
@@ -4827,42 +5045,56 @@ export function InteractiveLabSection() {
           </div>
         </div>
 
-        {/* Compact Showcase Card (When not opened) */}
+        {/* Compact Showcase Card (When minimized) */}
         {!isOpen && (
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/50 p-8 sm:p-10 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-2">
+          <div className="rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white/90 dark:bg-[#0A1B54]/80 p-8 sm:p-10 shadow-xl backdrop-blur-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7">
+                <span className="text-xs font-mono text-fluid-blue dark:text-cyan-400 uppercase tracking-wider font-bold flex items-center gap-1.5 mb-2">
+                  <Activity className="w-3.5 h-3.5 animate-pulse" />
                   {t('LAB.lab_status', 'Laboratory Architecture')}
                 </span>
                 <h3 className="text-2xl font-bold font-title text-slate-900 dark:text-white tracking-tight">
                   {t('LAB.lab_headline', 'Mathematical Rigor Meets In-Browser Interaction')}
                 </h3>
                 <p className="mt-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                  {t('LAB.lab_narrative', 'These engines aren\'t mockups. They run continuous time-step mass balance, diurnal flow algorithms, and non-linear hydraulic matrix equations entirely on client-side JavaScript.')}
+                  {t(
+                    'LAB.lab_narrative',
+                    "These engines aren't mockups. They run continuous time-step mass balance, diurnal flow algorithms, and non-linear hydraulic matrix equations entirely on client-side JavaScript."
+                  )}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Zeriba El Oued Lagoon (24,000 m³/day)
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Hazen-Williams Head Loss
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60">
-                    • Newton-Raphson Solver
-                  </span>
+                {/* Live Background Telemetry Readout Strip */}
+                <div className="mt-6 grid grid-cols-3 gap-3 text-xs font-mono">
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">WWTP INFLOW</span>
+                    <span className="font-bold text-slate-900 dark:text-emerald-400">
+                      {Math.round(scada.state.flowM3d).toLocaleString()} m³/d
+                    </span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">EFFLUENT BOD5</span>
+                    <span className="font-bold text-slate-900 dark:text-cyan-400">
+                      {scada.state.bodOut.toFixed(1)} mg/L
+                    </span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">EPANET GRID</span>
+                    <span className="font-bold text-slate-900 dark:text-[#F7B500]">
+                      {epanet.solvedNetwork.nodes.length} Nodes Active
+                    </span>
+                  </div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-end">
+              <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3.5 justify-end">
                 <button
                   onClick={() => {
                     setActiveTab('scada');
                     setIsOpen(true);
                   }}
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-fluid-blue hover:bg-fluid-blue-bright text-white font-semibold font-condensed tracking-wide text-sm transition-all shadow-lg hover:shadow-blue-500/20 group"
+                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-fluid-blue hover:bg-fluid-blue-bright text-white font-semibold font-condensed tracking-wide text-sm transition-all shadow-lg hover:shadow-blue-500/20"
                 >
                   <Play className="w-4 h-4 fill-white" />
                   <span>{t('LAB.btn_launch_scada', 'Launch SCADA Simulation')}</span>
@@ -4882,16 +5114,15 @@ export function InteractiveLabSection() {
           </div>
         )}
 
-        {/* Live Opened Simulator Frame (Housed in Autonomous High-Contrast Dark CAD Workstation) */}
+        {/* Live Opened Simulator Workstation */}
         {isOpen && (
           <div className="rounded-2xl border border-cyan-500/40 bg-[#07133F] text-slate-100 p-6 sm:p-8 shadow-2xl space-y-6 animate-in fade-in duration-300 relative CAD-workstation-terminal">
-            {/* Top Toolbar */}
             <div className="flex items-center justify-between pb-4 border-b border-cyan-950/60">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="font-mono text-xs font-semibold text-slate-200 uppercase tracking-wider">
-                  {activeTab === 'scada' 
-                    ? t('LAB.scada_live_title', 'SCADA Process Train — Zeriba El Oued WWTP') 
+                  {activeTab === 'scada'
+                    ? t('LAB.scada_live_title', 'SCADA Process Train — Zeriba El Oued WWTP')
                     : t('LAB.epanet_live_title', 'EPANET 2.2 Network Solver — Looped Municipal Grid')}
                 </span>
               </div>
@@ -4901,7 +5132,9 @@ export function InteractiveLabSection() {
                   onClick={() => setActiveTab(activeTab === 'scada' ? 'epanet' : 'scada')}
                   className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 border border-slate-700 transition-colors"
                 >
-                  {activeTab === 'scada' ? t('LAB.switch_to_epanet', 'Switch to EPANET') : t('LAB.switch_to_scada', 'Switch to SCADA')}
+                  {activeTab === 'scada'
+                    ? t('LAB.switch_to_epanet', 'Switch to EPANET')
+                    : t('LAB.switch_to_scada', 'Switch to SCADA')}
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
@@ -4913,7 +5146,6 @@ export function InteractiveLabSection() {
               </div>
             </div>
 
-            {/* SCADA View (Retains Pure Mathematical State & Realtime Updates) */}
             {activeTab === 'scada' && (
               <div className="space-y-6">
                 <div className="bg-[#0B1120] rounded-xl p-4 border border-cyan-500/20 overflow-x-auto">
@@ -4939,7 +5171,6 @@ export function InteractiveLabSection() {
               </div>
             )}
 
-            {/* EPANET View (Retains Pure Mathematical Solver & Exact Coordinates) */}
             {activeTab === 'epanet' && (
               <div className="space-y-6">
                 <EpanetControls
@@ -4971,7 +5202,6 @@ export function InteractiveLabSection() {
               </div>
             )}
 
-            {/* Close Button at bottom */}
             <div className="pt-4 flex justify-end">
               <button
                 onClick={() => setIsOpen(false)}
@@ -4988,11 +5218,13 @@ export function InteractiveLabSection() {
     </BlueprintCadre>
   );
 }
-```
 
-### File: `src/components/sections/EngineeringPillarsSection.jsx`
+export default InteractiveLabSection;
+`
 
-```jsx
+### File: src/components/sections/EngineeringPillarsSection.jsx
+
+`jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Droplet, Code2, Cpu, CheckCircle2 } from 'lucide-react';
@@ -5001,55 +5233,44 @@ import { CircuitBackground } from '../common/CircuitBackground';
 
 export function EngineeringPillarsSection() {
   const { t } = useTranslation();
+  const translatedCategories = t('SKILLS_CATEGORIES', { returnObjects: true }) || [];
 
   const pillars = [
     {
       num: '01',
       tapeTag: '01 // FLUID MECHANICS',
-      domain: 'Hydraulic Systems & Infrastructure',
-      tag: 'Fluid Mechanics & Sanitary Modeling',
+      domain: t('PILLARS.hydro_title', 'Hydraulic Systems & Infrastructure'),
+      tag: t('PILLARS.hydro_tag', 'Fluid Mechanics & Sanitary Modeling'),
       icon: <Droplet className="w-5 h-5 text-fluid-blue dark:text-cyan-400" />,
-      punchline: 'Rigorous computational modeling of pressurized drinking networks, treatment plants, and urban water cycles.',
-      skills: [
-        { name: 'EPANET 2.2 Solver', tag: 'Extended Period Simulation' },
-        { name: 'Hazen-Williams & Darcy', tag: 'Head Loss Formulation' },
-        { name: 'ArcGIS Pro / ArcMap', tag: 'DEM & Spatial Networks' },
-        { name: 'AutoCAD Civil 3D', tag: 'Pipeline Alignments' },
-        { name: 'WWTP Process Design', tag: 'Coagulation & Digestion' },
-        { name: 'NRW Leak Detection', tag: 'DMA Pressure Management' }
-      ]
+      punchline: t(
+        'PILLARS.hydro_desc',
+        'Rigorous computational modeling of pressurized drinking networks, treatment plants, and urban water cycles.'
+      ),
+      skills: translatedCategories[0]?.skills || []
     },
     {
       num: '02',
       tapeTag: '02 // SOFTWARE & DATA',
-      domain: 'Full-Stack & Desktop Architecture',
-      tag: 'Modern Software & Relational Systems',
+      domain: t('PILLARS.software_title', 'Full-Stack & Desktop Architecture'),
+      tag: t('PILLARS.software_tag', 'Modern Software & Relational Systems'),
       icon: <Code2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
-      punchline: 'High-reliability desktop software, asynchronous Python backends, and resilient offline-first databases.',
-      skills: [
-        { name: 'Python 3.11 / FastAPI', tag: 'Asyncio Microservices' },
-        { name: 'Electron & Desktop ERP', tag: 'Cross-Platform Binaries' },
-        { name: 'React 18 & TypeScript', tag: 'Dynamic Web Interfaces' },
-        { name: 'SQLite3 & PostgreSQL', tag: 'ACID Relational Storage' },
-        { name: 'REST APIs & Webhooks', tag: 'Event-Driven Systems' },
-        { name: 'Design Systems & UI', tag: 'Tailwind CSS Precision' }
-      ]
+      punchline: t(
+        'PILLARS.software_desc',
+        'High-reliability desktop software, asynchronous Python backends, and resilient offline-first databases.'
+      ),
+      skills: translatedCategories[1]?.skills || []
     },
     {
       num: '03',
       tapeTag: '03 // EDGE TELEMETRY',
-      domain: 'Cyber-Physical IoT & Edge Telemetry',
-      tag: 'Embedded Systems & Industrial Telemetry',
+      domain: t('PILLARS.iot_title', 'Cyber-Physical IoT & Edge Telemetry'),
+      tag: t('PILLARS.iot_tag', 'Embedded Systems & Industrial Telemetry'),
       icon: <Cpu className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
-      punchline: 'Microcontroller firmware, edge sensor loops, and real-time cloud telemetry for automated fluid infrastructure.',
-      skills: [
-        { name: 'ESP32 & Arduino C++', tag: 'FreeRTOS & ADC Calibration' },
-        { name: 'Industrial Sensor Loops', tag: 'Ultrasonic, Flow & Pressure' },
-        { name: 'Closed-Loop PID Control', tag: 'Automated Dosing & Pumps' },
-        { name: 'MQTT & Cloud Sync', tag: 'Firebase Realtime Broker' },
-        { name: 'Actuators & Relays', tag: 'Solenoid Valves & Boosters' },
-        { name: 'Edge Trip Protection', tag: 'Dry-Run & Overflow Cutoffs' }
-      ]
+      punchline: t(
+        'PILLARS.iot_desc',
+        'Microcontroller firmware, edge sensor loops, and real-time cloud telemetry for automated fluid infrastructure.'
+      ),
+      skills: translatedCategories[2]?.skills || []
     }
   ];
 
@@ -5065,12 +5286,11 @@ export function EngineeringPillarsSection() {
       <CircuitBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Minimal & Punchy */}
+        {/* Section Header */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-500/30">
-              04 // CORE CAPABILITIES
+              04 // {t('PILLARS.section_tag', 'CORE CAPABILITIES')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               01 · 10 · 11 // TELEMETRY
@@ -5081,7 +5301,10 @@ export function EngineeringPillarsSection() {
             {t('PILLARS.section_title', 'Three Engineering Pillars')}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Bridging fluid physics, modern software architectures, and embedded edge electronics.
+            {t(
+              'PILLARS.section_desc',
+              'Bridging fluid physics, modern software architectures, and embedded edge electronics.'
+            )}
           </p>
         </div>
 
@@ -5092,20 +5315,17 @@ export function EngineeringPillarsSection() {
               key={pillar.num}
               className="group rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white dark:bg-[#0A1B54]/80 p-6 flex flex-col justify-between hover:border-blue-400 dark:hover:border-cyan-400 transition-all duration-300 shadow-lg relative overflow-hidden backdrop-blur-sm"
             >
-              {/* Corner Technical Crosshairs */}
               <span className="absolute top-2.5 right-2.5 text-[11px] font-mono text-slate-300 dark:text-cyan-400/50 select-none pointer-events-none">
                 +
               </span>
 
               <div>
-                {/* Yellow Tape Strip Badge at Top */}
                 <div className="inline-block mb-3.5">
                   <span className="px-3 py-1 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs uppercase shadow-sm">
                     {pillar.tapeTag}
                   </span>
                 </div>
 
-                {/* Header with Numbered Badge */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-xl bg-slate-100 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/30">
@@ -5126,26 +5346,24 @@ export function EngineeringPillarsSection() {
                   </span>
                 </div>
 
-                {/* Single Punchline */}
                 <p className="mt-3.5 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-sans">
                   {pillar.punchline}
                 </p>
 
-                {/* Clean Technical Skills Grid */}
                 <div className="mt-5 space-y-2 pt-3.5 border-t border-slate-100 dark:border-slate-800">
-                  {pillar.skills.map((skill, sIdx) => (
+                  {pillar.skills.slice(0, 6).map((skill, sIdx) => (
                     <div
                       key={sIdx}
                       className="p-2.5 rounded-lg bg-slate-50 dark:bg-[#07133F] border border-slate-200/80 dark:border-blue-500/20 flex items-center justify-between gap-2"
                     >
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 min-w-0">
                         <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0" />
-                        <span className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200">
+                        <span className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200 truncate">
                           {skill.name}
                         </span>
                       </div>
                       <span className="text-[10px] font-mono text-slate-500 dark:text-cyan-300/80 bg-slate-100 dark:bg-blue-950/60 px-2 py-0.5 rounded shrink-0">
-                        {skill.tag}
+                        {skill.level}
                       </span>
                     </div>
                   ))}
@@ -5154,16 +5372,17 @@ export function EngineeringPillarsSection() {
             </div>
           ))}
         </div>
-
       </div>
     </BlueprintCadre>
   );
 }
-```
 
-### File: `src/components/sections/AcademicHubSection.jsx`
+export default EngineeringPillarsSection;
+`
 
-```jsx
+### File: src/components/sections/AcademicHubSection.jsx
+
+`jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThesisMakeoverCompare } from './academic/ThesisMakeoverCompare';
@@ -5175,30 +5394,28 @@ import { CircuitBackground } from '../common/CircuitBackground';
 import { GraduationCap, FileCheck, Clock, Globe, Laptop, Split, Sparkles } from 'lucide-react';
 
 export function AcademicHubSection() {
-  const { t, i18n } = useTranslation();
-
-  // Active showcase tab: 'makeover' | 'presentation'
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('makeover');
 
   const stats = [
     {
-      value: '50+ Theses',
-      detail: 'مذكرات ماستر ودكتوراه منجزة',
+      value: t('ACADEMIC_HUB.stats.theses_transformed', '50+ Theses'),
+      detail: t('ACADEMIC_HUB.stats.theses_detail', 'Delivered for Master & PhD defenses'),
       icon: <GraduationCap className="w-4 h-4 text-cyan-400" />
     },
     {
-      value: '100%',
-      detail: 'التزام كامل بدليل ومعايير الجامعة',
+      value: t('ACADEMIC_HUB.stats.defense_ready', '100%'),
+      detail: t('ACADEMIC_HUB.stats.defense_detail', 'Jury-compliant formatting & timing'),
       icon: <FileCheck className="w-4 h-4 text-emerald-400" />
     },
     {
-      value: '< 5 Days',
-      detail: 'تسليم سريع مع تعديلات مستمرة',
+      value: t('ACADEMIC_HUB.stats.turnaround', '< 5 Days'),
+      detail: t('ACADEMIC_HUB.stats.turnaround_detail', 'Rapid turnaround for critical deadlines'),
       icon: <Clock className="w-4 h-4 text-fluid-yellow" />
     },
     {
-      value: '3 Languages',
-      detail: 'عربي • فرنسي • إنجليزي',
+      value: t('ACADEMIC_HUB.stats.satisfaction', '3 Languages'),
+      detail: t('ACADEMIC_HUB.stats.satisfaction_detail', 'Arabic, French & English proficiency'),
       icon: <Globe className="w-4 h-4 text-blue-400" />
     }
   ];
@@ -5211,13 +5428,12 @@ export function AcademicHubSection() {
       <CircuitBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Punchy & Editorial */}
+        {/* Section Header */}
         <div className="mb-10 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-full border border-cyan-500/30 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-fluid-yellow" />
-              03 // ACADEMIC TRANSFORMATION &amp; THESIS HUB
+              03 // {t('ACADEMIC_HUB.section_badge', 'ACADEMIC TRANSFORMATION // FLUIDEV')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               01 001 1010
@@ -5225,11 +5441,14 @@ export function AcademicHubSection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-title text-slate-900 dark:text-white tracking-tight leading-tight">
-            خدمات إخراج وتنسيق المذكرات والبحوث
+            {t('ACADEMIC_HUB.section_title', 'Academic Transformation & Thesis Hub')}
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            تحويل المسودات الأكاديمية إلى مذكرات تخرج جاهزة للمناقشة، وعروض تقديمية تفاعلية تبهر لجنة التحكيم.
+            {t(
+              'ACADEMIC_HUB.section_subtitle',
+              'Transforming raw scientific research and engineering drafts into defense-ready theses, high-impact Soutenance presentation decks, and university-compliant publications.'
+            )}
           </p>
         </div>
 
@@ -5319,11 +5538,11 @@ export function AcademicHubSection() {
 }
 
 export default AcademicHubSection;
-```
+`
 
-### File: `src/components/sections/academic/ThesisMakeoverCompare.jsx`
+### File: src/components/sections/academic/ThesisMakeoverCompare.jsx
 
-```jsx
+`jsx
 import React, { useState, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sparkles, AlertTriangle, CheckCircle, Split, Eye, Layers, BookOpen, BookmarkCheck, FileText, Languages } from 'lucide-react';
@@ -5713,11 +5932,11 @@ export function ThesisMakeoverCompare() {
 }
 
 export default ThesisMakeoverCompare;
-```
+`
 
-### File: `src/components/sections/academic/SoutenanceLaptopMockup.jsx`
+### File: src/components/sections/academic/SoutenanceLaptopMockup.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Monitor, TrendingUp, Award, Activity, BarChart2, CheckCircle2, ChevronRight, Presentation } from 'lucide-react';
@@ -5913,11 +6132,11 @@ export function SoutenanceLaptopMockup() {
 }
 
 export default SoutenanceLaptopMockup;
-```
+`
 
-### File: `src/components/sections/academic/AcademicServicesGrid.jsx`
+### File: src/components/sections/academic/AcademicServicesGrid.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FileText, Languages, BookmarkCheck, MonitorPlay, Check } from 'lucide-react';
@@ -6056,11 +6275,11 @@ export function AcademicServicesGrid() {
 }
 
 export default AcademicServicesGrid;
-```
+`
 
-### File: `src/components/sections/academic/AcademicEthicsBanner.jsx`
+### File: src/components/sections/academic/AcademicEthicsBanner.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Scale, Award, Lock } from 'lucide-react';
@@ -6113,11 +6332,11 @@ export function AcademicEthicsBanner() {
 }
 
 export default AcademicEthicsBanner;
-```
+`
 
-### File: `src/components/sections/academic/AcademicCtaBanner.jsx`
+### File: src/components/sections/academic/AcademicCtaBanner.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MessageSquare, Send, Mail, Zap, Shield, RefreshCw, ArrowRight } from 'lucide-react';
@@ -6239,11 +6458,11 @@ export function AcademicCtaBanner() {
 }
 
 export default AcademicCtaBanner;
-```
+`
 
-### File: `src/components/sections/TrajectorySection.jsx`
+### File: src/components/sections/TrajectorySection.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Briefcase, GraduationCap, Calendar, Award, CheckCircle2 } from 'lucide-react';
@@ -6256,26 +6475,28 @@ export function TrajectorySection() {
     {
       num: '01',
       tapeTag: '01 // SCIENTIFIC GOVERNANCE',
-      role: 'President',
-      org: 'Bernoulli Hydraulics Scientific Club',
+      role: t('TRAJECTORY.bernoulli_role', 'President'),
+      org: t('TRAJECTORY.bernoulli_org', 'Bernoulli Hydraulics Scientific Club'),
       period: '2023 – 2025',
-      type: 'Executive Leadership & Technical Mentorship',
+      type: t('TRAJECTORY.bernoulli_type', 'Leadership & Technical Mentorship'),
       bullets: [
-        'Elected to lead executive board of 15+ student engineers and 100+ active members',
-        'Delivered technical masterclasses in EPANET 2.2 hydraulic modeling and ArcGIS Pro',
-        'Conducted IoT workshops interfacing microcontrollers with flow and pressure sensors'
+        t('TRAJECTORY.bernoulli_b1', 'Elected to lead an executive committee of 15+ student engineers and 100+ active members.'),
+        t('TRAJECTORY.bernoulli_b2', 'Designed and delivered technical masterclasses in EPANET 2.2 hydraulic modeling and ArcGIS Pro.'),
+        t('TRAJECTORY.bernoulli_b3', 'Conducted hands-on IoT workshops interfacing Arduino microcontrollers with flow and pressure sensors.'),
+        t('TRAJECTORY.bernoulli_b4', 'Coordinated technical field delegations to regional municipal water treatment plants and dam reservoirs.')
       ]
     },
     {
       num: '02',
       tapeTag: '02 // ENTERPRISE TELECOM',
-      role: 'Enterprise Telecommunications Intern',
-      org: 'Huawei ICT Academy, Algiers',
+      role: t('TRAJECTORY.huawei_role', 'Enterprise Telecommunications Intern'),
+      org: t('TRAJECTORY.huawei_org', 'Huawei ICT Academy, Algiers'),
       period: '2024',
-      type: 'Enterprise Network Engineering',
+      type: t('TRAJECTORY.huawei_type', 'Enterprise Network Engineering'),
       bullets: [
-        'Enterprise IP routing and switching protocols (OSPF, BGP, VLAN tagging, QoS)',
-        'Low-latency data center packet architectures transferred directly to SCADA telemetry'
+        t('TRAJECTORY.huawei_b1', 'Mastered enterprise IP routing and switching protocols (OSPF, BGP, VLAN tagging, QoS).'),
+        t('TRAJECTORY.huawei_b2', 'Analyzed data center network redundancy topologies and low-latency packet transmission architectures.'),
+        t('TRAJECTORY.huawei_b3', 'Transferred enterprise network reliability principles directly to industrial SCADA and edge IoT sensor networks.')
       ]
     }
   ];
@@ -6283,35 +6504,43 @@ export function TrajectorySection() {
   const education = [
     {
       num: '03',
-      tapeTag: '03 // MASTER OF SCIENCE',
-      degree: 'Master of Science (M.S.) — Water & Sanitation Services Management',
-      institution: 'National Higher Education Institution',
+      tapeTag: '03 // MASTER OF SCIENCE (ENSH)',
+      degree: t('TRAJECTORY.ms_degree', 'Master of Science (M.S.) — Water & Sanitation Services Management'),
+      institution: t('TRAJECTORY.ms_inst', 'National Higher School of Hydraulics (ENSH)'),
       period: '2024 – Present',
-      status: 'Enrolled / Thesis Defense Phase',
-      detail: 'Urban water cycle economics, WWTP modeling, non-revenue water (NRW) reduction, and hydroinformatics computational methods.'
+      status: t('TRAJECTORY.ms_status', 'Enrolled'),
+      detail: t(
+        'TRAJECTORY.ms_detail',
+        'Urban water cycle economics, wastewater treatment plant optimization, non-revenue water (NRW) reduction, sludge digestor treatment, and hydroinformatics computational methods.'
+      )
     },
     {
       num: '04',
       tapeTag: '04 // BACHELOR OF SCIENCE',
-      degree: 'Bachelor of Science (B.S.) — Hydraulics Engineering',
-      institution: 'Faculty of Civil & Hydraulic Engineering',
-      period: '2019 – 2022',
-      status: 'Graduated with Distinction',
-      detail: 'Pressurized pipeline hydraulics, open-channel flow, hydrology, dam engineering, and reinforced concrete for hydraulic structures.'
+      degree: t('TRAJECTORY.bs_degree', 'Bachelor of Science (B.S.) — Hydraulics Engineering'),
+      institution: t('TRAJECTORY.bs_inst', 'Faculty of Civil & Hydraulic Engineering'),
+      period: 'Graduated with Distinction',
+      status: t('TRAJECTORY.bs_status', 'Graduated with Distinction'),
+      detail: t(
+        'TRAJECTORY.bs_detail',
+        'Fluid mechanics, pressurized pipeline hydraulics, open-channel flow, hydrology, dam engineering, reinforced concrete for hydraulic structures, and soil mechanics.'
+      )
     }
   ];
 
   return (
-    <section id="trajectory" className="py-16 sm:py-24 border-b border-slate-200 dark:border-blue-500/20 bg-slate-50/50 dark:bg-[#07133f]/70 relative overflow-hidden">
+    <section
+      id="trajectory"
+      className="py-16 sm:py-24 border-b border-slate-200 dark:border-blue-500/20 bg-slate-50/50 dark:bg-[#07133f]/70 relative overflow-hidden"
+    >
       <CollageBackground />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header: Minimal & Punchy */}
+        {/* Section Header */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-purple-600 dark:text-cyan-400 bg-purple-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-purple-200 dark:border-blue-500/30">
-              05 // TRAJECTORY &amp; ROOTS
+              05 // {t('TRAJECTORY.section_tag', 'TRAJECTORY & ROOTS')}
             </span>
             <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
               0101 / FLOW.DATA
@@ -6319,22 +6548,24 @@ export function TrajectorySection() {
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-slate-900 dark:text-white">
-            Engineering Experience &amp; Academic Credentials
+            {t('TRAJECTORY.section_title', 'Engineering Experience & Academic Roots')}
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Scientific club governance, enterprise telecommunication training, and accredited degrees in hydraulics.
+            {t(
+              'TRAJECTORY.section_desc',
+              'Scientific club governance, enterprise telecommunication training, and accredited degrees in municipal water services and hydraulics.'
+            )}
           </p>
         </div>
 
         {/* 2-Column Split */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
           {/* Column 1: Leadership */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 pb-3 border-b border-slate-200 dark:border-blue-500/30">
               <Briefcase className="w-5 h-5 text-fluid-blue dark:text-cyan-400" />
               <h3 className="text-lg font-bold font-title text-slate-900 dark:text-white tracking-tight">
-                Leadership &amp; Industry Training
+                {t('TRAJECTORY.col_leadership', 'Leadership & Industry Training')}
               </h3>
             </div>
 
@@ -6369,7 +6600,10 @@ export function TrajectorySection() {
 
                   <ul className="mt-4 space-y-1.5 pt-3 border-t border-slate-100 dark:border-slate-800">
                     {item.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      <li
+                        key={bIdx}
+                        className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed"
+                      >
                         <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
@@ -6385,7 +6619,7 @@ export function TrajectorySection() {
             <div className="flex items-center gap-2 pb-3 border-b border-slate-200 dark:border-blue-500/30">
               <GraduationCap className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
               <h3 className="text-lg font-bold font-title text-slate-900 dark:text-white tracking-tight">
-                Academic Credentials
+                {t('TRAJECTORY.col_education', 'Academic Credentials')}
               </h3>
             </div>
 
@@ -6426,75 +6660,150 @@ export function TrajectorySection() {
               ))}
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
 }
 
 export default TrajectorySection;
-```
+`
 
-### File: `src/components/sections/ContactSection.jsx`
+### File: src/components/sections/ContactSection.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
-import { Mail, Send, ExternalLink, Check, FileText, Globe, Clock, Github, Linkedin, MessageSquare, ShieldCheck, Phone } from 'lucide-react';
+import {
+  Mail,
+  Send,
+  ExternalLink,
+  Check,
+  FileText,
+  Globe,
+  Clock,
+  Github,
+  Linkedin,
+  MessageSquare,
+  ShieldCheck,
+  Phone,
+  Copy
+} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { CONTACT_INFO } from '../../data/portfolioData';
-import { SectionHeading } from '../common/SectionHeading';
 import { BlueprintCadre } from '../common/BlueprintCadre';
 import { CollageBackground } from '../common/CollageBackground';
 
+const CONTACT_COPY = {
+  ar: {
+    title: 'تواصل مباشر وبدء المشاريع',
+    subtitle: 'ناقش تفاصيل مذكرتك الأكاديمية، مشروعك البرمجي، أو استشر مهندس مياه وبرمجيات عن بُعد.',
+    tape: 'READY TO START? // ابدأ مشروعك',
+    channelsHeader: 'قنوات التواصل المعتمدة',
+    channelsDesc: 'متاح لكل الولايات وعن بُعد، مع استشارة أولية مجانية لمناقشة أهداف المشروع.',
+    cvBtn: 'تحميل السيرة الذاتية (CV)',
+    formTitle: 'نموذج طلب خدمة أو استشارة تقنية',
+    formDesc: 'أرسل تفاصيل مشروعك أو مذكرتك، ويمكنك إرسالها فوراً عبر واتساب أو البريد الإلكتروني.',
+    lblName: 'الاسم / الجهة *',
+    phName: 'محمد / باحث / شركة',
+    lblEmail: 'البريد الإلكتروني أو رقم الهاتف *',
+    phEmail: 'example@gmail.com / +213...',
+    lblDomain: 'نوع الخدمة أو المشروع',
+    lblMsg: 'تفاصيل المشروع *',
+    phMsg: 'صف أهداف المشروع، الموعد النهائي، أو أي متطلبات خاصة...',
+    submitBtn: 'تجهيز وإرسال الطلب الآن',
+    sentTitle: 'تم تجهيز طلبك للإرسال الفوري!',
+    sentSub: 'اختر وسيلة الإرسال المفضلة لديك أدناه ليصلني طلبك مباشرة:',
+    whatsappBtn: 'إرسال فوري عبر واتساب',
+    emailBtn: 'إرسال عبر البريد الإلكتروني',
+    resetBtn: 'إرسال استفسار آخر',
+    options: [
+      'تنسيق مذكرات وبحوث أكاديمية (Word / LaTeX)',
+      'عروض تقديمية للمناقشة Soutenance (PowerPoint)',
+      'تطوير تطبيقات سطح المكتب والويب (Desktop ERP)',
+      'نمذجة هيدروليكية وحسابات شبكات (EPANET)',
+      'أنظمة أتمتة وإنترنت الأشياء (IoT & Telemetry)'
+    ]
+  },
+  fr: {
+    title: 'Contact Direct & Lancement de Projet',
+    subtitle: 'Discutez de votre mémoire académique, de votre logiciel sur mesure ou réservez une consultation en hydroinformatique.',
+    tape: 'READY TO START? // DÉMARRER',
+    channelsHeader: 'Canaux de Contact Vérifiés',
+    channelsDesc: 'Disponible en Algérie et à distance (Remote), avec consultation initiale gratuite.',
+    cvBtn: 'Télécharger le CV Complet',
+    formTitle: 'Formulaire de Demande Technique',
+    formDesc: 'Décrivez votre besoin et expédiez-le directement via WhatsApp ou Email en un clic.',
+    lblName: 'Nom / Organisation *',
+    phName: 'Nom complet ou Entreprise',
+    lblEmail: 'Email ou Téléphone *',
+    phEmail: 'nom@domaine.com / +213...',
+    lblDomain: 'Domaine du Projet',
+    lblMsg: 'Détails & Échéance du Projet *',
+    phMsg: 'Précisez vos objectifs, délais de soutenance ou spécifications techniques...',
+    submitBtn: 'Préparer & Envoyer la Demande',
+    sentTitle: 'Brief Technique Prêt à l’Envoi !',
+    sentSub: 'Choisissez votre canal préféré ci-dessous pour me transmettre votre message instantanément :',
+    whatsappBtn: 'Envoyer via WhatsApp Direct',
+    emailBtn: 'Envoyer via Client Email',
+    resetBtn: 'Nouvelle Demande',
+    options: [
+      'Mise en Page de Mémoire & Thèse (Word / LaTeX)',
+      'Présentation de Soutenance (PowerPoint / Infographies)',
+      'Développement Logiciel Desktop & ERP (Offline-First)',
+      'Modélisation Hydraulique EPANET 2.2 & SIG',
+      'Automatisation SCADA & Télémétrie IoT'
+    ]
+  },
+  en: {
+    title: 'Direct Contact & Project Dispatch',
+    subtitle: 'Discuss your engineering software, hydraulic network model, or academic thesis makeover directly.',
+    tape: 'READY TO START? // DISPATCH',
+    channelsHeader: 'Verified Contact Channels',
+    channelsDesc: 'Available across Algeria and remotely worldwide, with a complimentary initial technical consultation.',
+    cvBtn: 'Download Resume (CV)',
+    formTitle: 'Technical Inquiry & Project Brief',
+    formDesc: 'Fill out your project specifications below for immediate dispatch via WhatsApp or Email.',
+    lblName: 'Full Name / Organization *',
+    phName: 'Engineer / Researcher / Company',
+    lblEmail: 'Email Address or Phone *',
+    phEmail: 'name@company.com / +213...',
+    lblDomain: 'Service or Engineering Domain',
+    lblMsg: 'Project Specifications & Timeline *',
+    phMsg: 'Describe your project scope, target defense deadline, or technical requirements...',
+    submitBtn: 'Prepare & Dispatch Inquiry',
+    sentTitle: 'Project Brief Ready for Dispatch!',
+    sentSub: 'Select your preferred channel below to send your formatted inquiry directly to Mohamed Baatas:',
+    whatsappBtn: 'Send Instantly via WhatsApp',
+    emailBtn: 'Send via Email Client',
+    resetBtn: 'Create Another Inquiry',
+    options: [
+      'Academic Thesis Formatting & Proofreading (Word / LaTeX)',
+      'Soutenance Defense Presentation Deck (PowerPoint)',
+      'Custom Desktop ERP & Offline-First Software',
+      'Hydraulic Network Modeling (EPANET 2.2 & GIS)',
+      'SCADA Digital Twin & IoT Telemetry Systems'
+    ]
+  }
+};
+
 function BottomFlowSystem() {
-  const wavePath = "M0 14C65 0 135 28 200 14S335 0 400 14S535 28 600 14S735 0 800 14S935 28 1000 14S1135 0 1200 14";
+  const wavePath = 'M0 14C65 0 135 28 200 14S335 0 400 14S535 28 600 14S735 0 800 14S935 28 1000 14S1135 0 1200 14';
 
   return (
     <div className="w-full mt-16 pt-8 overflow-hidden pointer-events-none select-none" aria-hidden="true">
-      <svg
-        className="w-full h-12 overflow-visible"
-        preserveAspectRatio="none"
-        viewBox="0 0 1200 60"
-        aria-hidden="true"
-      >
+      <svg className="w-full h-12 overflow-visible" preserveAspectRatio="none" viewBox="0 0 1200 60" aria-hidden="true">
         <path d={`${wavePath}V60H0Z`} fill="#f7b500" fillOpacity="0.12" />
-        <path
-          d={wavePath}
-          fill="none"
-          stroke="#001db5"
-          strokeLinecap="round"
-          strokeWidth="6"
-          className="dark:stroke-[#0A1B54]"
-        />
-        <path
-          d={wavePath}
-          fill="none"
-          stroke="#00e5ff"
-          strokeDasharray="16 10"
-          strokeLinecap="round"
-          strokeWidth="2.5"
-          className="dark:stroke-[#00e5ff] stroke-[#005bff]"
-        />
-
-        {/* Junction Nodes with Valve Crosshairs */}
+        <path d={wavePath} fill="none" stroke="#001db5" strokeLinecap="round" strokeWidth="6" className="dark:stroke-[#0A1B54]" />
+        <path d={wavePath} fill="none" stroke="#00e5ff" strokeDasharray="16 10" strokeLinecap="round" strokeWidth="2.5" className="dark:stroke-[#00e5ff] stroke-[#005bff]" />
         <g transform="translate(400, 14)">
           <circle fill="#f7b500" r="11" stroke="#001db5" strokeWidth="3" className="dark:stroke-[#07133f]" />
           <circle fill="#00e5ff" r="5" stroke="white" strokeWidth="1.5" />
           <path d="M-15 0H15M0-15V15" stroke="#07133f" strokeWidth="2" strokeLinecap="round" />
         </g>
-
         <g transform="translate(800, 14)">
           <circle fill="#f7b500" r="11" stroke="#001db5" strokeWidth="3" className="dark:stroke-[#07133f]" />
           <circle fill="#00e5ff" r="5" stroke="white" strokeWidth="1.5" />
           <path d="M-15 0H15M0-15V15" stroke="#07133f" strokeWidth="2" strokeLinecap="round" />
-        </g>
-
-        {/* Secondary Yellow Valve Nodes */}
-        <g fill="#f7b500" stroke="#001db5" strokeWidth="1.5" className="dark:stroke-[#07133f]">
-          <circle cx="200" cy="14" r="4" />
-          <circle cx="600" cy="14" r="4" />
-          <circle cx="1000" cy="14" r="4" />
         </g>
       </svg>
     </div>
@@ -6502,14 +6811,30 @@ function BottomFlowSystem() {
 }
 
 export function ContactSection() {
-  const [copiedField, setCopiedField] = useState(null);
+  const { i18n } = useTranslation();
+  const langKey = i18n.language?.startsWith('ar')
+    ? 'ar'
+    : i18n.language?.startsWith('fr')
+    ? 'fr'
+    : 'en';
+  const copy = CONTACT_COPY[langKey];
+
+  const [copiedKey, setCopiedKey] = useState(null);
   const [formState, setFormState] = useState({
     name: '',
     email: '',
-    domain: 'Hydraulic Modeling & EPANET',
+    domain: copy.options[0],
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleCopy = (key, val) => {
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(val);
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2000);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -6517,12 +6842,18 @@ export function ContactSection() {
     setFormSubmitted(true);
   };
 
+  const formattedBrief = `Hello Eng. Mohamed Baatas (FluiDev),\n\n• Name: ${formState.name}\n• Contact: ${formState.email}\n• Domain: ${formState.domain}\n• Project Brief:\n${formState.message}`;
+  const whatsappDispatchUrl = `https://wa.me/213655748513?text=${encodeURIComponent(formattedBrief)}`;
+  const mailtoDispatchUrl = `mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(
+    `[FluiDev Inquiry] ${formState.domain} — ${formState.name}`
+  )}&body=${encodeURIComponent(formattedBrief)}`;
+
   const channels = [
-    { key: 'phone', label: 'Direct Phone', value: '+213 655 74 85 13', link: 'tel:+213655748513', icon: <Phone className="w-4 h-4 text-[#F7B500]" /> },
+    { key: 'phone', label: 'Direct Phone / WhatsApp', value: '+213 655 74 85 13', link: 'tel:+213655748513', icon: <Phone className="w-4 h-4 text-[#F7B500]" /> },
     { key: 'email', label: 'Direct Email', value: CONTACT_INFO.email, link: `mailto:${CONTACT_INFO.email}`, icon: <Mail className="w-4 h-4 text-cyan-400" /> },
-    { key: 'telegram', label: 'Telegram Direct', value: CONTACT_INFO.socials.telegram, link: CONTACT_INFO.socials.telegram, icon: <Send className="w-4 h-4 text-cyan-400" /> },
-    { key: 'github', label: 'GitHub Repository', value: CONTACT_INFO.socials.github, link: CONTACT_INFO.socials.github, icon: <Github className="w-4 h-4 text-slate-300" /> },
-    { key: 'linkedin', label: 'LinkedIn Network', value: CONTACT_INFO.socials.linkedin, link: CONTACT_INFO.socials.linkedin, icon: <Linkedin className="w-4 h-4 text-blue-400" /> }
+    { key: 'telegram', label: 'Telegram Direct', value: '@Fluidev', link: CONTACT_INFO.socials.telegram, icon: <Send className="w-4 h-4 text-cyan-400" /> },
+    { key: 'github', label: 'GitHub Repository', value: 'mohamedbaatas-hash', link: CONTACT_INFO.socials.github, icon: <Github className="w-4 h-4 text-slate-300" /> },
+    { key: 'linkedin', label: 'LinkedIn Network', value: 'in/mohamedbaatas', link: CONTACT_INFO.socials.linkedin, icon: <Linkedin className="w-4 h-4 text-blue-400" /> }
   ];
 
   return (
@@ -6532,82 +6863,98 @@ export function ContactSection() {
       coordinates="LAT:36.75 / LON:3.05"
       showConduit={true}
       conduitPosition="right"
-      className="py-16 sm:py-24 bg-[#07133F] relative overflow-hidden"
+      className="py-16 sm:py-24 bg-slate-100/90 dark:bg-[#07133F] relative overflow-hidden transition-colors duration-300"
     >
       <CollageBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="mb-12 max-w-3xl">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-blue-950/80 px-3 py-1 rounded-full border border-blue-500/30">
+            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-fluid-blue dark:text-cyan-400 bg-blue-100 dark:bg-blue-950/80 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-500/30">
               06 // DISPATCH &amp; CONTACT
             </span>
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
               0101 / FLOW.DATA
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-white">
-            تواصل مباشر وبدء المشاريع
+          <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-slate-900 dark:text-white">
+            {copy.title}
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-300">
-            ناقش تفاصيل مذكرتك الأكاديمية، مشروعك البرمجي، أو استشر مهندس مياه وبرمجيات عن بُعد.
+          <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
+            {copy.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column: Direct Channels & Telemetry Info (5 cols) */}
+          {/* Left Column: Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-7 rounded-2xl border border-blue-500/30 bg-[#0A1B54]/90 shadow-xl space-y-4 backdrop-blur-sm relative">
-              
-              {/* Yellow Tape Badge */}
+            <div className="p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white dark:bg-[#0A1B54]/90 shadow-xl space-y-4 backdrop-blur-sm relative">
               <div className="inline-block mb-1">
                 <span className="px-3 py-1 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs uppercase shadow-sm">
-                  READY TO START? // ابدأ مشروعك
+                  {copy.tape}
                 </span>
               </div>
 
-              <h3 className="text-base font-bold font-title text-white font-mono uppercase tracking-wider flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                Verified Contact Channels
+              <h3 className="text-base font-bold font-title text-slate-900 dark:text-white font-mono uppercase tracking-wider flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
+                {copy.channelsHeader}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-sans">
-                متاح لكل الولايات وعن بُعد، مع استشارة أولية مجانية لمناقشة أهداف المشروع.
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-sans">
+                {copy.channelsDesc}
               </p>
 
               <div className="space-y-2.5 pt-2">
                 {channels.map((ch) => (
-                  <div key={ch.key} className="p-3 rounded-xl bg-[#07133F] border border-blue-500/20 flex items-center justify-between gap-3 shadow-sm hover:border-cyan-400/50 transition-colors">
+                  <div
+                    key={ch.key}
+                    className="p-3 rounded-xl bg-slate-50 dark:bg-[#07133F] border border-slate-200 dark:border-blue-500/20 flex items-center justify-between gap-3 shadow-sm hover:border-fluid-blue dark:hover:border-cyan-400/50 transition-colors"
+                  >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="p-1.5 rounded-lg bg-blue-950 border border-blue-500/30">
+                      <div className="p-1.5 rounded-lg bg-slate-900 dark:bg-blue-950 border border-blue-500/30">
                         {ch.icon}
                       </div>
                       <div className="min-w-0">
-                        <span className="block text-[10px] font-mono text-slate-400 uppercase tracking-wider">{ch.label}</span>
-                        <span className="block text-xs font-mono text-slate-200 truncate">{ch.value}</span>
+                        <span className="block text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                          {ch.label}
+                        </span>
+                        <span className="block text-xs font-mono text-slate-900 dark:text-slate-200 truncate" dir="ltr">
+                          {ch.value}
+                        </span>
                       </div>
                     </div>
-                    <a
-                      href={ch.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 rounded-lg bg-blue-900/60 hover:bg-blue-800 text-cyan-300 border border-blue-500/30 shrink-0 transition-colors inline-flex items-center justify-center"
-                      title={`Open ${ch.label}`}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => handleCopy(ch.key, ch.value)}
+                        className="p-1.5 rounded-lg bg-slate-200/70 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                        title="Copy"
+                      >
+                        {copiedKey === ch.key ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                      <a
+                        href={ch.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded-lg bg-fluid-blue/10 dark:bg-blue-900/60 hover:bg-fluid-blue/20 dark:hover:bg-blue-800 text-fluid-blue dark:text-cyan-300 border border-fluid-blue/20 dark:border-blue-500/30 transition-colors inline-flex items-center justify-center"
+                        title={`Open ${ch.label}`}
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
 
-              {/* Station Telemetry */}
-              <div className="pt-4 border-t border-blue-500/20 flex items-center justify-between text-xs font-mono text-slate-400">
-                <span className="flex items-center gap-1.5"><Globe className="w-3.5 h-3.5 text-cyan-400" /> {CONTACT_INFO.location}</span>
-                <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-emerald-400" /> {CONTACT_INFO.timezone}</span>
+              <div className="pt-4 border-t border-slate-200 dark:border-blue-500/20 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400" /> {CONTACT_INFO.location}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" /> {CONTACT_INFO.timezone}
+                </span>
               </div>
 
-              {/* Resume Export CTA */}
               <div className="pt-2">
                 <a
                   href="/Mohamed_Baatas_CV.html"
@@ -6616,100 +6963,129 @@ export function ContactSection() {
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#F7B500] hover:bg-[#FFC72C] text-[#07133F] font-condensed font-bold text-sm tracking-wide shadow-md transition-all"
                 >
                   <FileText className="w-4 h-4 text-[#07133F]" />
-                  <span>Download Resume (CV)</span>
+                  <span>{copy.cvBtn}</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Engineering Inquiry Form (7 cols) */}
+          {/* Right Column: Engineering Inquiry Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-7 rounded-2xl border border-blue-500/30 bg-[#0A1B54]/90 shadow-xl relative backdrop-blur-sm">
-              <span className="absolute top-2.5 right-2.5 text-[10px] font-mono text-cyan-400/50 select-none pointer-events-none" aria-hidden="true">+</span>
-              
-              <h3 className="text-base font-bold font-title text-white font-mono uppercase tracking-wider flex items-center gap-2 mb-2">
-                <MessageSquare className="w-4 h-4 text-cyan-400" />
-                Technical Inquiry Form
+            <div className="p-6 sm:p-7 rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white dark:bg-[#0A1B54]/90 shadow-xl relative backdrop-blur-sm">
+              <span className="absolute top-2.5 right-2.5 text-[10px] font-mono text-cyan-400/50 select-none pointer-events-none" aria-hidden="true">
+                +
+              </span>
+
+              <h3 className="text-base font-bold font-title text-slate-900 dark:text-white font-mono uppercase tracking-wider flex items-center gap-2 mb-2">
+                <MessageSquare className="w-4 h-4 text-fluid-blue dark:text-cyan-400" />
+                {copy.formTitle}
               </h3>
-              <p className="text-xs text-slate-300 mb-6 font-sans">
-                أرسل تفاصيل مشروعك أو مذكرتك. يتم الرد خلال أقل من 24 ساعة.
+              <p className="text-xs text-slate-600 dark:text-slate-300 mb-6 font-sans">
+                {copy.formDesc}
               </p>
 
               {formSubmitted ? (
-                <div className="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3">
-                  <div className="w-10 h-10 mx-auto rounded-full bg-emerald-900/60 border border-emerald-500 flex items-center justify-center text-emerald-400">
+                <div className="p-6 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/40 text-center space-y-4">
+                  <div className="w-10 h-10 mx-auto rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                     <Check className="w-5 h-5" />
                   </div>
-                  <h4 className="font-bold text-white font-mono text-sm">تم إرسال الطلب بنجاح</h4>
-                  <p className="text-xs text-slate-300 max-w-md mx-auto">
-                    شكراً لك <span className="text-white font-semibold">{formState.name}</span>. سيتم التواصل معك عبر البريد <span className="text-cyan-300 font-mono">{formState.email}</span> في أقرب وقت.
+                  <h4 className="font-bold text-slate-900 dark:text-white font-mono text-sm">
+                    {copy.sentTitle}
+                  </h4>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 max-w-md mx-auto">
+                    {copy.sentSub}
                   </p>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <a
+                      href={whatsappDispatchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#F7B500] hover:bg-[#FFC72C] text-[#07133F] font-bold text-xs shadow-md transition-all"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>{copy.whatsappBtn}</span>
+                    </a>
+                    <a
+                      href={mailtoDispatchUrl}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-fluid-blue hover:bg-fluid-blue-bright text-white font-bold text-xs shadow-md transition-all"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>{copy.emailBtn}</span>
+                    </a>
+                  </div>
+
                   <button
-                    onClick={() => { setFormSubmitted(false); setFormState({ name: '', email: '', domain: 'Hydraulic Modeling & EPANET', message: '' }); }}
-                    className="mt-2 px-4 py-1.5 rounded-lg bg-blue-900 hover:bg-blue-800 text-xs font-mono text-cyan-300 border border-blue-500/30"
+                    type="button"
+                    onClick={() => {
+                      setFormSubmitted(false);
+                      setFormState({ name: '', email: '', domain: copy.options[0], message: '' });
+                    }}
+                    className="mt-2 inline-block px-4 py-1.5 rounded-lg bg-slate-200 dark:bg-blue-900 hover:bg-slate-300 dark:hover:bg-blue-800 text-xs font-mono text-slate-800 dark:text-cyan-300"
                   >
-                    إرسال استفسار آخر
+                    {copy.resetBtn}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
-                        الاسم / الجهة *
+                      <label className="block text-slate-700 dark:text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
+                        {copy.lblName}
                       </label>
                       <input
                         type="text"
                         required
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="محمد / باحث / شركة"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#07133F] border border-blue-500/30 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-xs font-mono transition-colors"
+                        placeholder={copy.phName}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#07133F] border border-slate-300 dark:border-blue-500/30 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-fluid-blue dark:focus:border-cyan-400 text-xs font-mono transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
-                        البريد الإلكتروني / الهاتف *
+                      <label className="block text-slate-700 dark:text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
+                        {copy.lblEmail}
                       </label>
                       <input
                         type="email"
                         required
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="example@gmail.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-[#07133F] border border-blue-500/30 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-xs font-mono transition-colors"
+                        placeholder={copy.phEmail}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#07133F] border border-slate-300 dark:border-blue-500/30 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-fluid-blue dark:focus:border-cyan-400 text-xs font-mono transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
-                      نوع الخدمة أو المشروع
+                    <label className="block text-slate-700 dark:text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
+                      {copy.lblDomain}
                     </label>
                     <select
+                      name="domain"
                       value={formState.domain}
                       onChange={(e) => setFormState({ ...formState, domain: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#07133F] border border-blue-500/30 text-white focus:outline-none focus:border-cyan-400 text-xs font-mono transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#07133F] border border-slate-300 dark:border-blue-500/30 text-slate-900 dark:text-white focus:outline-none focus:border-fluid-blue dark:focus:border-cyan-400 text-xs font-mono transition-colors"
                     >
-                      <option value="تنسيق مذكرات وبحوث أكاديمية">تنسيق مذكرات وبحوث أكاديمية (Word / LaTeX)</option>
-                      <option value="عروض تقديمية للمناقشة Soutenance">عروض تقديمية للمناقشة Soutenance (PowerPoint)</option>
-                      <option value="تطوير تطبيقات سطح المكتب والويب">تطوير تطبيقات سطح المكتب والويب (Desktop ERP)</option>
-                      <option value="نمذجة هيدروليكية EPANET">نمذجة هيدروليكية وحسابات شبكات (EPANET)</option>
-                      <option value="أنظمة أتمتة وإنترنت الأشياء IoT">أنظمة أتمتة وإنترنت الأشياء (IoT &amp; Telemetry)</option>
+                      {copy.options.map((opt, idx) => (
+                        <option key={idx} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
-                      تفاصيل المشروع *
+                    <label className="block text-slate-700 dark:text-slate-300 font-mono text-[11px] uppercase tracking-wider mb-1.5">
+                      {copy.lblMsg}
                     </label>
                     <textarea
                       required
                       rows={4}
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="صف أهداف المشروع، الموعد النهائي، أو أي متطلبات خاصة..."
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#07133F] border border-blue-500/30 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-xs font-sans transition-colors resize-none"
+                      placeholder={copy.phMsg}
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#07133F] border border-slate-300 dark:border-blue-500/30 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-fluid-blue dark:focus:border-cyan-400 text-xs font-sans transition-colors resize-none"
                     />
                   </div>
 
@@ -6718,7 +7094,7 @@ export function ContactSection() {
                     className="w-full py-3 rounded-xl bg-[#001db5] hover:bg-[#0027ea] text-white font-bold font-condensed text-sm tracking-wide shadow-md transition-all flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
-                    <span>إرسال الطلب الآن</span>
+                    <span>{copy.submitBtn}</span>
                   </button>
                 </form>
               )}
@@ -6733,11 +7109,11 @@ export function ContactSection() {
 }
 
 export default ContactSection;
-```
+`
 
-### File: `src/components/sections/CaseStudiesSection.jsx`
+### File: src/components/sections/CaseStudiesSection.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { Layers, ChevronDown, ChevronUp, Cpu, CheckCircle2, ShieldAlert, ExternalLink, ArrowRight, Activity, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -6992,11 +7368,11 @@ export function CaseStudiesSection() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/sections/ExperienceSection.jsx`
+### File: src/components/sections/ExperienceSection.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { Briefcase, GraduationCap, Calendar, MapPin, CheckCircle2, Award, ChevronDown, ChevronUp, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -7256,11 +7632,11 @@ export function ExperienceSection() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/sections/FreelanceSection.jsx`
+### File: src/components/sections/FreelanceSection.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { ShoppingBag, Users, BarChart3, CheckCircle, Award, ChevronDown, ChevronUp, ArrowRight, Store, Dumbbell, Database } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -7463,11 +7839,11 @@ export function FreelanceSection() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/sections/SkillsSection.jsx`
+### File: src/components/sections/SkillsSection.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Droplet, Code, Cpu, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -7653,11 +8029,11 @@ export function SkillsSection() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/banner/FluiDevBanner.jsx`
+### File: src/components/banner/FluiDevBanner.jsx
 
-```jsx
+`jsx
 import React, { useState, useEffect } from 'react';
 
 function Icon({ name, size = 20 }) {
@@ -8280,11 +8656,11 @@ export function FluiDevBanner() {
     </div>
   );
 }
-```
+`
 
-### File: `src/utils/hydraulicEngine.js`
+### File: src/utils/hydraulicEngine.js
 
-```jsx
+`jsx
 /**
  * EPANET 2.2 Pressurized Water Distribution Network Solver
  * Pure mathematical engine implementing Hazen-Williams friction head loss,
@@ -8561,11 +8937,11 @@ export function solveHydraulicNetwork(
     timestamp: new Date().toISOString()
   };
 }
-```
+`
 
-### File: `src/utils/scadaPhysics.js`
+### File: src/utils/scadaPhysics.js
 
-```jsx
+`jsx
 /**
  * SCADA WWTP (Zeriba El Oued) Numerical Physics Engine
  */
@@ -8674,11 +9050,11 @@ export function stepScadaPhysics(state, dtSeconds = 1.0) {
 
   return nextState;
 }
-```
+`
 
-### File: `src/components/simulator/epanet/EpanetSimulator.jsx`
+### File: src/components/simulator/epanet/EpanetSimulator.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Cpu, Play, ChevronDown, ChevronUp, Network, GitFork, Gauge, Zap } from 'lucide-react';
@@ -8861,11 +9237,11 @@ export function EpanetSimulator() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/simulator/epanet/EpanetNetworkCanvas.jsx`
+### File: src/components/simulator/epanet/EpanetNetworkCanvas.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelectElement }) {
@@ -9054,11 +9430,11 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/epanet/EpanetControls.jsx`
+### File: src/components/simulator/epanet/EpanetControls.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Play, RotateCcw, Activity, ShieldAlert, Cpu } from 'lucide-react';
 
@@ -9130,11 +9506,11 @@ export function EpanetControls({
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/epanet/EpanetNodeInspector.jsx`
+### File: src/components/simulator/epanet/EpanetNodeInspector.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Sliders, AlertTriangle, Droplet, Activity, Info } from 'lucide-react';
 
@@ -9291,11 +9667,11 @@ export function EpanetNodeInspector({
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/scada/ScadaPlantSimulator.jsx`
+### File: src/components/simulator/scada/ScadaPlantSimulator.jsx
 
-```jsx
+`jsx
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Activity, Play, ChevronDown, ChevronUp, Droplets, Sliders, ShieldCheck, Gauge } from 'lucide-react';
@@ -9470,11 +9846,11 @@ export function ScadaPlantSimulator() {
     </section>
   );
 }
-```
+`
 
-### File: `src/components/simulator/scada/ScadaFlowDiagram.jsx`
+### File: src/components/simulator/scada/ScadaFlowDiagram.jsx
 
-```jsx
+`jsx
 import React from 'react';
 
 export function ScadaFlowDiagram({ state }) {
@@ -9635,11 +10011,11 @@ export function ScadaFlowDiagram({ state }) {
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/scada/ScadaControlDesk.jsx`
+### File: src/components/simulator/scada/ScadaControlDesk.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { Play, Pause, AlertOctagon, RotateCcw, Zap, Droplets, Sliders, Settings } from 'lucide-react';
 
@@ -9843,11 +10219,11 @@ export function ScadaControlDesk({
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/scada/ScadaTelemetryPanel.jsx`
+### File: src/components/simulator/scada/ScadaTelemetryPanel.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { SENSOR_TAGS } from '../../../data/scadaData';
 import { Gauge } from 'lucide-react';
@@ -9924,11 +10300,11 @@ export function ScadaTelemetryPanel({ state }) {
     </div>
   );
 }
-```
+`
 
-### File: `src/components/simulator/scada/ScadaAlarmBanner.jsx`
+### File: src/components/simulator/scada/ScadaAlarmBanner.jsx
 
-```jsx
+`jsx
 import React from 'react';
 import { AlertTriangle, ShieldCheck, Terminal, Clock } from 'lucide-react';
 
@@ -10001,11 +10377,11 @@ export function ScadaAlarmBanner({ activeAlarms = [], eventLog = [] }) {
     </div>
   );
 }
-```
+`
 
-### File: `src/data/portfolioData.js`
+### File: src/data/portfolioData.js
 
-```jsx
+`jsx
 /**
  * Mohamed Baatas - Hydroinformatics Portfolio Authentic Domain Data
  * 100% Genuine Domain Content
@@ -10236,11 +10612,11 @@ export const CONTACT_INFO = {
     telegram: "https://t.me/Fluidev"
   }
 };
-```
+`
 
-### File: `src/data/epanetData.js`
+### File: src/data/epanetData.js
 
-```jsx
+`jsx
 /**
  * EPANET 2.2 Looped Hydraulic Network Topology & Scenario Configurations
  */
@@ -10479,11 +10855,11 @@ export const HYDRAULIC_SCENARIOS = [
     burstPipes: ["P-101"]
   }
 ];
-```
+`
 
-### File: `src/data/scadaData.js`
+### File: src/data/scadaData.js
 
-```jsx
+`jsx
 /**
  * SCADA WWTP Configuration & ISA-5.1 Instrumentation Data (Zeriba El Oued)
  */
@@ -10627,11 +11003,11 @@ export const INITIAL_SCADA_STATE = {
     { id: 2, time: "00:00:02", severity: "INFO", message: "Zeriba El Oued Process Train Initialized - Nominal Steady State" }
   ]
 };
-```
+`
 
-### File: `src/figma/App.tsx`
+### File: src/figma/App.tsx
 
-```tsx
+`tsx
 import React from "react"
 import ExportPanel from "./ExportPanel"
 import HighlightsStudio from "./HighlightsStudio"
@@ -11402,5 +11778,5 @@ export default class App extends React.Component<object, AppState> {
     )
   }
 }
-```
+`
 
