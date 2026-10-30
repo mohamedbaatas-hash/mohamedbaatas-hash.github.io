@@ -303,7 +303,7 @@ export const EDUCATION_AND_EXPERIENCE = {
       period: "2025 – Present",
       status: "Currently in Master 2 (M2)",
       statusAr: "قيد التحضير (السنة الثانية ماستر)",
-      details: "Focus on urban drinking water distribution management, wastewater treatment plant kinetics, pumping energy efficiency, and water loss reduction (NRW)."
+      details: "Focus on urban drinking water distribution management, wastewater treatment plant kinetics, pumping energy efficiency, and practical hydrochemical & hydraulic laboratory work at LARHYSS Research Laboratory (Laboratoire de Recherche en Hydraulique Souterraine et de Surface)."
     },
     {
       degree: "Bachelor of Science (B.S.) in Hydraulic Engineering — National Recruitment Track",

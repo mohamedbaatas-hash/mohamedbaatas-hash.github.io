@@ -29,7 +29,7 @@ export function TrajectorySection() {
       subtitle: isAr ? eduM2.institutionAr : eduM2.institution,
       badge: `${eduM2.period} // ${isAr ? eduM2.statusAr : eduM2.status}`,
       summary: eduM2.details,
-      tags: ['Master 2', 'Water Supply', 'Sanitation', 'Biskra University'],
+      tags: ['Master 2', 'LARHYSS Research Lab', 'Water Supply', 'Sanitation', 'Biskra University'],
       color: 'cyan',
       shape: 'tall',
       icon: <GraduationCap className="w-3.5 h-3.5" />,
@@ -37,12 +37,12 @@ export function TrajectorySection() {
         ? [
             'تخصص دقيق في تسيير وهندسة خدمات مياه الشرب والتطهير الحضري بجامعة محمد خيضر بسكرة.',
             'نمذجة الشبكات الهيدروليكية المضغوطة وشبكات الصرف الصحي ومحطات الضخ والمعالجة.',
-            'إعداد مشروع التخرج للماستر (M2) مع جاهزية كاملة للمنح وبرامج البحث الدولية.'
+            'أعمال مخبرية وتطبيقية في تحاليل المياه والهيدروليك داخل مخبر أبحاث الهيدروليك الجوفية والسطحية (LARHYSS Laboratory) بجامعة بسكرة.'
           ]
         : [
             'Advanced specialization in urban drinking water distribution, sanitation services, and hydraulic infrastructure management.',
             'Focus on numerical network simulation (EPANET/SWMM), pumping station design, and water quality governance.',
-            'Currently completing Master 2 thesis at Université Mohamed Khider Biskra.'
+            'Practical hydrochemical & hydraulic laboratory research at LARHYSS Laboratory (Laboratoire de Recherche en Hydraulique Souterraine et de Surface) at Université Mohamed Khider Biskra.'
           ],
       renderDiagram: () => (
         <div className="p-5 bg-slate-950/90 font-mono text-xs space-y-4">
