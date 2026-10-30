@@ -1,10 +1,21 @@
 import React from 'react';
 
-export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelectElement }) {
-  const { nodes, links } = solvedNetwork;
+export function EpanetNetworkCanvas({
+  epanet,
+  solvedNetwork: propSolvedNetwork,
+  selectedElementId: propSelectedElementId,
+  onSelectElement: propOnSelectElement
+}) {
+  const solvedNetwork = propSolvedNetwork || epanet?.solvedNetwork || { nodes: [], links: [] };
+  const selectedElementId = propSelectedElementId !== undefined ? propSelectedElementId : epanet?.selectedElementId;
+  const onSelectElement = propOnSelectElement || epanet?.selectElement || (() => {});
+
+  const { nodes = [], links = [] } = solvedNetwork;
 
   const nodeMap = {};
-  nodes.forEach(n => { nodeMap[n.id] = n; });
+  nodes.forEach((n) => {
+    nodeMap[n.id] = n;
+  });
 
   const getPressureColor = (pressureM) => {
     if (pressureM < 18.0) return '#EF4444'; // Red (Danger / Low)
@@ -17,16 +28,16 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
     if (isBurst) return '#EF4444';
     if (velocityMs > 2.0) return '#F59E0B';
     if (velocityMs < 0.3) return '#64748B';
-    return '#06B6D4'; // Cyan (Ideal 0.3 - 2.0 m/s)
+    return '#38BDF8'; // Cyan (Ideal 0.3 - 2.0 m/s)
   };
 
   return (
-    <div className="w-full bg-surface-sunken border border-border-slate rounded-lg p-4 overflow-x-auto">
-      <div className="min-w-[720px] relative">
+    <div className="w-full bg-[#080C17] border border-slate-800 p-4 overflow-x-auto">
+      <div className="min-w-[680px] relative">
         <svg viewBox="0 0 740 500" className="w-full h-auto select-none">
           {/* Background Grid */}
-          <pattern id="epanetGrid" width="25" height="25" patternUnits="userSpaceOnUse">
-            <path d="M 25 0 L 0 0 0 25" fill="none" stroke="#1E293B" strokeWidth="0.5" />
+          <pattern id="epanetGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" strokeWidth="0.6" />
           </pattern>
           <rect width="740" height="500" fill="url(#epanetGrid)" />
 
@@ -79,7 +90,7 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
                     stroke="#FFFFFF"
                     strokeWidth="2"
                     strokeDasharray="4 8"
-                    className="animate-[dash_2s_linear_infinite]"
+                    className="animate-hydraulic-flow"
                   />
                 )}
 
@@ -90,8 +101,8 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
                     y="-11"
                     width="64"
                     height="20"
-                    rx="3"
-                    fill="#0F172A"
+                    rx="2"
+                    fill="#0B101E"
                     stroke={isSelected ? '#38BDF8' : '#334155'}
                     strokeWidth="1"
                   />
@@ -133,7 +144,7 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
                 {/* Node Shape */}
                 {isReservoir ? (
                   <g>
-                    <rect x="-18" y="-14" width="36" height="28" rx="4" fill="#1E3A8A" stroke="#3B82F6" strokeWidth="2" />
+                    <rect x="-18" y="-14" width="36" height="28" rx="2" fill="#1E3A8A" stroke="#3B82F6" strokeWidth="2" />
                     <text x="0" y="4" fill="#FFFFFF" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
                       RES
                     </text>
@@ -147,7 +158,7 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
                   </g>
                 ) : (
                   <g>
-                    <circle r="14" fill="#0F172A" stroke={pressureColor} strokeWidth="2.5" />
+                    <circle r="14" fill="#0B101E" stroke={pressureColor} strokeWidth="2.5" />
                     <circle r="6" fill={pressureColor} />
                   </g>
                 )}
@@ -186,3 +197,5 @@ export function EpanetNetworkCanvas({ solvedNetwork, selectedElementId, onSelect
     </div>
   );
 }
+
+export default EpanetNetworkCanvas;

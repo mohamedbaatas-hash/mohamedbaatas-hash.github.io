@@ -1,28 +1,36 @@
 import React from 'react';
-import { Play, RotateCcw, Activity, ShieldAlert, Cpu } from 'lucide-react';
+import { RotateCcw, Cpu } from 'lucide-react';
 
 export function EpanetControls({
-  scenarios,
-  currentScenario,
-  onSelectScenario,
-  pumpActive,
-  onTogglePump,
-  onResetNetwork
+  epanet,
+  scenarios: propScenarios,
+  currentScenario: propCurrentScenario,
+  onSelectScenario: propOnSelectScenario,
+  pumpActive: propPumpActive,
+  onTogglePump: propOnTogglePump,
+  onResetNetwork: propOnResetNetwork
 }) {
+  const scenarios = propScenarios || epanet?.scenarios || [];
+  const currentScenario = propCurrentScenario || epanet?.currentScenario || {};
+  const onSelectScenario = propOnSelectScenario || epanet?.setScenario || (() => {});
+  const pumpActive = propPumpActive !== undefined ? propPumpActive : (epanet?.pumpActive ?? true);
+  const onTogglePump = propOnTogglePump || epanet?.toggleBoosterPump || (() => {});
+  const onResetNetwork = propOnResetNetwork || epanet?.resetNetwork || (() => {});
+
   return (
-    <div className="bg-surface-sunken border border-border-slate rounded-lg p-5 space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border-slate">
+    <div className="bg-[#0B101E] border border-slate-800 p-4 sm:p-5 space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
         <div className="flex items-center gap-2">
-          <Cpu className="w-4 h-4 text-cyan-400" />
+          <Cpu className="w-4 h-4 text-sky-400" />
           <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider">
-            Hydraulic Operational Scenarios
+            Hydraulic Operational Scenarios (EPANET 2.2)
           </h4>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             onClick={onTogglePump}
-            className={`px-3 py-1.5 rounded font-mono text-xs font-bold border transition-colors ${
+            className={`px-3 py-1.5 font-mono text-xs font-bold border transition-colors ${
               pumpActive
                 ? 'bg-emerald-950/40 text-emerald-400 border-emerald-500/40 hover:bg-emerald-900/40'
                 : 'bg-red-950/40 text-red-400 border-red-500/40 hover:bg-red-900/40'
@@ -33,7 +41,7 @@ export function EpanetControls({
 
           <button
             onClick={onResetNetwork}
-            className="p-1.5 rounded bg-elevated-slate hover:bg-slate-700 text-slate-300 border border-border-slate transition-colors"
+            className="p-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors"
             title="Reset Network"
           >
             <RotateCcw className="w-4 h-4" />
@@ -44,20 +52,20 @@ export function EpanetControls({
       {/* Scenario Buttons */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {scenarios.map((sc) => {
-          const isActive = currentScenario.id === sc.id;
+          const isActive = currentScenario?.id === sc.id;
           return (
             <button
               key={sc.id}
               onClick={() => onSelectScenario(sc.id)}
-              className={`p-3 rounded text-left border transition-all ${
+              className={`p-3 text-left border transition-all ${
                 isActive
-                  ? 'bg-cobalt-600/20 border-cobalt-500 text-white shadow-sm'
-                  : 'bg-elevated-slate/40 border-border-slate/70 text-slate-300 hover:bg-elevated-slate hover:text-white'
+                  ? 'bg-sky-500/15 border-sky-400 text-white'
+                  : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-900 hover:text-white'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="font-mono text-xs font-bold">{sc.name}</span>
-                {isActive && <span className="w-2 h-2 rounded-full bg-cobalt-400 animate-pulse" />}
+                {isActive && <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />}
               </div>
               <p className="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
                 {sc.description}
@@ -69,3 +77,5 @@ export function EpanetControls({
     </div>
   );
 }
+
+export default EpanetControls;

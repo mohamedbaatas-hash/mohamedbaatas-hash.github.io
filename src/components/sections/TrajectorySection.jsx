@@ -1,201 +1,283 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Briefcase, GraduationCap, Calendar, Award, CheckCircle2 } from 'lucide-react';
-import { CollageBackground } from '../common/CollageBackground';
+import {
+  GraduationCap,
+  Trophy,
+  Users,
+  Compass,
+  Code2,
+  Globe2,
+  CheckCircle2
+} from 'lucide-react';
+import { EDUCATION_AND_EXPERIENCE, SKILLS_CATEGORIES } from '../../data/portfolioData';
+import { MosaicStageGrid } from '../common/MosaicStageGrid';
 
 export function TrajectorySection() {
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
+  const isAr = i18n.language === 'ar';
 
-  const leadership = [
-    {
-      num: '01',
-      tapeTag: '01 // SCIENTIFIC GOVERNANCE',
-      role: t('TRAJECTORY.bernoulli_role', 'President'),
-      org: t('TRAJECTORY.bernoulli_org', 'Bernoulli Hydraulics Scientific Club'),
-      period: '2023 – 2025',
-      type: t('TRAJECTORY.bernoulli_type', 'Leadership & Technical Mentorship'),
-      bullets: [
-        t('TRAJECTORY.bernoulli_b1', 'Elected to lead an executive committee of 15+ student engineers and 100+ active members.'),
-        t('TRAJECTORY.bernoulli_b2', 'Designed and delivered technical masterclasses in EPANET 2.2 hydraulic modeling and ArcGIS Pro.'),
-        t('TRAJECTORY.bernoulli_b3', 'Conducted hands-on IoT workshops interfacing Arduino microcontrollers with flow and pressure sensors.'),
-        t('TRAJECTORY.bernoulli_b4', 'Coordinated technical field delegations to regional municipal water treatment plants and dam reservoirs.')
-      ]
-    },
-    {
-      num: '02',
-      tapeTag: '02 // ENTERPRISE TELECOM',
-      role: t('TRAJECTORY.huawei_role', 'Enterprise Telecommunications Intern'),
-      org: t('TRAJECTORY.huawei_org', 'Huawei ICT Academy, Algiers'),
-      period: '2024',
-      type: t('TRAJECTORY.huawei_type', 'Enterprise Network Engineering'),
-      bullets: [
-        t('TRAJECTORY.huawei_b1', 'Mastered enterprise IP routing and switching protocols (OSPF, BGP, VLAN tagging, QoS).'),
-        t('TRAJECTORY.huawei_b2', 'Analyzed data center network redundancy topologies and low-latency packet transmission architectures.'),
-        t('TRAJECTORY.huawei_b3', 'Transferred enterprise network reliability principles directly to industrial SCADA and edge IoT sensor networks.')
-      ]
-    }
-  ];
+  const eduM2 = EDUCATION_AND_EXPERIENCE.education[0];
+  const eduBsc = EDUCATION_AND_EXPERIENCE.education[1];
+  const bernoulli = EDUCATION_AND_EXPERIENCE.leadership[0];
+  const autoptimus = EDUCATION_AND_EXPERIENCE.leadership[1];
 
-  const education = [
+  const mosaicItems = [
+    // 1. M.Sc. (M2) Water & Sanitation (Tall Card: 4 cols x 2 rows)
     {
-      num: '03',
-      tapeTag: '03 // MASTER OF SCIENCE (ENSH)',
-      degree: t('TRAJECTORY.ms_degree', 'Master of Science (M.S.) — Water & Sanitation Services Management'),
-      institution: t('TRAJECTORY.ms_inst', 'National Higher School of Hydraulics (ENSH)'),
-      period: '2024 – Present',
-      status: t('TRAJECTORY.ms_status', 'Enrolled'),
-      detail: t(
-        'TRAJECTORY.ms_detail',
-        'Urban water cycle economics, wastewater treatment plant optimization, non-revenue water (NRW) reduction, sludge digestor treatment, and hydroinformatics computational methods.'
-      )
+      id: 'm2-water-sanitation',
+      title: isAr ? eduM2.degreeAr : eduM2.degree,
+      subtitle: isAr ? eduM2.institutionAr : eduM2.institution,
+      badge: `${eduM2.period} // ${isAr ? eduM2.statusAr : eduM2.status}`,
+      summary: eduM2.details,
+      tags: ['Master 2', 'Water Supply', 'Sanitation', 'Biskra University'],
+      color: 'cyan',
+      shape: 'tall',
+      icon: <GraduationCap className="w-3.5 h-3.5" />,
+      detailsList: isAr
+        ? [
+            'تخصص دقيق في تسيير وهندسة خدمات مياه الشرب والتطهير الحضري بجامعة محمد خيضر بسكرة.',
+            'نمذجة الشبكات الهيدروليكية المضغوطة وشبكات الصرف الصحي ومحطات الضخ والمعالجة.',
+            'إعداد مشروع التخرج للماستر (M2) مع جاهزية كاملة للمنح وبرامج البحث الدولية.'
+          ]
+        : [
+            'Advanced specialization in urban drinking water distribution, sanitation services, and hydraulic infrastructure management.',
+            'Focus on numerical network simulation (EPANET/SWMM), pumping station design, and water quality governance.',
+            'Currently completing Master 2 thesis at Université Mohamed Khider Biskra.'
+          ],
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs space-y-4">
+          <div className="flex items-center justify-between text-sky-300 border-b border-white/10 pb-2">
+            <span className="font-bold">ACADEMIC PROGRESSION // UNIV. BISKRA</span>
+            <span>M.SC. LEVEL</span>
+          </div>
+          <svg viewBox="0 0 380 110" className="w-full h-auto select-none">
+            <line x1="30" y1="55" x2="350" y2="55" stroke="#38bdf8" strokeWidth="3" />
+            {[
+              { x: 55, lbl: 'L1–L3 B.Sc.', yr: '2022–2025', active: true },
+              { x: 190, lbl: 'M1 Hydraulics', yr: '2025', active: true },
+              { x: 325, lbl: 'M2 Water & Sanitation', yr: '2025–2026', active: true },
+            ].map((st, i) => (
+              <g key={i}>
+                <circle cx={st.x} cy="55" r="10" fill="#0284c7" stroke="#bae6fd" strokeWidth="2.5" />
+                <text x={st.x} y="32" textAnchor="middle" className="fill-white text-[9px] font-bold">
+                  {st.lbl}
+                </text>
+                <text x={st.x} y="82" textAnchor="middle" className="fill-sky-300 text-[8px]">
+                  {st.yr}
+                </text>
+              </g>
+            ))}
+          </svg>
+        </div>
+      ),
     },
+
+    // 2. President — Bernoulli Scientific Club (Wide Card: 8 cols x 1 row)
     {
-      num: '04',
-      tapeTag: '04 // BACHELOR OF SCIENCE',
-      degree: t('TRAJECTORY.bs_degree', 'Bachelor of Science (B.S.) — Hydraulics Engineering'),
-      institution: t('TRAJECTORY.bs_inst', 'Faculty of Civil & Hydraulic Engineering'),
-      period: 'Graduated with Distinction',
-      status: t('TRAJECTORY.bs_status', 'Graduated with Distinction'),
-      detail: t(
-        'TRAJECTORY.bs_detail',
-        'Fluid mechanics, pressurized pipeline hydraulics, open-channel flow, hydrology, dam engineering, reinforced concrete for hydraulic structures, and soil mechanics.'
-      )
-    }
+      id: 'bernoulli-club-presidency',
+      title: isAr
+        ? `${bernoulli.roleAr} — ${bernoulli.organizationAr}`
+        : `${bernoulli.role} — ${bernoulli.organization}`,
+      subtitle: `${bernoulli.period} // Biskra University`,
+      badge: 'SCIENTIFIC LEADERSHIP // 14 MEMBERS',
+      summary: isAr ? bernoulli.highlightsAr[0] : bernoulli.highlights[0],
+      tags: ['14 Active Members', 'EPANET Workshops', 'Dam & WWTP Field Visits'],
+      color: 'amber',
+      shape: 'wide',
+      icon: <Users className="w-3.5 h-3.5" />,
+      detailsList: isAr ? bernoulli.highlightsAr : bernoulli.highlights,
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs space-y-3">
+          <div className="flex items-center justify-between text-amber-300 border-b border-white/10 pb-2">
+            <span className="font-bold">BERNOULLI CLUB ROSTER // 14 DEDICATED MEMBERS</span>
+            <span>2023–2025</span>
+          </div>
+          <div className="grid grid-cols-7 gap-2 py-2">
+            {Array.from({ length: 14 }).map((_, i) => (
+              <div
+                key={i}
+                className="p-2 rounded-lg bg-amber-500/15 border border-amber-400/40 flex flex-col items-center justify-center text-center"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-400 mb-1" />
+                <span className="text-[9px] text-amber-200 font-bold">M-{i + 1}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+
+    // 3. 1st Place Energy Security Competition — AutOptimus Club (Square Card: 4 cols x 1 row)
+    {
+      id: 'autoptimus-first-place',
+      title: isAr
+        ? 'المرتبة 1 في مسابقة الأمن الطاقوي — نادي AutOptimus'
+        : '1st Place Winner (Energy Security) — AutOptimus Club',
+      subtitle: `${autoptimus.period} // Robotics & Automation`,
+      badge: '1ST PLACE AWARD // ENERGY SECURITY',
+      summary: isAr ? autoptimus.highlightsAr[0] : autoptimus.highlights[0],
+      tags: ['1st Place Winner', 'Energy Security', 'Arduino / ESP32', 'Automation'],
+      color: 'emerald',
+      shape: 'square',
+      icon: <Trophy className="w-3.5 h-3.5" />,
+      detailsList: isAr ? autoptimus.highlightsAr : autoptimus.highlights,
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs flex flex-col items-center justify-center text-center space-y-3">
+          <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 border-2 border-emerald-400 flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.4)]">
+            <Trophy className="w-8 h-8 text-emerald-300" />
+          </div>
+          <div>
+            <div className="text-sm font-extrabold text-white">
+              {isAr ? 'المركز الأول #1 — مجال الأمن الطاقوي' : '1ST PLACE WINNER — ENERGY SECURITY'}
+            </div>
+            <div className="text-[11px] text-emerald-300 mt-1">
+              AutOptimus Robotics & Automation Club (Summer 2023)
+            </div>
+          </div>
+        </div>
+      ),
+    },
+
+    // 4. B.Sc. Hydraulic Engineering — National Track (Square Card: 4 cols x 1 row)
+    {
+      id: 'bsc-hydraulic-engineering',
+      title: isAr ? eduBsc.degreeAr : eduBsc.degree,
+      subtitle: isAr ? eduBsc.institutionAr : eduBsc.institution,
+      badge: `${eduBsc.period} // ${isAr ? eduBsc.statusAr : eduBsc.status}`,
+      summary: eduBsc.details,
+      tags: ['B.Sc. Hydraulics', 'National Track', 'Fluid Mechanics', 'Hydrogeology'],
+      color: 'indigo',
+      shape: 'square',
+      icon: <GraduationCap className="w-3.5 h-3.5" />,
+      detailsList: isAr
+        ? [
+            'شهادة ليسانس أكاديمي في الهيدروليك (تسجيل وطني) من جامعة محمد خيضر بسكرة دفعة 2025.',
+            'تكوين متين في ميكانيكا الموائع، الهيدرولوجيا، الهيدروجيولوجيا، الإنشاءات المائية، ومحطات الضخ.',
+            'إنجاز دراسات تطبيقية في شبكات مياه الشرب والصرف الصحي.'
+          ]
+        : [
+            'Bachelor of Science in Hydraulic Engineering (National Recruitment Track) graduated in 2025 from Biskra University.',
+            'Rigorous grounding in open-channel and pressurized fluid mechanics, hydrology, hydrogeology, and pumping stations.',
+            'Completed full design studies in municipal water supply and urban drainage.'
+          ],
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs grid grid-cols-2 gap-2.5">
+          {[
+            'Fluid Mechanics (P/γ + v²/2g)',
+            'Pressurized Networks (EPANET)',
+            'Urban Hydrology & Drainage',
+            'Pumping Stations & Boreholes',
+          ].map((c, i) => (
+            <div key={i} className="p-3 rounded-xl bg-indigo-500/15 border border-indigo-400/30 text-indigo-200 font-bold text-[11px]">
+              0{i + 1}. {c}
+            </div>
+          ))}
+        </div>
+      ),
+    },
+
+    // 5. Engineering & GIS Software Stack (Wide Card: 8 cols x 1 row)
+    {
+      id: 'engineering-software-matrix',
+      title: isAr
+        ? 'البرامج الهندسية ونظم المعلومات الجغرافية (EPANET, SWMM, AutoCAD, GIS)'
+        : 'Hydraulic Modeling, CAD & GIS Toolkit (EPANET, PC-SWMM, AutoCAD, ArcGIS)',
+      subtitle: 'Verified Simulation & Drafting Suites',
+      badge: 'ENGINEERING SOFTWARE STACK',
+      summary: isAr
+        ? 'إتقان عملي لبرامج النمذجة المائية والرفع المساحي والرسم الهندسي المستخدمة في مكاتب الدراسات والمشاريع الأكاديمية.'
+        : 'Hands-on mastery of industry-standard hydraulic simulation, urban drainage modeling, CAD drafting, and spatial GIS analysis tools.',
+      tags: ['EPANET 2.2', 'PC-SWMM', 'AutoCAD', 'ArcGIS', 'QGIS'],
+      color: 'violet',
+      shape: 'wide',
+      icon: <Compass className="w-3.5 h-3.5" />,
+      detailsList: [
+        ...SKILLS_CATEGORIES[0].skills.map((s) => `${s.name}: ${s.detail}`),
+        ...SKILLS_CATEGORIES[1].skills.map((s) => `${s.name}: ${s.detail}`),
+      ],
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          {['EPANET 2.2', 'PC-SWMM', 'AutoCAD 2D', 'ArcGIS Desktop', 'QGIS Spatial', 'DEM / Watersheds'].map((tool, i) => (
+            <div key={i} className="p-3 rounded-xl bg-purple-500/15 border border-purple-400/35 text-center">
+              <div className="text-white font-bold text-xs">{tool}</div>
+              <div className="text-[9px] text-purple-300 mt-1">VERIFIED PROFICIENCY</div>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+
+    // 6. Programming, Huawei ICT IoT & Languages (Square Card: 4 cols x 1 row)
+    {
+      id: 'coding-iot-languages',
+      title: isAr
+        ? 'البرمجة، شهادة Huawei IoT، واللغات (English B2)'
+        : 'Programming, Huawei IoT Track & Languages (English B2)',
+      subtitle: 'Python • Java/Kotlin • Huawei ICT • CEFR B2',
+      badge: 'CODING & CERTIFICATIONS',
+      summary: isAr
+        ? 'تطوير تطبيقات سطح المكتب والهاتف (Python, PyQt, Java/Android)، شهادة أكاديمية هواوي في إنترنت الأشياء (IoT)، ومستوى B2 في الإنجليزية.'
+        : 'Software development in Python/PyQt and Java/Kotlin, Huawei ICT Academy IoT coursework, and CEFR Level B2 English proficiency.',
+      tags: ['Python & PyQt', 'Java / Android HCE', 'Huawei ICT (IoT)', 'English B2'],
+      color: 'rose',
+      shape: 'square',
+      icon: <Globe2 className="w-3.5 h-3.5" />,
+      detailsList: [
+        'English: Level B2 (CEFR Upper-Intermediate — Academic & Technical Proficiency)',
+        'French: Fluent Technical & Scientific Communication',
+        'Arabic: Native Mother Tongue',
+        'Certification: Huawei ICT Academy — Internet of Things (IoT Track)',
+        ...SKILLS_CATEGORIES[2].skills.map((s) => `${s.name}: ${s.detail}`),
+      ],
+      renderDiagram: () => (
+        <div className="p-5 bg-slate-950/90 font-mono text-xs space-y-2.5">
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <div className="p-2.5 rounded-xl bg-rose-500/15 border border-rose-400/35">
+              <span className="text-[9px] text-rose-300 block">ENGLISH</span>
+              <span className="font-bold text-white text-xs">CEFR B2</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-rose-500/15 border border-rose-400/35">
+              <span className="text-[9px] text-rose-300 block">FRENCH</span>
+              <span className="font-bold text-white text-xs">FLUENT</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-rose-500/15 border border-rose-400/35">
+              <span className="text-[9px] text-rose-300 block">ARABIC</span>
+              <span className="font-bold text-white text-xs">NATIVE</span>
+            </div>
+          </div>
+          <div className="p-2.5 rounded-xl bg-white/5 border border-white/15 text-center text-[11px] text-sky-300 font-bold">
+            Huawei ICT Academy — Internet of Things (IoT Track)
+          </div>
+        </div>
+      ),
+    },
   ];
 
   return (
     <section
       id="trajectory"
-      className="py-16 sm:py-24 border-b border-slate-200 dark:border-blue-500/20 bg-slate-50/50 dark:bg-[#07133f]/70 relative overflow-hidden"
+      className="relative min-h-screen w-full py-20 sm:py-28 px-4 sm:px-8 flex flex-col justify-center"
     >
-      <CollageBackground />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10 space-y-10">
+        
         {/* Section Header */}
-        <div className="mb-12 max-w-3xl">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-semibold uppercase tracking-wider text-purple-600 dark:text-cyan-400 bg-purple-50 dark:bg-blue-950/60 px-3 py-1 rounded-full border border-purple-200 dark:border-blue-500/30">
-              05 // {t('TRAJECTORY.section_tag', 'TRAJECTORY & ROOTS')}
-            </span>
-            <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
-              0101 / FLOW.DATA
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-title tracking-tight text-slate-900 dark:text-white">
-            {t('TRAJECTORY.section_title', 'Engineering Experience & Academic Roots')}
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
+          <span className="inline-block font-mono text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full bg-purple-500/25 text-purple-200 border border-purple-400/40">
+            03 // {isAr ? 'المسار الأكاديمي، القيادة، والمهارات' : 'EDUCATION, LEADERSHIP & SKILLS'}
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black font-title text-white tracking-tight drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">
+            {isAr ? 'مساري الجامعي، الجوائز، والمهارات' : 'MY ACADEMIC TRAJECTORY & SKILLS'}
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            {t(
-              'TRAJECTORY.section_desc',
-              'Scientific club governance, enterprise telecommunication training, and accredited degrees in municipal water services and hydraulics.'
-            )}
+          <p className="text-xs sm:text-sm font-mono text-purple-200/80">
+            {isAr
+              ? 'اضغط على أي بطاقة لمعاينة تفاصيل الشهادات والقيادة العلمية والبرامج'
+              : 'Click any tile in the gallery to inspect degrees, leadership awards, and technical skills'}
           </p>
         </div>
 
-        {/* 2-Column Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Column 1: Leadership */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-2 pb-3 border-b border-slate-200 dark:border-blue-500/30">
-              <Briefcase className="w-5 h-5 text-fluid-blue dark:text-cyan-400" />
-              <h3 className="text-lg font-bold font-title text-slate-900 dark:text-white tracking-tight">
-                {t('TRAJECTORY.col_leadership', 'Leadership & Industry Training')}
-              </h3>
-            </div>
+        {/* 3-Stage Asymmetric Mosaic Gallery */}
+        <MosaicStageGrid items={mosaicItems} isAr={isAr} />
 
-            <div className="space-y-5">
-              {leadership.map((item) => (
-                <div
-                  key={item.num}
-                  className="rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white/90 dark:bg-[#0A1B54]/80 p-6 shadow-md relative overflow-hidden backdrop-blur-sm"
-                >
-                  <div className="inline-block mb-3">
-                    <span className="px-2.5 py-0.5 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-[11px] uppercase">
-                      {item.tapeTag}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-500/30 text-fluid-blue dark:text-cyan-300 font-semibold">
-                      {item.type}
-                    </span>
-                    <span className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      {item.period}
-                    </span>
-                  </div>
-
-                  <h4 className="text-base font-bold font-title text-slate-900 dark:text-white tracking-tight mt-1">
-                    {item.role}
-                  </h4>
-                  <p className="text-xs text-fluid-blue dark:text-cyan-400 font-medium">
-                    {item.org}
-                  </p>
-
-                  <ul className="mt-4 space-y-1.5 pt-3 border-t border-slate-100 dark:border-slate-800">
-                    {item.bullets.map((b, bIdx) => (
-                      <li
-                        key={bIdx}
-                        className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300 leading-relaxed"
-                      >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400 shrink-0 mt-0.5" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 2: Academic Degrees */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-2 pb-3 border-b border-slate-200 dark:border-blue-500/30">
-              <GraduationCap className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />
-              <h3 className="text-lg font-bold font-title text-slate-900 dark:text-white tracking-tight">
-                {t('TRAJECTORY.col_education', 'Academic Credentials')}
-              </h3>
-            </div>
-
-            <div className="space-y-5">
-              {education.map((item) => (
-                <div
-                  key={item.num}
-                  className="rounded-2xl border border-slate-200 dark:border-blue-500/30 bg-white/90 dark:bg-[#0A1B54]/80 p-6 shadow-md relative overflow-hidden backdrop-blur-sm"
-                >
-                  <div className="inline-block mb-3">
-                    <span className="px-2.5 py-0.5 rounded bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-[11px] uppercase">
-                      {item.tapeTag}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-500/30 text-emerald-700 dark:text-emerald-300 font-semibold flex items-center gap-1.5">
-                      <Award className="w-3 h-3 text-emerald-500" />
-                      {item.status}
-                    </span>
-                    <span className="text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                      {item.period}
-                    </span>
-                  </div>
-
-                  <h4 className="text-base font-bold font-title text-slate-900 dark:text-white tracking-tight mt-1">
-                    {item.degree}
-                  </h4>
-                  <p className="text-xs text-emerald-600 dark:text-emerald-300 font-medium">
-                    {item.institution}
-                  </p>
-
-                  <p className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {item.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

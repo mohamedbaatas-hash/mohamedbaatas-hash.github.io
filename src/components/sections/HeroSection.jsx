@@ -1,418 +1,222 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
-  Download,
+  FileText,
   Mail,
-  Phone,
   Github,
-  Code2,
-  Activity,
-  GraduationCap,
-  Droplet,
-  Play
+  Linkedin,
+  Send,
+  ArrowDown,
+  ArrowUpRight,
+  Camera,
+  Sparkles,
+  Award,
+  GraduationCap
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { BlueprintCadre } from '../common/BlueprintCadre';
-import { CollageBackground } from '../common/CollageBackground';
+import { PERSONAL_DATA } from '../../data/portfolioData';
 
-const DOSSIER_I18N = {
-  ar: {
-    tape: 'ENGINEERING IDENTITY // هوية المهندس',
-    kicker: 'FLUIDEV / IDENTITY & CREDENTIALS',
-    name: 'محمد بعتاس',
-    roleHighlight: 'مهندس مياه وبرمجيات',
-    bio: 'مهندس دولة خريج المدرسة الوطنية العليا للري (ENSH)، وباحث ماستر في تسيير منظومات مياه الشرب والتطهير، ومطوّر نظم برمجية متقدم. أكرّس خبرتي لدمج الفهم الفيزيائي الدقيق لشبكات المياه ومحطات المعالجة، مع هندسة البرمجيات الحديثة، النظم المستقلة (Offline-First)، وتقنيات الأتمتة والبحث العلمي.',
-    sloganSub: 'نحوّل الأفكار الهندسية إلى حلول رقمية تعمل.',
-    pillars: [
-      {
-        num: '01',
-        title: 'الهندسة المائية والري (Hydraulics & Sanitation)',
-        desc: 'مهندس دولة خريج المدرسة الوطنية العليا للري + ماستر تسيير منشآت مياه الشرب ومحطات التطهير (WWTP) ونمذجة الشبكات المعقدة بـ EPANET و GIS.'
-      },
-      {
-        num: '02',
-        title: 'تطوير النظم والبرمجيات (Full-Stack & Desktop Systems)',
-        desc: 'هندسة برمجيات سطح المكتب المستقلة (Offline-First بـ Electron و Python)، محاكيات تفاعلية، ولوحات تحكم صناعية (SCADA).'
-      },
-      {
-        num: '03',
-        title: 'الخدمات الأكاديمية والبحثية (Academic Hub & Mentorship)',
-        desc: 'مرافقة الباحثين والطلبة، تدقيق وصياغة مذكرات التخرج ورسائل الماجستير (APA / IEEE)، وتصميم عروض المناقشة الاحترافية.'
-      }
-    ],
-    btnCv: 'تحميل السيرة الذاتية (CV)',
-    btnContact: 'تواصل معي مباشرة',
-    btnLab: 'تشغيل المختبر التفاعلي',
-    avail: 'متاح للمشاريع والتعاقد التقني (Algiers / Remote)',
-    ch1: '01 // أعمال وبرمجيات',
-    ch2: '02 // المختبر الهيدروليكي',
-    ch3: '03 // المركز الأكاديمي',
-    ch4: '04 // الركائز والقدرات'
-  },
-  fr: {
-    tape: 'ENGINEERING IDENTITY // DOSSIER INGÉNIEUR',
-    kicker: 'FLUIDEV / IDENTITÉ & COMPÉTENCES',
-    name: 'Mohamed Baatas',
-    roleHighlight: 'Ingénieur en Hydroinformatique & Logiciels',
-    bio: "Ingénieur d'État diplômé de l'École Nationale Supérieure d'Hydraulique (ENSH), chercheur en Master (Gestion des Services d'Eau et d'Assainissement) et architecte logiciel Full-Stack. Je fusionne la mécanique des fluides et la modélisation hydraulique avec des logiciels de bureau Offline-First, des jumeaux numériques SCADA et l'accompagnement académique.",
-    sloganSub: 'Transformer les concepts d’ingénierie en systèmes numériques fiables.',
-    pillars: [
-      {
-        num: '01',
-        title: 'Génie Hydraulique & Assainissement (ENSH)',
-        desc: 'Modélisation sous pression EPANET 2.2, stations d’épuration (STEP), réduction des eaux non facturées (NRW) et SIG spatial (ArcGIS Pro).'
-      },
-      {
-        num: '02',
-        title: 'Architecture Logicielle & ERP Desktop (Offline-First)',
-        desc: 'Applications de bureau haute fiabilité (Electron, React 18, Python PyQt6, SQLite), systèmes POS commerciaux et télémétrie IoT.'
-      },
-      {
-        num: '03',
-        title: 'Pôle Académique & Soutenance (Academic Hub)',
-        desc: 'Mise en page normée de mémoires (APA 7e / IEEE), révision linguistique trilingue et conception de présentations de soutenance.'
-      }
-    ],
-    btnCv: 'Télécharger le CV',
-    btnContact: 'Contact Direct',
-    btnLab: 'Lancer le Labo Interactif',
-    avail: 'Disponible pour Projets & Consulting (Alger / Remote)',
-    ch1: '01 // Projets & Logiciels',
-    ch2: '02 // Laboratoire Hydraulique',
-    ch3: '03 // Pôle Académique',
-    ch4: '04 // Compétences Clés'
-  },
-  en: {
-    tape: 'ENGINEERING IDENTITY // EXECUTIVE DOSSIER',
-    kicker: 'FLUIDEV / IDENTITY & CREDENTIALS',
-    name: 'Mohamed Baatas',
-    roleHighlight: 'Hydroinformatics & Software Engineer',
-    bio: 'State Hydraulics Engineer (ENSH Algiers), M.S. researcher in Water & Sanitation Services Management, and Full-Stack Software Architect. Dedicated to bridging pressurized water network physics and WWTP process engineering with offline-first desktop ERPs, real-time SCADA digital twins, and academic research excellence.',
-    sloganSub: 'Turning complex engineering physics into production software.',
-    pillars: [
-      {
-        num: '01',
-        title: 'Hydraulics & Water Infrastructure (ENSH)',
-        desc: 'Pressurized pipe network modeling (EPANET 2.2), wastewater treatment plant (WWTP) optimization, NRW reduction, and ArcGIS Pro.'
-      },
-      {
-        num: '02',
-        title: 'Full-Stack & Offline-First Desktop Systems',
-        desc: 'Production desktop ERPs & POS suites (Electron, React 18, Python PyQt6, SQLite3), browser-based physical solvers, and IoT telemetry.'
-      },
-      {
-        num: '03',
-        title: 'Academic Transformation & Thesis Hub',
-        desc: 'University-compliant thesis formatting (APA 7th / IEEE), trilingual scientific proofreading, and executive defense presentation decks.'
-      }
-    ],
-    btnCv: 'Download Resume (CV)',
-    btnContact: 'Direct Inquiry',
-    btnLab: 'Launch Interactive Lab',
-    avail: 'Available for Consulting & Engineering Roles (Algiers / Remote)',
-    ch1: '01 // Selected Works',
-    ch2: '02 // Hydraulic Lab',
-    ch3: '03 // Academic Hub',
-    ch4: '04 // Core Pillars'
-  }
-};
+const PHOTO_STORAGE_KEY = 'mohammed_baatas_portrait_v1';
 
 export function HeroSection() {
   const { i18n } = useTranslation();
-  const langKey = i18n.language?.startsWith('ar')
-    ? 'ar'
-    : i18n.language?.startsWith('fr')
-    ? 'fr'
-    : 'en';
-  const copy = DOSSIER_I18N[langKey];
-  const isRTL = langKey === 'ar';
+  const isAr = i18n.language === 'ar';
+  const [photoDataUrl, setPhotoDataUrl] = useState(null);
+  const [showBioBox, setShowBioBox] = useState(true);
+  const fileInputRef = useRef(null);
 
-  const handleOpenLab = (e) => {
-    e.preventDefault();
-    window.dispatchEvent(new CustomEvent('fluiddev:launch-lab', { detail: { tab: 'epanet' } }));
-    const labEl = document.getElementById('interactive-lab');
-    if (labEl) labEl.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(PHOTO_STORAGE_KEY);
+      if (saved) setPhotoDataUrl(saved);
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
+
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      setPhotoDataUrl(result);
+      try {
+        localStorage.setItem(PHOTO_STORAGE_KEY, result);
+      } catch {
+        // ignore quota errors
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
-    <BlueprintCadre
+    <section
       id="hero"
-      cadreTag="FLUIDEV // IDENTITY_BLUEPRINT"
-      coordinates="LAT:36.75 / LON:3.05"
-      showConduit={false}
-      className="relative pt-4 pb-10 sm:pt-6 sm:pb-14 bg-slate-100/80 dark:bg-[#07133F] overflow-hidden min-h-[90vh] flex flex-col justify-between transition-colors duration-300"
+      className="relative min-h-[calc(100vh-4rem)] w-full flex flex-col justify-between py-8 sm:py-12 px-4 sm:px-8 overflow-hidden"
     >
-      <CollageBackground />
-
-      <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10 flex-1 flex flex-col justify-between">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-1 my-auto py-4">
-          
-          {/* Portrait & Radar Column */}
-          <div className={`lg:col-span-5 ${isRTL ? 'order-1 lg:order-2 lg:items-end lg:text-right' : 'order-1 lg:order-2 lg:items-end lg:text-right'} flex flex-col items-center text-center`}>
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg h-[330px] sm:h-[390px] lg:h-[430px] flex items-end justify-center lg:justify-end mb-4">
-              <div className="absolute top-1/4 inset-x-8 h-64 bg-gradient-to-tr from-blue-600/30 via-cyan-400/25 to-transparent rounded-full filter blur-3xl pointer-events-none" />
-
-              {/* Animated Rotating Radar Rings */}
-              <div className="absolute inset-0 flex items-center justify-center lg:justify-end lg:right-6 pointer-events-none select-none">
-                <div className="w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[440px] lg:h-[440px] rounded-full border border-dashed border-fluid-blue/40 dark:border-cyan-400/50 animate-spin-slow flex items-center justify-center relative">
-                  <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#F7B500] border-2 border-white shadow-[0_0_12px_#F7B500]" />
-                  <span className="absolute bottom-6 right-6 w-3 h-3 rounded-full bg-[#00E5FF] border border-[#07133F] shadow-[0_0_8px_#00E5FF]" />
-                  <span className="absolute top-16 left-6 w-3 h-3 rounded-full bg-[#D62828] border border-white shadow-[0_0_6px_#D62828]" />
-                  <span className="absolute top-2 right-1/4 text-[9px] font-mono font-bold text-fluid-blue dark:text-cyan-300/80">000° // N</span>
-                  <span className="absolute bottom-3 left-1/4 text-[9px] font-mono font-bold text-fluid-blue dark:text-cyan-300/80">180° // S</span>
-                </div>
-
-                <div className="absolute w-[250px] h-[250px] sm:w-[310px] sm:h-[310px] lg:w-[350px] lg:h-[350px] rounded-full border border-fluid-blue/30 dark:border-cyan-400/40 animate-spin-reverse-slow flex items-center justify-center">
-                  <div className="w-full h-full rounded-full border border-dashed border-blue-500/60 scale-95" />
-                  <span className="absolute -right-2 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#F7B500] border border-white" />
-                  <span className="absolute -left-2 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-[#00E5FF] border border-[#07133F]" />
-                </div>
-
-                <div className="absolute w-[170px] h-[170px] sm:w-[210px] sm:h-[210px] rounded-full border border-blue-400/30 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                </div>
-
-                <div
-                  className="absolute right-0 bottom-4 text-transparent font-black font-condensed text-[120px] sm:text-[150px] lg:text-[180px] leading-none opacity-20 pointer-events-none select-none"
-                  style={{ WebkitTextStroke: '1.5px rgba(0, 229, 255, 0.4)' }}
-                >
-                  01
-                </div>
-              </div>
-
-              <img
-                src="/assets/mohamed-portrait-cutout.png"
-                alt="Mohamed Baatas"
-                className="relative z-10 max-h-full max-w-full object-contain pointer-events-none select-none transition-transform duration-500 hover:scale-[1.02]"
-                style={{
-                  filter: `
-                    drop-shadow(2px 0 0 white)
-                    drop-shadow(-2px 0 0 white)
-                    drop-shadow(0 -2px 0 white)
-                    drop-shadow(0 3px 0 white)
-                    drop-shadow(-10px 18px 24px rgba(0, 0, 0, 0.5))
-                  `
-                }}
-              />
-            </div>
-
-            {/* Persona Identity Badge Block */}
-            <div className="space-y-2 relative z-10 w-full max-w-md lg:max-w-lg">
-              <div className="inline-flex items-center gap-3 px-3.5 py-1 rounded bg-white text-[#07133F] shadow-lg border-l-4 border-[#F7B500]">
-                <span className="w-6 h-6 rounded bg-[#00E5FF] text-[#07133F] font-black font-condensed text-sm flex items-center justify-center transform -skew-x-12">
-                  F
-                </span>
-                <span className="font-title font-bold text-sm tracking-tight text-[#07133F]">FluiDev</span>
-                <span className="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">• FLUID DEVELOPER</span>
-              </div>
-
-              <div className="space-y-0.5">
-                <div className="text-xs font-mono font-bold tracking-widest text-[#d62828] uppercase" dir="ltr">
-                  ENGINEERING
-                </div>
-                <div className="text-2xl sm:text-3xl font-black font-condensed tracking-tight text-slate-900 dark:text-white leading-none">
-                  SMART SOLUTIONS.
-                </div>
-                <div className="text-xs sm:text-sm text-fluid-blue dark:text-cyan-300 font-medium pt-0.5 border-t border-[#F7B500]/60 inline-block">
-                  {copy.sloganSub}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-1.5 pt-1">
-                <span className="px-2.5 py-0.5 rounded bg-[#001db5] border-l-2 border-[#F7B500] text-white text-[10px] font-mono font-bold tracking-wider uppercase shadow-sm">
-                  HYDROINFORMATICS
-                </span>
-                <span className="px-2.5 py-0.5 rounded bg-[#001db5] border-l-2 border-[#F7B500] text-white text-[10px] font-mono font-bold tracking-wider uppercase shadow-sm">
-                  SOFTWARE SYSTEMS
-                </span>
-                <span className="px-2.5 py-0.5 rounded bg-[#001db5] border-l-2 border-[#F7B500] text-white text-[10px] font-mono font-bold tracking-wider uppercase shadow-sm">
-                  DATA &amp; AUTOMATION
-                </span>
-              </div>
-            </div>
+      <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col items-center justify-center text-center relative z-10 space-y-6">
+        
+        {/* 1. Top Sci-Fi Glowing Title Header (Just like Figma Frame 1) */}
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/15 border border-sky-400/40 backdrop-blur-md text-sky-300 font-mono text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(56,189,248,0.2)]">
+            <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+            <span>
+              {isAr ? 'أهلاً بك في عالمي الهندسي والرقمي // FLUIDEV' : 'WELCOME TO MY ENGINEERING UNIVERSE // FLUIDEV'}
+            </span>
           </div>
 
-          {/* Tactile Cut Paper Engineering Dossier Column */}
-          <div className="lg:col-span-7 order-2 lg:order-1" dir={isRTL ? 'rtl' : 'ltr'}>
-            <div
-              className="relative p-6 sm:p-9 lg:p-10 rounded-2xl shadow-2xl text-slate-900 overflow-hidden transition-transform duration-300"
-              style={{
-                backgroundColor: '#FAFBFD',
-                backgroundImage: `
-                  linear-gradient(rgba(0, 50, 160, 0.08) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(0, 50, 160, 0.08) 1px, transparent 1px)
-                `,
-                backgroundSize: '18px 18px',
-                border: '1px solid rgba(0, 29, 181, 0.18)',
-                boxShadow: '0 25px 65px -15px rgba(2, 11, 39, 0.45), 0 0 0 1px rgba(0, 29, 181, 0.12)'
-              }}
-            >
-              {/* Metallic Paperclip */}
-              <div
-                className="absolute -top-3 left-10 w-5 h-12 pointer-events-none"
-                style={{
-                  border: '3px solid #9ea4ad',
-                  borderBottom: 'none',
-                  borderRadius: '99px 99px 0 0',
-                  boxShadow: 'inset 0 2px 2px rgba(255,255,255,0.7), 2px 4px 6px rgba(7, 19, 63, 0.25)'
-                }}
-              />
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-title tracking-tight text-white drop-shadow-[0_0_30px_rgba(56,189,248,0.45)] leading-tight pt-2">
+            {isAr ? 'محمد بعتاس' : 'MOHAMMED BAATAS'}
+          </h1>
 
-              {/* Traffic Dots */}
-              <div className="absolute top-5 left-16 flex items-center gap-1.5 pointer-events-none" dir="ltr">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#f7b500] border border-[#001db5]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#fa8c16] border border-[#001db5]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#d62828] border border-[#001db5]" />
-              </div>
-
-              {/* Notebook Red Margin Line */}
-              <div
-                className={`absolute top-0 bottom-0 ${
-                  isRTL ? 'right-6 sm:right-10' : 'left-6 sm:left-10'
-                } w-0.5 bg-red-500/60 pointer-events-none`}
-              />
-
-              <div className={isRTL ? 'pr-5 sm:pr-8 text-right' : 'pl-5 sm:pl-8 text-left'}>
-                {/* Yellow Masking Tape Header */}
-                <div className="inline-block mb-3">
-                  <span className="inline-block px-3.5 py-1 bg-[#F7B500] text-[#07133F] font-black font-condensed tracking-wider text-xs sm:text-sm uppercase shadow-sm">
-                    {copy.tape}
-                  </span>
-                </div>
-
-                {/* Identity Headline */}
-                <div className="mb-5">
-                  <div className="text-[11px] font-mono font-bold tracking-widest text-[#001db5] uppercase mb-0.5" dir="ltr">
-                    {copy.kicker}
-                  </div>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-title tracking-tight text-[#07133F] leading-tight">
-                    {copy.name} <br />
-                    <span className="text-[#001db5]">{copy.roleHighlight}</span>
-                  </h1>
-                  <p className="mt-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans max-w-2xl">
-                    {copy.bio}
-                  </p>
-                </div>
-
-                {/* 3 Core Identity Credentials */}
-                <div className="space-y-2.5 mb-5 border-t border-slate-200/90 pt-4">
-                  {copy.pillars.map((item) => (
-                    <div
-                      key={item.num}
-                      className="group flex items-start gap-3 p-2 rounded-xl hover:bg-blue-50/80 transition-colors"
-                    >
-                      <span className="w-8 h-8 rounded-lg bg-[#001db5] text-white font-black font-condensed text-sm flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-sm">
-                        {item.num}
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="text-xs sm:text-sm font-bold text-[#07133F] group-hover:text-[#001db5] transition-colors leading-snug">
-                          {item.title}
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed mt-0.5">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Bottom Quick Action Strip */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-3.5 border-t border-slate-200/90">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <a
-                      href="/Mohamed_Baatas_CV.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F7B500] hover:bg-[#FFC72C] text-[#07133F] font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all"
-                    >
-                      <Download className="w-4 h-4 text-[#07133F]" />
-                      <span>{copy.btnCv}</span>
-                    </a>
-
-                    <a
-                      href="#interactive-lab"
-                      onClick={handleOpenLab}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#001db5] hover:bg-[#0027ea] text-white font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-md transition-all"
-                    >
-                      <Play className="w-3.5 h-3.5 fill-white" />
-                      <span>{copy.btnLab}</span>
-                    </a>
-
-                    <a
-                      href="#contact"
-                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold font-condensed tracking-wide text-xs sm:text-sm shadow-sm transition-all"
-                    >
-                      <Mail className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>{copy.btnContact}</span>
-                    </a>
-                  </div>
-
-                  <span className="text-[11px] sm:text-xs font-mono text-slate-600 font-semibold flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    {copy.avail}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <p className="text-lg sm:text-2xl font-bold font-title text-sky-300 tracking-wide">
+            {isAr ? PERSONAL_DATA.titleAr : PERSONAL_DATA.title}
+          </p>
         </div>
 
-        {/* Bottom Technical Chapters & Contact Bar Strip */}
-        <div className="pt-4 mt-2 border-t border-slate-300 dark:border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <a
-              href="#selected-works"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-white font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
-            >
-              <Code2 className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-300" />
-              <span>{copy.ch1}</span>
-            </a>
+        {/* 2. Personal Portrait Frame (Orbital Sci-Fi Ring above the Rotating Planet) */}
+        <div className="relative group my-2">
+          {/* Outer Rotating Dashed Blueprint Ring */}
+          <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full p-1.5 bg-gradient-to-tr from-sky-400 via-indigo-500 to-emerald-400 shadow-[0_0_45px_rgba(56,189,248,0.5)] relative">
+            <div className="w-full h-full rounded-full overflow-hidden bg-slate-950 border-2 border-white/40 flex items-center justify-center relative">
+              {photoDataUrl ? (
+                <img
+                  src={photoDataUrl}
+                  alt="Mohammed Baatas"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-b from-[#0d2556] to-[#06102b] flex flex-col items-center justify-center p-3 text-center">
+                  <svg viewBox="0 0 80 80" className="w-16 h-16 sm:w-20 sm:h-20 text-sky-300">
+                    <circle cx="40" cy="26" r="14" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2" />
+                    <path d="M16 68 C16 48 64 48 64 68" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                  <span className="font-mono text-[9px] text-sky-300/90 uppercase tracking-wider mt-0.5">
+                    {isAr ? 'اضغط لإضافة صورتك' : 'Click to set photo'}
+                  </span>
+                </div>
+              )}
 
-            <a
-              href="#interactive-lab"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
-            >
-              <Activity className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>{copy.ch2}</span>
-            </a>
-
-            <a
-              href="#academic-hub"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-fluid-blue dark:text-cyan-300 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
-            >
-              <GraduationCap className="w-3.5 h-3.5 text-amber-500 dark:text-fluid-yellow" />
-              <span>{copy.ch3}</span>
-            </a>
-
-            <a
-              href="#engineering-pillars"
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white dark:bg-blue-950/80 hover:bg-blue-50 dark:hover:bg-blue-900 border border-slate-300 dark:border-blue-500/30 text-slate-800 dark:text-slate-200 font-semibold font-condensed tracking-wide text-xs transition-all shadow-sm"
-            >
-              <Droplet className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-              <span>{copy.ch4}</span>
-            </a>
+              {/* Hover Overlay to Upload Personal Photo */}
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="absolute inset-0 bg-slate-950/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 text-white font-mono text-[10px] font-bold"
+                title={isAr ? 'رفع صورتك الشخصية' : 'Upload Personal Photo'}
+              >
+                <Camera className="w-5 h-5 text-sky-400" />
+                <span>{isAr ? 'تغيير الصورة' : 'Set Photo'}</span>
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                onChange={handlePhotoUpload}
+                className="hidden"
+              />
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-700 dark:text-cyan-300" dir="ltr">
-            <a href="tel:+213655748513" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
-              <Phone className="w-3.5 h-3.5 text-[#F7B500]" />
-              <span>+213 655 74 85 13</span>
+          {/* Floating Status Pill on Avatar */}
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-mono text-[10px] font-extrabold uppercase tracking-wider shadow-lg">
+            M2 Hydraulics • Biskra
+          </span>
+        </div>
+
+        {/* 3. Translucent Cosmic Glass Bio Card (Like Frame 5 in the Figma Screenshot!) */}
+        <div className="max-w-3xl w-full rounded-3xl bg-slate-950/65 backdrop-blur-2xl border border-sky-400/35 shadow-[0_0_50px_rgba(6,24,68,0.8)] p-6 sm:p-8 text-center space-y-5">
+          {/* Quick Identity Badges */}
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-mono">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-sky-200 border border-white/15">
+              <GraduationCap className="w-3.5 h-3.5 text-sky-400" />
+              {isAr ? 'ماستر 2: تسيير وهندسة خدمات المياه والتطهير' : 'M.Sc. (M2) Water & Sanitation Engineering'}
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-400/30">
+              <Award className="w-3.5 h-3.5 text-amber-400" />
+              {isAr ? 'المرتبة 1 — مسابقة الأمن الطاقوي' : '1st Place — Energy Security Competition'}
+            </span>
+          </div>
+
+          {/* Concise Bio */}
+          <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-sans">
+            {isAr ? PERSONAL_DATA.bioAr : PERSONAL_DATA.bio}
+          </p>
+
+          {/* Primary Action Buttons: Download/View ATS CV + Explore Works */}
+          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-1">
+            <a
+              href={PERSONAL_DATA.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-sky-400 to-cyan-300 hover:from-sky-300 hover:to-cyan-200 text-slate-950 font-mono font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_30px_rgba(56,189,248,0.45)] transition-all hover:scale-[1.03]"
+            >
+              <FileText className="w-4 h-4" />
+              <span>{isAr ? 'تحميل ومعاينة السيرة الذاتية (CV A4)' : 'Download & View ATS CV (A4)'}</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
-            <span className="text-blue-500">•</span>
-            <a href="mailto:mohamedbaatas@gmail.com" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
-              <Mail className="w-3.5 h-3.5 text-fluid-blue dark:text-cyan-400" />
-              <span>mohamedbaatas@gmail.com</span>
-            </a>
-            <span className="text-blue-500">•</span>
-            <a href="https://github.com/mohamedbaatas-hash" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-fluid-blue dark:hover:text-white transition-colors">
-              <Github className="w-3.5 h-3.5" />
-              <span>GitHub</span>
+
+            <a
+              href="#hydraulic-studies"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-mono font-bold text-xs sm:text-sm uppercase tracking-wider border border-white/25 backdrop-blur-md transition-all hover:scale-[1.02]"
+            >
+              <span>{isAr ? 'استكشاف أعمالي الدراسية' : 'Explore My Studies & Works'}</span>
+              <ArrowDown className="w-4 h-4 animate-bounce" />
             </a>
           </div>
         </div>
 
       </div>
-    </BlueprintCadre>
+
+      {/* Bottom Corner HUD Elements (Exactly like the Figma Space Template: Left Socials, Right Scroll Down) */}
+      <div className="max-w-7xl mx-auto w-full pt-6 flex items-end justify-between relative z-10 text-xs font-mono text-slate-300">
+        {/* Bottom-Left Social Icons */}
+        <div className="flex items-center gap-2.5">
+          <a
+            href={PERSONAL_DATA.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-full bg-slate-950/60 hover:bg-sky-500/30 border border-white/20 text-white hover:text-sky-300 backdrop-blur-md transition-all"
+            title="LinkedIn"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
+          <a
+            href={PERSONAL_DATA.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-full bg-slate-950/60 hover:bg-sky-500/30 border border-white/20 text-white hover:text-sky-300 backdrop-blur-md transition-all"
+            title="GitHub"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <a
+            href={PERSONAL_DATA.socials.telegram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-full bg-slate-950/60 hover:bg-sky-500/30 border border-white/20 text-white hover:text-sky-300 backdrop-blur-md transition-all"
+            title="Telegram"
+          >
+            <Send className="w-4 h-4" />
+          </a>
+          <a
+            href={`mailto:${PERSONAL_DATA.email}`}
+            className="p-2.5 rounded-full bg-slate-950/60 hover:bg-sky-500/30 border border-white/20 text-white hover:text-sky-300 backdrop-blur-md transition-all"
+            title="Email"
+          >
+            <Mail className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Bottom-Right Scroll Indicator */}
+        <a
+          href="#hydraulic-studies"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-950/60 border border-white/20 backdrop-blur-md text-[11px] uppercase tracking-widest text-sky-300 hover:border-sky-400 transition-colors"
+        >
+          <span>{isAr ? 'انزل للأسفل' : 'SCROLL DOWN'}</span>
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+        </a>
+      </div>
+    </section>
   );
 }
 

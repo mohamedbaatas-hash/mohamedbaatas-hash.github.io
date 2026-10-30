@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Baatas - CV ATS (Ingénieur en Hydraulique et Ressources en Eau)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text-color: #111827;
+            --muted-color: #374151;
+            --border-color: #1f2937;
+            --link-color: #1e3a8a;
+            --bg-page: #ffffff;
+            --bg-outer: #f1f5f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.45;
+            color: var(--text-color);
+            background-color: var(--bg-outer);
+            padding: 24px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .toolbar {
+            max-width: 210mm;
+            margin: 0 auto 16px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .toolbar-info {
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .toolbar-info strong {
+            color: #0f172a;
+        }
+
+        .print-btn {
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .print-btn:hover {
+            background: #1e293b;
+        }
+
+        .resume-paper {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: var(--bg-page);
+            padding: 16mm 20mm;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-radius: 2px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1.5px solid var(--border-color);
+        }
+
+        h1.candidate-name {
+            font-size: 20pt;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #000000;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .candidate-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #1e293b;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+        }
+
+        .contact-row {
+            font-size: 8.8pt;
+            color: var(--muted-color);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px 12px;
+            line-height: 1.35;
+        }
+
+        .contact-row a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-row a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-separator {
+            color: #94a3b8;
+        }
+
+        section {
+            margin-bottom: 12px;
+        }
+
+        h2.section-heading {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2px;
+            margin-bottom: 6px;
+        }
+
+        p.summary-text {
+            font-size: 9.2pt;
+            color: var(--muted-color);
+            text-align: justify;
+            line-height: 1.42;
+        }
+
+        .item-entry {
+            margin-bottom: 8px;
+        }
+
+        .item-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .item-title-group {
+            font-size: 9.6pt;
+            color: #000000;
+        }
+
+        .item-title-group strong {
+            font-weight: 700;
+        }
+
+        .item-dates {
+            font-size: 8.8pt;
+            font-weight: 600;
+            color: #475569;
+            white-space: nowrap;
+        }
+
+        .item-subbar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 8.8pt;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        ul.item-bullets {
+            list-style-type: square;
+            padding-left: 18px;
+            margin-top: 2px;
+        }
+
+        ul.item-bullets li {
+            font-size: 9pt;
+            color: var(--muted-color);
+            margin-bottom: 2.5px;
+            line-height: 1.38;
+        }
+
+        ul.item-bullets li strong {
+            color: #0f172a;
+        }
+
+        .skills-category {
+            font-size: 9pt;
+            margin-bottom: 4px;
+            line-height: 1.4;
+            color: var(--muted-color);
+        }
+
+        .skills-category strong {
+            color: #000000;
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .toolbar {
+                display: none !important;
+            }
+
+            .resume-paper {
+                width: 100%;
+                min-height: auto;
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            @page {
+                size: A4;
+                margin: 14mm 16mm 14mm 16mm;
+            }
+
+            a {
+                color: #000000 !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <div class="toolbar-info">
+            <strong>CV Conforme ATS (Version Française) :</strong> Mohammed Baatas | Prêt pour les ATS et l'export PDF
+        </div>
+        <button class="print-btn" onclick="window.print()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+            </svg>
+            Imprimer / Enregistrer en PDF
+        </button>
+    </div>
+
+    <div class="resume-paper">
+
+        <header>
+            <h1 class="candidate-name">Mohammed Baatas</h1>
+            <div class="candidate-title">Ingénieur en Hydraulique & Ressources en Eau</div>
+            <div class="contact-row">
+                <span>Biskra / Alger, Algérie</span>
+                <span class="contact-separator">|</span>
+                <span>+213 655 47 85 13 / +213 555 39 59 34</span>
+                <span class="contact-separator">|</span>
+                <span><a href="mailto:mohamedbaatas@gmail.com">mohamedbaatas@gmail.com</a></span>
+            </div>
+            <div class="contact-row" style="margin-top: 4px;">
+                <span>Email académique : <a href="mailto:mohamed_baatas@univ-biskra.dz">mohamed_baatas@univ-biskra.dz</a></span>
+                <span class="contact-separator">|</span>
+                <span>LinkedIn : <a href="https://linkedin.com/in/mohamedbaatas" target="_blank">linkedin.com/in/mohamedbaatas</a></span>
+                <span class="contact-separator">|</span>
+                <span>GitHub : <a href="https://github.com/mohamedbaatas-hash" target="_blank">github.com/mohamedbaatas-hash</a></span>
+                <span class="contact-separator">|</span>
+                <span>Portfolio : <a href="https://mohamedbaatas-hash.github.io" target="_blank">mohamedbaatas-hash.github.io</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-heading">Profil Professionnel</h2>
+            <p class="summary-text">
+                <strong>Ingénieur en Hydraulique et Ressources en Eau</strong> diplômé de l'Université Mohamed Khider de Biskra, alliant rigueur académique et compétences concrètes dans les études de réseaux d'eau potable (AEP), d'assainissement et d'ouvrages hydrauliques. Maîtrise éprouvée des outils de simulation numérique (<strong>EPANET</strong>, <strong>PC-SWMM</strong>), d'analyse géospatiale (<strong>ArcGIS</strong>, <strong>QGIS</strong>) et de DAO (<strong>AutoCAD</strong>). Complète son expertise technique par le développement d'outils logiciels d'ingénierie (<strong>Python</strong>, <strong>PyQt</strong>, <strong>Android</strong>), notamment pour l'automatisation du métré et du calcul d'avant-métré. Expérience confirmée en leadership en tant qu'ancien président du Club Scientifique Bernoulli d'Hydraulique.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Compétences Techniques</h2>
+            <div class="skills-category">
+                <strong>Modélisation & Ingénierie Hydraulique :</strong> EPANET, PC-SWMM, Hydraulique en charge (conduites sous pression), Hydraulique à surface libre (canaux), Formules de Hazen-Williams et Darcy-Weisbach, Réseaux d'Alimentation en Eau Potable (AEP), Réseaux d'Assainissement et Pluvial, Réservoirs de stockage, Stations de pompage (HMT, NPSH), Réduction des eaux non facturées (NRW).
+            </div>
+            <div class="skills-category">
+                <strong>DAO & Systèmes d'Information Géographique (SIG) :</strong> AutoCAD (plans de réseaux, profils en long, calages), ArcGIS, QGIS, Modèles Numériques de Terrain (MNT/DEM), Délimitation des bassins versants, Hydrologie spatiale.
+            </div>
+            <div class="skills-category">
+                <strong>Développement Logiciel & Automatisation :</strong> Python (calcul scientifique, automatisation de scripts), PyQt (conception d'interfaces graphiques), Java, Android (Kotlin / émulation NFC HCE), HTML5/CSS3, SQLite, Prototypage rapide assisté par IA.
+            </div>
+            <div class="skills-category">
+                <strong>Bureautique & Calcul Technique :</strong> Microsoft Excel (tableurs d'ingénierie avancés et métrés), Word, PowerPoint.
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Formation Académique</h2>
+            
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Master 2 en Gestion et Ingénierie des Services d'Eau et d'Assainissement</strong>
+                    </div>
+                    <div class="item-dates">2025 – En cours</div>
+                </div>
+                <div class="item-subbar">
+                    <span>Université Mohamed Khider — Biskra, Algérie</span>
+                    <span>Niveau : Master 2 (M2)</span>
+                </div>
+                <ul class="item-bullets">
+                    <li>Spécialité : Gestion et ingénierie des services d'eau et d'assainissement.</li>
+                    <li>Axes d'études : Optimisation des réseaux urbains d'AEP, épuration des eaux usées (STEP), gestion patrimoniale des infrastructures, efficacité énergétique du pompage, gestion des pertes physiques et commerciales.</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Licence en Hydraulique — Inscription Nationale</strong>
+                    </div>
+                    <div class="item-dates">Diplômé en 2025</div>
+                </div>
+                <div class="item-subbar">
+                    <span>Université Mohamed Khider — Biskra, Algérie</span>
+                    <span>Parcours d'excellence (Inscription Nationale)</span>
+                </div>
+                <ul class="item-bullets">
+                    <li>Modules fondamentaux : Mécanique des fluides, Hydraulique générale et appliquée, Hydrologie de surface, Ouvrages hydrauliques et barrages, Béton armé appliqué, Mécanique des sols, Métré et avant-métré.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Projets et Études Hydrauliques</h2>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Étude et Conception d'un Réseau d'Alimentation en Eau Potable (AEP)</strong>
+                    </div>
+                    <div class="item-dates">Étude Complète</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Conception intégrale d'un réseau de distribution sous pression pour une agglomération urbaine complète (de la phase diagnostic jusqu'à la phase d'exécution).</li>
+                    <li>Estimation des dotations en eau, projection des besoins futurs aux horizons d'aménagement, et modélisation des nœuds de consommation.</li>
+                    <li>Simulation hydraulique sous <strong>EPANET</strong> : calcul des pertes de charge (Hazen-Williams), vitesses d'écoulement et gradients de pression résiduelle.</li>
+                    <li>Dimensionnement des conduites de distribution, boucles de renforcement, vannes de régulation et stabilisateurs de pression.</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Étude d'un Réseau d'Assainissement Urbain et Pluvial</strong>
+                    </div>
+                    <div class="item-dates">Étude Technique</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Calcul des débits de pointe des eaux usées et des débits d'orage selon les méthodes hydrologiques réglementaires.</li>
+                    <li>Dimensionnement des collecteurs gravitaires, calcul des pentes et vérification des conditions d'autocurage pour éviter l'ensablement.</li>
+                    <li>Élaboration des plans d'exécution sous <strong>AutoCAD</strong> : implantation des regards de visite, profils en long et exutoires de rejet.</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Dimensionnement d'un Réservoir de Stockage d'Eau</strong>
+                    </div>
+                    <div class="item-dates">Projet Technique</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Calcul du volume de compensation journalière, de la réserve d'incendie et de la réserve de sécurité.</li>
+                    <li>Dimensionnement hydraulique des conduites d'adduction, de distribution, du trop-plein et de la vidange de fond.</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Participation à l'Étude Hydrogéologique d'un Puits Artésien</strong>
+                    </div>
+                    <div class="item-dates">Investigation de Terrain</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Contribution à l'analyse des paramètres hydrodynamiques de la nappe captive et aux essais de pompage.</li>
+                    <li>Interprétation des rabattements pour déterminer la puissance et les caractéristiques de la pompe immergée.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Solutions Logicielles & Outils Numériques (FluiDev)</h2>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Avant Métré — Logiciel de Métré et Calcul de Quantités en Génie Civil & Hydraulique</strong>
+                    </div>
+                    <div class="item-dates">Python / PyQt</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Développement d'un outil logiciel sur mesure pour le calcul automatisé des volumes de terrassement, de remblai/déblai et des cubatures de béton.</li>
+                    <li>Fiabilisation et accélération de la génération des devis quantitatifs estimatifs (DQE) pour les bureaux d'études et entreprises de travaux.</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Outils Pratiques & Applications Déployées</strong>
+                    </div>
+                    <div class="item-dates">Production</div>
+                </div>
+                <ul class="item-bullets">
+                    <li><strong>WaterFit :</strong> Système connecté pour le suivi de consommation d'eau et alertes d'hydratation.</li>
+                    <li><strong>Al Madrasa ERP & Maktabati POS :</strong> Systèmes de gestion de scolarité et logiciel de caisse/gestion de stock hors-ligne (Python, SQLite).</li>
+                    <li><strong>Carte de Visite NFC Intelligente :</strong> Application Android native basée sur l'émulation de carte HCE pour le partage sans contact.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Engagement & Expérience Associative</h2>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Président</strong> — Club Scientifique Bernoulli d'Hydraulique (Université de Biskra)
+                    </div>
+                    <div class="item-dates">2023 – 2025</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Direction d'une équipe de 15+ délégués et animation d'une communauté active de plus de 100 étudiants ingénieurs.</li>
+                    <li>Organisation et dispense d'ateliers de formation pratique sur <strong>EPANET</strong> et <strong>ArcGIS</strong>.</li>
+                    <li>Coordination de visites techniques sur le terrain (barrages, stations de traitement et stations d'épuration régionales).</li>
+                </ul>
+            </div>
+
+            <div class="item-entry">
+                <div class="item-topbar">
+                    <div class="item-title-group">
+                        <strong>Ancien Membre</strong> — Club AutOptimus (Robotique & Systèmes Automatisés)
+                    </div>
+                    <div class="item-dates">2023</div>
+                </div>
+                <ul class="item-bullets">
+                    <li>Initiation et pratique sur microcontrôleurs (Arduino/ESP32), capteurs industriels et logiques de contrôle automatique.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Certifications & Langues</h2>
+            <div class="skills-category">
+                <strong>Langues :</strong> Anglais (Niveau B2 — Intermédiaire supérieur / Usage professionnel), Arabe (Langue maternelle), Français (Courant technique & professionnel).
+            </div>
+            <div class="skills-category">
+                <strong>Certifications :</strong> Huawei ICT Academy — Certification Internet des Objets (IoT Track).
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

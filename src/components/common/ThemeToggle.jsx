@@ -2,18 +2,8 @@ import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 
-/**
- * ThemeToggle - Dual theme switch button between Blueprint Dark and Graph Paper Light.
- * Includes accessible aria attributes, smooth transitions, and visual icon indicators.
- *
- * @param {object} props
- * @param {string} [props.className]
- * @param {'sm' | 'md' | 'lg'} [props.size='md']
- * @param {boolean} [props.showLabel=true]
- */
 export function ThemeToggle({
   className = '',
-  size = 'md',
   showLabel = true,
   ...props
 }) {
@@ -23,28 +13,25 @@ export function ThemeToggle({
     <button
       onClick={toggleTheme}
       type="button"
-      className={`relative inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xs font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-fluid-cyan/50 ${
+      className={`inline-flex items-center gap-2 px-3 py-1.5 border text-[11px] font-mono font-medium transition-colors duration-150 ${
         isDark
-          ? 'bg-fluid-navy-surface border-cyan-400/30 text-cyan-300 hover:border-cyan-400 hover:text-white shadow-sm shadow-cyan-950/40'
-          : 'bg-white border-fluid-blue/20 text-fluid-navy hover:border-fluid-blue hover:text-fluid-blue shadow-sm shadow-slate-300/40'
+          ? 'bg-slate-900/90 border-slate-800 text-slate-300 hover:border-sky-400/50 hover:text-white'
+          : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-blue-600/50 hover:text-slate-950'
       } ${className}`}
-      aria-label={isDark ? 'Switch to Graph Paper Light Mode' : 'Switch to Blueprint Dark Mode'}
-      title={isDark ? 'Blueprint Dark Mode (Active) — Click for Graph Paper' : 'Graph Paper Light Mode (Active) — Click for Blueprint'}
+      aria-label={isDark ? 'Switch to Daylight Mode' : 'Switch to Night CAD Mode'}
+      title={isDark ? 'Night CAD Mode (Active) — Switch to Daylight' : 'Daylight Mode (Active) — Switch to Night CAD'}
       data-testid="theme-toggle"
       data-theme-current={theme}
       {...props}
     >
-      <div className="relative w-4 h-4 flex items-center justify-center">
-        {isDark ? (
-          <Moon className="w-3.5 h-3.5 text-cyan-400 transition-transform duration-200 rotate-0" />
-        ) : (
-          <Sun className="w-3.5 h-3.5 text-fluid-yellow transition-transform duration-200 rotate-0" />
-        )}
-      </div>
-
+      {isDark ? (
+        <Moon className="w-3.5 h-3.5 text-sky-400" />
+      ) : (
+        <Sun className="w-3.5 h-3.5 text-blue-600" />
+      )}
       {showLabel && (
-        <span className="font-condensed text-[11px] font-bold uppercase tracking-wider hidden sm:inline">
-          {isDark ? 'Blueprint' : 'Graph Paper'}
+        <span className="uppercase tracking-wider hidden sm:inline">
+          {isDark ? 'Night CAD' : 'Daylight'}
         </span>
       )}
     </button>
